@@ -1,4 +1,19 @@
 <h1> Welcome to cat battle </h1>
 
-<h2> Choose your favorite cat </h2>
+	<h2> Choose your favorite cat </h2>
 
+		<ol>
+			<li>
+				<%= @cat_1.name %>
+				<form action="/cat_like/<%= @cat_1.id %>/<%= @cat_2.id %>" method="post">
+			  		 	<input type="submit" value="like"> 
+			 		</form>
+			</li>
+
+			<li>
+				<%= @cat_2.name %>
+				<form action="/cat_like/<%= @cat_2.id %>/<%= @cat_1.id %>" method="post">
+			  		 	<input type="submit" value="like"> 
+			 		</form>
+			</li>
+		</ol>

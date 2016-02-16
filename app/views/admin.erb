@@ -3,7 +3,7 @@
 		<% @cat_list.each do |c| %>
 			<li>
 				<%= c.name %> has <%= c.likes %> likes.
-					<form action="cat_delete/<%= c.id %>" method="post">
+					<form action="/cat_delete/<%= c.id %>" method="post">
 			  		 	<input type="submit" value="delete"> 
 			 		</form>
 			 </li>
