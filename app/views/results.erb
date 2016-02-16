@@ -1,7 +1,10 @@
-<ol>
+<h1> Current ranking: </h1>
+	<ol>
 		<% @rank.each do |c| %>
 			<li>
 				<%= c.name %> has <%= c.likes %> likes.
 			 </li>
 		<% end %>
 	</ol>
+
+<p><a href="/"> Home </a></p>
