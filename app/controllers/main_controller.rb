@@ -6,8 +6,10 @@ end
 MyApp.post "/cat_like/:winner/:loser" do
 	@winner = Cat.find(params[:winner])
 	@loser = Cat.find(params[:loser])
-	@winner.likes += 1
-	@winner.save
+	@result = Result.new
+	@result.winner_id = @winner.id
+	@result.loser_id = @loser.id
+	@result.save
   redirect :"like/#{@winner.id}/#{@loser.id}"
 end
 
@@ -24,15 +26,12 @@ MyApp.get "/results" do
 end
 
 MyApp.get "/admin" do
-	@cat_list = Cat.ranking
+	@cat_list = Cat.all
   erb :"admin"
 end
 
 MyApp.post "/add_cat" do
-	@cat = Cat.new
-	@cat.name = params[:name]
-	@cat.likes = 0
-	@cat.save
+	@new_cat = Cat.create({name: params['name'], photo: params['photo']})
   redirect :"admin"
 end
 

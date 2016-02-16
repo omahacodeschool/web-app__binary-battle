@@ -2,10 +2,13 @@
 	<ul>
 		<% @cat_list.each do |c| %>
 			<li>
-				<%= c.name %> has <%= c.likes %> likes.
-					<form action="/cat_delete/<%= c.id %>" method="post">
-			  		 	<input type="submit" value="delete"> 
-			 		</form>
+				<img src="<%= c.photo %>" />s
+				<p>
+					<%= c.name %> has <%= c.likes %> likes.
+				</p>
+				<form action="/cat_delete/<%= c.id %>" method="post">
+		  		 	<input type="submit" value="delete"> 
+		 		</form>
 			 </li>
 		<% end %>
 	</ul>
@@ -14,6 +17,9 @@
 <form action="/add_cat" method="post">
 
   <input type="text" name="name" placeholder="cat name">
+
+  <p>Add a photo of this cat.</p>
+  <input type="file" name="photo">
 
   <input type="submit">
   

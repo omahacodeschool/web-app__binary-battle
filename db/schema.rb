@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at", null: false
     t.string   "name"
     t.integer  "likes"
+    t.string   "photo"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "winner"
+    t.integer  "loser"
+    t.integer  "winner_id"
+    t.integer  "loser_id"
   end
 
 end
