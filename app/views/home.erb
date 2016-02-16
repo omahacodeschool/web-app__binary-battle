@@ -3,17 +3,17 @@
 	<h2> Choose your favorite cat </h2>
 
 		<ol>
-			<li>
-				<%= @cat_1.name %>
+			<li><%= @cat_1.name %>
 				<form action="/cat_like/<%= @cat_1.id %>/<%= @cat_2.id %>" method="post">
-			  		 	<input type="submit" value="like"> 
-			 		</form>
+		  		 	<input type="submit" value="like"> 
+		 		</form>
 			</li>
 
-			<li>
-				<%= @cat_2.name %>
+			<li><%= @cat_2.name %>
 				<form action="/cat_like/<%= @cat_2.id %>/<%= @cat_1.id %>" method="post">
-			  		 	<input type="submit" value="like"> 
-			 		</form>
+		  		 	<input type="submit" value="like"> 
+		 		</form>
 			</li>
 		</ol>
+
+		<a href="/results"> Interested to see who's winning? </a>

@@ -3,21 +3,28 @@ MyApp.get "/" do
   erb :"home"
 end
 
-MyApp.post "/cat_like/:winner/:loser>" do
+MyApp.post "/cat_like/:winner/:loser" do
 	@winner = Cat.find(params[:winner])
 	@loser = Cat.find(params[:loser])
-	@cat.likes += 1
-	@cat.save
-  erb :"like_added/#{@winner.id}/#{@loser.id}"
+	@winner.likes += 1
+	@winner.save
+  redirect :"like/#{@winner.id}/#{@loser.id}"
 end
 
-MyApp.get "/like_added/:winner/:loser" do
+MyApp.get "/like/:winner/:loser" do
 	@winner = Cat.find(params[:winner])
 	@loser = Cat.find(params[:loser])
+   erb :"like_added"
+end
+
+MyApp.get "/results" do
+	cat_list = Cat.all
+	@rank = cat_list.sort {|a,b| b.likes <=> a.likes}
+  erb :"results"
 end
 
 MyApp.get "/admin" do
-	@cat_list = Cat.all
+	@cat_list = Cat.ranking
   erb :"admin"
 end
 
