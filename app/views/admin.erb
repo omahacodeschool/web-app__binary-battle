@@ -1,9 +1,14 @@
 <h1>Admin</h1>
-
-	<% @cat_list.each do |c| %>
-		<%= c.name %> has <%= c.likes %> likes.
+	<ul>
+		<% @cat_list.each do |c| %>
+			<li>
+				<%= c.name %> has <%= c.likes %> likes.
+					<form action="cat_delete/<%= c.id %>" method="post">
+			  		 	<input type="submit" value="delete"> 
+			 		</form>
+			 </li>
 		<% end %>
-
+	</ul>
 <h3>Add cat:</h3>
 
 <form action="/add_cat" method="post">
