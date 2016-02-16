@@ -2,11 +2,11 @@
 
 	<h2> Choose your favorite cat </h2>
 
-		<ol>
+		<ul>
 			<li>
 				<img src="<%= @cat_1.photo %>" />
 					<p>
-						<%= @cat_1.name %>
+						<b><%= @cat_1.name.upcase %></b>
 					</p>
 
 					<form action="/cat_like/<%= @cat_1.id %>/<%= @cat_2.id %>" method="post">
@@ -17,13 +17,13 @@
 			<li> 
 				<img src="<%= @cat_2.photo %>" />
 					<p>
-						<%= @cat_2.name %>
+						<b><%= @cat_2.name.upcase %></b>
 					</p>
 
 					<form action="/cat_like/<%= @cat_2.id %>/<%= @cat_1.id %>" method="post">
 			  		 	<input type="submit" value="like"> 
 			 		</form>
 			</li>
-		</ol>
+		</ul>
 
-		<a href="/results"> Interested to see who's winning? </a>
+		<a href="/results"> Interested in seeing who's winning? </a>

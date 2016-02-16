@@ -21,7 +21,8 @@ end
 
 MyApp.get "/results" do
 	cat_list = Cat.all
-	@rank = cat_list.sort {|a,b| b.likes <=> a.likes}
+	@ranked_list = cat_list.rank_cats
+	binding.pry
   erb :"results"
 end
 
