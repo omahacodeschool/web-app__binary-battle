@@ -22,7 +22,6 @@ end
 MyApp.get "/results" do
 	cat_list = Cat.all
 	@ranked_list = cat_list.rank_cats
-	binding.pry
   erb :"results"
 end
 
