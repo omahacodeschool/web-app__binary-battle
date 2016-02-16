@@ -5,17 +5,28 @@ class Result < ActiveRecord::Base
 	end
 
 	def count_likes
-		x = self.list_likes
-		return list_likes.length
+		how_many_likes = self.list_likes
+		return how_many_likes.length
 	end
 
-	def ranking
+	def rank
 		cat_hash = []
 		Cat.each do |c|
 			cat_hash["c.name"] = c.count_likes
 		end
-		rank = cat_hash.sort_by {|k,v| v}
-		if rank.
-		return rank
+
+		ordered_list = cat_hash.sort_by {|k,v| v}
+
+		top_score = ordered_list.values.max
+
+		list_top_cats = top_score.select { |k, v| v == top_score}
+
+		if list_top_cats.length == 1
+			return ordered_list
+
+		else 
+			return ordered_list
+		end
 	end
+
 end
