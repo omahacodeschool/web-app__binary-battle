@@ -1,0 +1,17 @@
+<h1>Admin</h1>
+
+	<% @cat_list.each do |c| %>
+		<%= c.name %> has <%= c.likes %> likes.
+		<% end %>
+
+<h3>Add cat:</h3>
+
+<form action="/add_cat" method="post">
+
+  <input type="text" name="name" placeholder="cat name">
+
+  <input type="submit">
+  
+</form>
+
+<p><a href="/"> Home </a></p>
