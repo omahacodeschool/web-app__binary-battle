@@ -1,8 +1,23 @@
 require 'pry'
 
 MyApp.get "/" do
-  erb :"home"
+  characters = Character.all
+  @char1 = characters.sample
+  @char2 = characters.sample
+  if @char1.id == @char2.id
+    redirect to ("/")
+  else
+    erb :"battle"
+  end
 end
+
+
+MyApp.get "/battle" do
+  erb :"battle"
+end
+  
+
+
 
 MyApp.get "/add_characters" do
    @characters = Character.all
@@ -15,6 +30,7 @@ MyApp.post "/newcharacter" do
   c.character_name = params[:charactername]
   c.save
   erb :"add_characters"
+
 end
 
 #DB.define_table("characters")
