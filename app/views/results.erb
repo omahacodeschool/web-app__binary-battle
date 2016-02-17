@@ -1,8 +1,8 @@
 <h1> Current ranking: </h1>
 	<ol>
-		<% @cat_list.each do |c| %>
+		<% @cat_list.each do |name, likes| %>
 			<li>
-				<%= c.name %> has <%= c.count_likes %> likes.
+				<%= name %> has <%= likes %> likes.
 			 </li>
 		<% end %>
 	</ol>
