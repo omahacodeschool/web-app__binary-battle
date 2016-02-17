@@ -1,0 +1,16 @@
+insert characters here
+
+<ul>
+  <% @characters.each do |post| %>
+    <li><%= post.id%>. 
+    <%=post.character_name%> 
+</ul> 
+
+<form action="/newcharacter" method="post">
+  <fieldset>
+    <legend>Add New Character</legend>
+      <label for="character_name">Character Name</label>
+        <input type="text" name="character_name">
+      <input type="Add">
+  </fieldset>
+</form>

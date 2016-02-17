@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at",  null: false
     t.integer  "character_1"
     t.integer  "character_2"
+    t.integer  "winner_id"
+    t.integer  "loser_id"
   end
 
   create_table "characters", force: :cascade do |t|
@@ -27,6 +29,12 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at",     null: false
     t.string   "character_name"
     t.integer  "scores"
+  end
+
+  create_table "xanders", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "character_id"
   end
 
 end
