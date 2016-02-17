@@ -1,8 +1,6 @@
-# controller for primary action of binary battle
-MyApp.get "/" do 
-  erb :"main" 
-end
+#WOULDNT IT BE NICE IF YOU COULD MAKE A BASIC CONTROLLER AND NOT HAVE IT BE BROKEN
 
-MyApp.get "/trash" do
-  erb :"trash"
+MyApp.get "/" do
+  @rubytext = "You can't even see this anyway"
+  erb :"/home"
 end
