@@ -16,10 +16,8 @@ ActiveRecord::Schema.define(version: 0) do
   enable_extension "plpgsql"
 
   create_table "battles", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "character_1"
-    t.integer  "character_2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "winner_id"
     t.integer  "loser_id"
   end
@@ -28,7 +26,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "character_name"
-    t.integer  "scores"
   end
 
   create_table "xanders", force: :cascade do |t|

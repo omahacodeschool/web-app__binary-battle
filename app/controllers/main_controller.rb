@@ -1,17 +1,18 @@
-#WOULDNT IT BE NICE IF YOU COULD MAKE A BASIC CONTROLLER AND NOT HAVE IT BE BROKEN
+require 'pry'
 
 MyApp.get "/" do
   erb :"home"
 end
 
 MyApp.get "/add_characters" do
+   @characters = Character.all
   erb :"add_characters"
 end
 
 MyApp.post "/newcharacter" do
   @characters = Character.all
   c = Character.new
-  c.character_name = character_name
+  c.character_name = params[:charactername]
   c.save
   erb :"add_characters"
 end
