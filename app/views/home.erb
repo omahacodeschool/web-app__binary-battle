@@ -1,0 +1,29 @@
+<h1> Welcome to cat battle </h1>
+
+	<h2> Choose your favorite cat </h2>
+
+		<ul>
+			<li>
+				<img src="<%= @cat_1.photo %>" />
+					<p>
+						<b><%= @cat_1.name.upcase %></b>
+					</p>
+
+					<form action="/cat_like/<%= @cat_1.id %>/<%= @cat_2.id %>" method="post">
+				  		 <input type="submit" value="like"> 
+				 	</form>
+			</li>
+
+			<li> 
+				<img src="<%= @cat_2.photo %>" />
+					<p>
+						<b><%= @cat_2.name.upcase %></b>
+					</p>
+
+					<form action="/cat_like/<%= @cat_2.id %>/<%= @cat_1.id %>" method="post">
+			  		 	<input type="submit" value="like"> 
+			 		</form>
+			</li>
+		</ul>
+
+		<a href="/results"> Interested in seeing who's winning? </a>

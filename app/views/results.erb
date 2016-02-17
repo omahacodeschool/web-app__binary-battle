@@ -1,0 +1,10 @@
+<h1> Current ranking: </h1>
+	<ol>
+		<% @cat_list.each do |name, likes| %>
+			<li>
+				<%= name %> has <%= likes %> likes.
+			 </li>
+		<% end %>
+	</ol>
+
+<p><a href="/"> Home </a></p>
