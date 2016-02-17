@@ -1,0 +1,23 @@
+<p>Current Movies</p>
+
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Movies</th>
+      <th>Vote Count</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |y| %>
+      <tr>
+        <td> <%= y.movie_name %></a> </td>
+
+        <td> <%= y.vote_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<a href="/">Return Home</a>

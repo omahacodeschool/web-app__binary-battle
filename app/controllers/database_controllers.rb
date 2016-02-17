@@ -2,8 +2,8 @@
 MyApp.post "/add_movie" do
   s = Movie.new
   s.movie_name = params["input_movie"]
-  s.voted = false
+  s.vote_count = 0
   s.save
 
-  erb :"/successful_vote"
+  erb :"/movie_added"
 end

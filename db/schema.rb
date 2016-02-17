@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at", null: false
     t.string   "movie_name"
     t.boolean  "voted"
+    t.integer  "vote_count"
   end
 
 end
