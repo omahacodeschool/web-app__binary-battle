@@ -12,5 +12,6 @@ end
 #Go to View to see movies and votes
 MyApp.get "/show_movies" do
   @movies = Movie.all
+  @sorted = @movies.order("vote_count DESC")
   erb :"display_movies"
 end
