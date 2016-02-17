@@ -19,9 +19,9 @@ class Cat < ActiveRecord::Base
 
 	#this method stores the Cat object name and the object's
 	#number of likes inside of a hash and then sorts them by max value
-	def store_cats_and_number_of_likes_by_max
+	def Cat.store_cats_and_number_of_likes_by_max
 		cat_hash = []
-		Cat.each do |c|
+		Cat.all.each do |c|
 			cat_hash["c.name"] = c.count_likes
 		end
 		return cat_hash.sort_by {|k,v| v}
@@ -31,11 +31,11 @@ class Cat < ActiveRecord::Base
 	#and finds the Cat object or objects with the top score and stores
 	#them in a hash
 	#if there is only one top scorer, it returns the ordered list (for now)
-	def rank_cats
-		ordered_list = store_cats_and_number_of_likes_by_max
+	def Cat.rank_cats
+		ordered_list = Cat.store_cats_and_number_of_likes_by_max
 		top_score = ordered_list.values.max
 		list_top_cats = []
-		list_top_cats = top_score.select { |k, v| v == top_score}
+		list_top_cats = ordered_list.select { |k, v| v == top_score}
 
 		if list_top_cats.length == 1
 			return ordered_list

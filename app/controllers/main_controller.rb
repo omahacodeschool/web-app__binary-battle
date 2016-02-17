@@ -20,8 +20,7 @@ MyApp.get "/like/:winner/:loser" do
 end
 
 MyApp.get "/results" do
-	cat_list = Cat.all
-	@ranked_list = cat_list.rank_cats
+	@cat_list = Cat.rank_cats
   erb :"results"
 end
 
