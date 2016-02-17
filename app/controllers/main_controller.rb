@@ -11,10 +11,6 @@ MyApp.get "/" do
   end
 end
 
-
-MyApp.get "/battle" do
-  erb :"battle"
-end
   
 
 

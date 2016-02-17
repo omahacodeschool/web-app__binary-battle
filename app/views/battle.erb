@@ -1,3 +1,18 @@
-DO BATTLE
+<h1>BATTLE OF THE BUFFY GANG</h1>
 
-<%= @char1.character_name %> VS <%= @char2.character_name %>
+<h2><%= @char1.character_name %> VS <%= @char2.character_name %></h2>
+
+<form action="/vote" method="post">
+    <input type="hidden" value="<%@char1%>" name="winner" />
+    <input type="hidden" value="<%@char2%>" name="winner" />
+    <input type="Submit" value="<%=@char1.character_name%>">
+</form>
+
+<form action="/vote" method="post">
+    <input type="hidden" value="<%@char2%>" name="winner" />
+    <input type="hidden" value="<%@char1%>" name="winner" />
+    <input type="Submit" value="<%=@char2.character_name%>">
+</form>
+
+Or, anyone but Xander
+
