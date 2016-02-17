@@ -1,0 +1,9 @@
+<h1>Vote for your favorite dworf!</h1>
+
+
+<p>
+  <% @dworfs.each do |d| %>
+    <a href="vote_dworf/<%= dworf.id%>">
+    <%= d.name %> </a></p>
+
+<% end %>
