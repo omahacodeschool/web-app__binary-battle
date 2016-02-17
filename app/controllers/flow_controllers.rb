@@ -1,4 +1,8 @@
 MyApp.get "/" do
+  @movies = Movie.all
+  @random_movie1 = @movies.find_by_id(1+rand(6)) 
+  @random_movie2 = @movies.find_by_id(1+rand(6))
+  #binding.pry
   erb :"homepage"
 end
 #Go to View to add movies
