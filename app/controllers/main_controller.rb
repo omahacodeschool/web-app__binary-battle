@@ -27,12 +27,17 @@ end
 MyApp.get "/ranks" do
   #finds the best to worst character
   characters = Character.all
+  ranks = Hash.new
+  
   characters.each do |character|
-    character.rank
+    x = character.rank
+    ranks[character.character_name] = x
   end
-  binding.pry
+  
+  @arr = ranks.sort{|a1,a2| a2[1]<=>a1[1]}
   #returns an array 
-  @winner = arr[0][0]
+  @winner = @arr[0][0]
+
   erb :"ranks"
 end
 

@@ -1,4 +1,6 @@
 class Character < ActiveRecord::Base
+
+
   def how_many_wins
     x = self.id
     wins = Battle.where({"winner_id" => x})
@@ -26,7 +28,6 @@ class Character < ActiveRecord::Base
     score = x / y
     return score
   end
-
 end
 
 #DB.define_table("characters")
