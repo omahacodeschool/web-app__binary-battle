@@ -1,0 +1,8 @@
+<h1>Most Likely to Become President</h1>
+<% @ordered_pres.each do |p| %>
+<%= p.planet %> - 
+<%= p.pres_points %> points
+<br>
+<% end %><br>
+<br>
+<a href="/futurepres_voting_page">Vote again</a>
