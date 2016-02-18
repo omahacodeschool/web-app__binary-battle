@@ -1,3 +1,3 @@
-MyApp.get "/" do
-  erb :'homepage'
-end
+class Avenger < ActiveRecord::Base
+
+end 
