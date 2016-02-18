@@ -1,5 +1,6 @@
 MyApp.get "/" do
 	@cat_1, @cat_2 = Cat.all.sample(2)
+  @cat_list = Cat.rank_cats
   erb :"home"
 end
 
