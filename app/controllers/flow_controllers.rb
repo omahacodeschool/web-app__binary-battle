@@ -30,4 +30,21 @@ MyApp.get "/home_buildings" do
   #binding.pry
   erb :"/buildings/building_home"
 end
+#Go to View to add buildings
+MyApp.get "/new_building" do
+  erb :"/buildings/create_building"
+end
+
+#Go to View to see buildings and votes
+MyApp.get "/show_buildings" do
+  @buildings = Building.all
+  @sorted = @buildings.order("vote_count DESC")
+  erb :"/buildings/display_buildings"
+end
+
+
+
+
+
+
 

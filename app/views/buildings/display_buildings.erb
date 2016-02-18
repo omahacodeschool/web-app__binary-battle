@@ -1,0 +1,23 @@
+<p>Current Buildings</p>
+
+
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Vote Count</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sorted.each do |y| %>
+      <tr>
+        <td> <%= y.building_name %></a> </td>
+
+        <td> <%= y.vote_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<a href="/home_buildings">Vote for another building?</a>
