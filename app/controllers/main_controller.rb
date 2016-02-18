@@ -4,12 +4,13 @@ MyApp.get "/" do
   erb :"home"
 end
 
-MyApp.post "/cat_like/:winner/:loser" do
+MyApp.post "/cat_like/:winner/:loser/:order" do
 	@winner = Cat.find(params[:winner])
 	@loser = Cat.find(params[:loser])
 	@result = Result.new
 	@result.winner_id = @winner.id
 	@result.loser_id = @loser.id
+  @result.winner_order = params[:order]
 	@result.save
   redirect :"like/#{@winner.id}/#{@loser.id}"
 end

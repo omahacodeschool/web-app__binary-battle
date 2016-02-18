@@ -41,48 +41,17 @@ class Cat < ActiveRecord::Base
 		cat_hash = Cat.get_all_cats_like_counts
 		@ordered_list = cat_hash.sort_by {|k,v| v}.reverse.to_h
 		@list_top_cats = @ordered_list.select { |k, v| v == @ordered_list.values.max}
-
 		if @list_top_cats.count == 1
 			return @ordered_list
-binding.pry
-		else 
-			# return who_beat_who_more_often
-			cat_one = @list_top_cats.keys[0]
-			cat_two = @list_top_cats.keys[1]
-
-			cat1 = Cat.where(:name => cat_one).first
-			cat2 = Cat.where(:name => cat_two).first
-
-			cat1_wins = Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
-			cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
-
-			if cat1_wins == nil || cat2_wins == nil || cat1_wins == nil && cat2_wins== nil 
-				return nil
-			elsif cat1_wins.length > cat2_wins.length
-				return @ordered_list
-			elsif cat1_wins.length < cat2_wins.length
-				cat_two_value = @list_top_cats.values[1]
-				@ordered_list.delete(cat_two)
-				modified_ordered_list = Hash[cat_two, cat_two_value].merge!(@ordered_list)
-				binding.pry
-				return modified_ordered_list
-			 end
-		end
+		else
+			 return Cat.who_beat_who_more_often
+		 end
 	end
-
-
-
-		# else
-		# 	list_top_cats.each do |cat, likes|
-		# 		other_cats = list_top_cats.select{|key, hash| key != cat}
-		# 			other_cats.each do |k,v|
-		# 				#move winner to first position in hash
-		# 	return modified_ordered_list 
 
 
 	# this method compares two Cats and checks which one has 
 	# been winner more often when the other has been loser
-	def who_beat_who_more_often
+	def Cat.who_beat_who_more_often
 		cat_one = @list_top_cats.keys[0]
 		cat_two = @list_top_cats.keys[1]
 
@@ -91,18 +60,40 @@ binding.pry
 
 		cat1_wins = Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
 		cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
-
-		if cat1_wins == nil || cat2_wins == nil || cat1_wins == nil && cat2_wins== nil 
-			return nil
-		elsif cat1_wins.length > cat2_wins.length
-			return ordered_list
-		elsif cat1_wins.length < cat2_wins.length
-			winner = @list_top_cats[1]
-			@ordered_list.delete[1]
-			modified_ordered_list = Hash[winner].merge!(@ordered_list)
-			binding.pry
-			return modified_ordered_list
-			 
+		# if cat1_wins == nil && cat2_wins== nil 
+		# 	return nil
+		if cat1_wins.length > cat2_wins.length
+			return @ordered_list
+		elsif cat1_wins.length < cat2_wins.length 
+				cat_two_value = @list_top_cats.values[1]
+				@ordered_list.delete(cat_two)
+				modified_ordered_list = Hash[cat_two, cat_two_value].merge!(@ordered_list)
+				@ordered_list = modified_ordered_list
+				return @ordered_list
 		end
 	end
+
+
+	def who_wins_a_tie(opponent)
+		self_wins = Result.where("winner_id" => self.id, "loser_id" => opponent.id)
+		opponent_wins = Result.where("winner_id" => opponent.id, "loser_id" => self.id)
+		if self_wins.length > opponent_wins.length
+			return true
+		end
+	end
+
+	def percentage_in_first_position
+		first = Result.where("winner_id" => self.id, "winner_order" => 1)
+		second = Result.where("winner_id" => self.id, "winner_order" => 2)
+		total = second.length.to_f + first.length.to_f
+		top = first.length.to_f
+		 if first.length == 0 && second.length == 0
+		 	return nil
+		 else
+			percentage = top/total
+			return percentage * 100.0
+		end
+	end
+
+
 end

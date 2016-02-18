@@ -9,7 +9,7 @@
 						<b><%= @cat_1.name.upcase %></b>
 					</p>
 
-					<form action="/cat_like/<%= @cat_1.id %>/<%= @cat_2.id %>" method="post">
+					<form action="/cat_like/<%= @cat_1.id %>/<%= @cat_2.id %>/1" method="post">
 				  		 <input type="submit" value="like"> 
 				 	</form>
 			</li>
@@ -20,7 +20,7 @@
 						<b><%= @cat_2.name.upcase %></b>
 					</p>
 
-					<form action="/cat_like/<%= @cat_2.id %>/<%= @cat_1.id %>" method="post">
+					<form action="/cat_like/<%= @cat_2.id %>/<%= @cat_1.id %>/2" method="post">
 			  		 	<input type="submit" value="like"> 
 			 		</form>
 			</li>

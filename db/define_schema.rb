@@ -7,3 +7,5 @@ DB.define_column("cats", "photo", "string")
 DB.define_table("results")
 DB.define_column("results", "winner_id", "integer")
 DB.define_column("results", "loser_id", "integer")
+DB.define_column("results", "winner_order", "integer")
+
