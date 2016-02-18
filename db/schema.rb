@@ -37,10 +37,13 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "planets", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "planet"
     t.integer  "points"
+    t.integer  "legs_points"
+    t.integer  "smile_points"
+    t.integer  "pres_points"
   end
 
 end

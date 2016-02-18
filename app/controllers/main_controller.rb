@@ -25,10 +25,19 @@ end
 
 
 
+
+
+
+
+
+
   # MyApp.post "/planet_submitted" do
   #   x = Planet.new
   #   x.planet = params[:planet_name]
   #   x.points = 0
+  #   x.legs_points = 0
+  #   x.smile_points = 0
+  #   x.pres_points = 0
   #   x.save
   #   erb :"main/planet_submitted"
   # end
