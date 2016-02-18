@@ -1,22 +1,11 @@
-<h1>Binary Battle!!!</h1>
+<h1 style="text-align: center">Binary Battle!!!</h1>
 
-<p>Vote for your favorite movie!<p>
-
-
-
-<form action="/add_vote/<%=@random_movie1.id %>" method="post">
-  <%= @random_movie1.movie_name %> 
-  <input type="submit" value="VOTE">
-</form>
-
-<form action="/add_vote/<%=@random_movie2.id %>" method="post">
-  <%= @random_movie2.movie_name %> 
-  <input type="submit" value="VOTE">
-</form>
+<p style="text-align: center">Choose your battle!<p>
 
 
 
 
-<!-- <p> <a href="/new_movie">Add a Movie</a> <p> -->
-<p> <a href="/show_movies">View the curent results</a> <p>
 
+<p style="text-align: center"> <a href="/home_movies">Favorite Movie</a> <p>
+
+<p style="text-align: center"> <a href="/home_buildings">Favorite Building</a> <p>

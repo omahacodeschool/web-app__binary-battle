@@ -5,7 +5,7 @@ MyApp.post "/add_movie" do
   s.vote_count = 0
   s.save
 
-  erb :"/movie_added"
+  erb :"/movies/movie_added"
 end
 
 #Increment the movie in questions vote count by 1
@@ -14,8 +14,6 @@ MyApp.post "/add_vote/:id" do
   @w.increment!(:vote_count)
   @w.save
 
-
-
 #Put cool stuff here.
-erb :"/movie_voted"
+erb :"/movies/movie_voted"
 end
