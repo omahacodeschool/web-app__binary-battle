@@ -34,23 +34,38 @@ class Cat < ActiveRecord::Base
 			cat_hash[name] = likes
 		end
 
-		ordered_list = cat_hash.sort_by {|k,v| v}.reverse
-		top_score = ordered_list[0]
-		list_top_cats = ordered_list.select { |k, v| v == top_score}
+		ordered_list = cat_hash.sort_by {|k,v| v}.reverse.to_h
+		list_top_cats = ordered_list.select { |k, v| v == ordered_list.values.max}
 		binding.pry
 
-		if list_top_cats.length == 1
+		if list_top_cats.count == 1
 			return ordered_list
 
-		else who_beat_who_more_often(list_top_cats)
+		else
+			# list_top_cats.each do |cat|
+			# 	cat_name = cat.name
+			# 	who_beat_who_more_often(cat_name)
+			# compare each cat with the other cats in the table
+			# who_beat_who_more_often(list_top_cats)
 			return ordered_list
 		end
 	end
 
+
+	#this method compares two Cats and checks which one has 
+	#been winner more often when the other has been loser
 	def who_beat_who_more_often(cat_one, cat_two)
 		cat1 = Cat.where("name" => cat_one)
 		cat2 = Cat.where("name" => cat_two)
-		Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
+		cat1_wins = Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
+		cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
+		if cat1_wins.length > cat2_wins.length
+			return cat1
+		elsif cat1_wins.length < cat2_wins.length
+			return cat2
+		else
+			return nil
+		end
 	end
 end
 
