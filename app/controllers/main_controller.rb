@@ -12,7 +12,9 @@ MyApp.get "/second_choice_selected" do
 end
 
 
-
+MyApp.get "/planets_ranking" do
+  erb :"main/planets_ranking"
+end
 
 
 
