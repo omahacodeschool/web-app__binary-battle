@@ -3,14 +3,11 @@ MyApp.get "/" do
   erb :"main/welcome"
 end
 
-MyApp.get "/first_choice_selected" do
-  erb :"main/first_choice_selected"
+MyApp.get "/choice_selected/:num" do
+  @planet_chosen = params[:num]
+  binding.pry
+  erb :"main/choice_selected"
 end
-
-MyApp.get "/second_choice_selected" do
-  erb :"main/second_choice_selected"
-end
-
 
 MyApp.get "/planets_ranking" do
   @planets = Planet.all

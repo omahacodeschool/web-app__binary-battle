@@ -1,4 +1,5 @@
 class Planet < ActiveRecord::Base
+
   def self.select_two_planets
     @planets = Planet.all
     @array_of_planet_names = []
@@ -8,4 +9,10 @@ class Planet < ActiveRecord::Base
     @two_planets = @array_of_planet_names.sample(2)
     return @two_planets
   end
+
+  def find_planet_to_award_point
+    
+  end
+
+
 end
