@@ -1,5 +1,6 @@
 
 MyApp.get "/" do
+  @competitor_with_photo = Competitor.find_by_id(6)
   erb :"welcome"
 end
 

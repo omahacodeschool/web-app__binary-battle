@@ -1,6 +1,9 @@
-<h1>Who do you want to vote for:</h1>
+<center><h1>Pick select the superior spice:</h1>
 
 
-<%@match_competitors.each do |c|%>
-<p><%=c.name%>
-<%end%></p>
+<form method = "post" action="/vote/create">
+    <input type="submit" value= "<%=@match_competitors[0].name%>"<%=@match_competitors[0].id%> name="winner_id">
+    <input type="submit" value="<%=@match_competitors[1].name%>"<%=@match_competitors[1].id%> name="loser_id">
+  </form></center>
+
+  
