@@ -1,10 +1,10 @@
 <a href="/admin">ADMIN</a>
 
-<h1>Welcome to the homepage!</h1>
+<h1>Avengers Showdown!</h1>
 
 <form>
-  <input type="radio" name="hero_1_vote" value="" checked> 
-    <%= @hero_1.name %><br>
-  <input type="radio" name="hero_2_vote" value="female"> 
-    <%= @hero_2.name %><br>
+  <input type="radio" name="hero_1_vote" value="<%= @hero_1.name %>"> 
+    <br>
+  <input type="radio" name="hero_2_vote" value="<%= @hero_2.name %>"> 
+    <br>
 </form>
