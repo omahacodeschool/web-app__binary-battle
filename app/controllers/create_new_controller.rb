@@ -1,7 +1,19 @@
 
+MyApp.get "/create_universe" do
+  @universes = Universe.all
+  erb :"add_universe"
+end
 
-MyApp.get "/add_characters" do
-   @characters = Character.all
+MyApp.post "/newuniverse" do
+  u = Universe.new
+  u.universe_name = params[:universename]
+  u.save
+  erb :"add_characters"
+end
+
+MyApp.get "/add_characters/:id" do
+  @current_universe = Universe.find_by_id(params[:id])
+  @characters = Character.all
   erb :"add_characters"
 end
 

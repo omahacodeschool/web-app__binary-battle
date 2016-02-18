@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "character_name"
+    t.integer  "universe_id"
+  end
+
+  create_table "universes", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "universe_name"
   end
 
 end

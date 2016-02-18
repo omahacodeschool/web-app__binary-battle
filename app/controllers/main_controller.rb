@@ -35,7 +35,8 @@ MyApp.get "/ranks" do
   end
   
   @arr = ranks.sort{|a1,a2| a2[1]<=>a1[1]}
-  #returns an array 
+  #returns an array, sorted most to least
+  #@winner is the name of the #1 spot
   @winner = @arr[0][0]
 
   erb :"ranks"
@@ -48,3 +49,7 @@ end
 #DB.define_table("battles")
 #DB.define_column("battles","winner_id","integer")
 #DB.define_column("battles","loser_id","integer")
+#
+#
+#DB.define_table("universes")
+#DB.define_column("universes","universe_name","string")
