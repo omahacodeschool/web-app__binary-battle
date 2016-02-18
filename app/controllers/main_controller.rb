@@ -28,3 +28,17 @@ MyApp.get "/competitor/vote" do
   #names on page
   erb :"competitor/vote"
 end
+
+MyApp.post "/vote/create" do
+  matchup = Matchup.new
+  matchup.winner_competitor_id = params["winner_id"]
+  matchup.loser_competitor_id = params["loser_id"]
+  matchup.save
+  @confirm_message = "Successfully voted for #{matchup.winner_name} over #{matchup.loser_name}!"
+  erb :"confirm_submission"
+end
+
+
+
+
+

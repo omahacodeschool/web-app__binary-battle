@@ -2,8 +2,10 @@
 
 
 <form method = "post" action="/vote/create">
-    <input type="submit" value= "<%=@match_competitors[0].name%>"<%=@match_competitors[0].id%> name="winner_id">
-    <input type="submit" value="<%=@match_competitors[1].name%>"<%=@match_competitors[1].id%> name="loser_id">
+  <input type="checkbox" name="winner_id" value="<%=@match_competitors[0].id%>"><%=@match_competitors[0].name%>
+  <input type="checkbox" name="loser_id" value="<%=@match_competitors[1].id%>"> <%=@match_competitors[1].name%><br>
+  <input type="submit" value="Vote">
   </form></center>
+
 
   
