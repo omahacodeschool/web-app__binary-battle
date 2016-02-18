@@ -13,6 +13,8 @@ end
 
 
 MyApp.get "/planets_ranking" do
+  @planets = Planet.all
+  @ordered_planets = @planets.order('points DESC')
   erb :"main/planets_ranking"
 end
 
