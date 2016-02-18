@@ -1,3 +1,5 @@
+
+
 MyApp.get "/add_characters" do
    @characters = Character.all
   erb :"add_characters"

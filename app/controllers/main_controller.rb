@@ -18,22 +18,8 @@ MyApp.post "/vote" do
   b.save
   @winner = Character.find_by_id(params[:winner])
   @loser = Character.find_by_id(params[:loser])
+  binding.pry
   erb :"votesuccess"
-
-end
-
-
-MyApp.get "/add_characters" do
-   @characters = Character.all
-  erb :"add_characters"
-end
-
-MyApp.post "/newcharacter" do
-  @characters = Character.all
-  c = Character.new
-  c.character_name = params[:charactername]
-  c.save
-  erb :"add_characters"
 
 end
 
