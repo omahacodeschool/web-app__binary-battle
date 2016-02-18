@@ -31,11 +31,3 @@ MyApp.get "/home_buildings" do
   erb :"/buildings/building_home"
 end
 
-#Maybe Necessary to show images
-MyApp.get "/show_art_center" do
-  # @buildings = Building.all
-
-  # @sample = @movies.sample(2)
-  #binding.pry
-  jpg :"..images/art_center"
-end
