@@ -6,16 +6,14 @@ class Planet < ActiveRecord::Base
       @array_of_planet_names << p.planet
     end
     @two_planets = @array_of_planet_names.sample(2)
-    @first_choice = @two_planets[0]
-    @second_choice = @two_planets[1]
     return @two_planets
   end
 
-  def self.display_first_planet
+  def first_planet_choice
     @two_planets[0]
   end
 
-  def self.display_second_planet
+  def second_planet_choice
     @two_planets[1]
   end
 end

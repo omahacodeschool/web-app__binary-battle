@@ -1,4 +1,5 @@
 MyApp.get "/" do 
+  @display_planets = Planet.select_two_planets
   erb :"main/welcome"
 end
 
