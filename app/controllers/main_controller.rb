@@ -36,10 +36,14 @@ end
 
 MyApp.post "/vote/create/:comp_1_id/:comp_2_id" do
   matchup = Matchup.new
+  loser_object_id = []
   matchup.winner_competitor_id = params["winner_id"]
-  loser = Competitor.where({"id" => [params[:comp_1_id], params[:comp_2_id]]}).where.not({"id" => params["winner_id"]})
-
-  matchup.loser_competitor_id = loser.id
+  competitors = Competitor.where({"id" => [params[:comp_1_id], params[:comp_2_id]]})
+  loser_object = competitors.where.not({"id" => params["winner_id"]})
+loser_object.each do |c|
+  loser_object_id << c.id
+end
+  matchup.loser_competitor_id = loser_object_id[0]
   binding.pry
   matchup.save
   @confirm_message = "Successfully voted for #{matchup.winner_name} over #{matchup.loser_name}!"
