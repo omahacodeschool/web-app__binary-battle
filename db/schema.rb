@@ -15,4 +15,39 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.boolean  "locked"
+  end
+
+  create_table "nominees", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.text     "bio"
+    t.string   "image"
+    t.string   "thumbnail"
+    t.boolean  "locked"
+  end
+
+  create_table "pools", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "nominee_id"
+    t.integer  "category_id"
+    t.boolean  "locked"
+  end
+
+  create_table "results", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "loved_id"
+    t.integer  "lost_id"
+    t.boolean  "locked"
+  end
+
 end

@@ -1,6 +1,7 @@
 MyApp.get "/pools" do
 
   erb :"/pools/view_pools"
+end
 
 MyApp.get "/pools/add" do
 

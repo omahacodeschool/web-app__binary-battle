@@ -1,6 +1,7 @@
 MyApp.get "/nominees" do
 
   erb :"/nominees/view_nominees"
+end
 
 MyApp.get "/nominees/add" do
 

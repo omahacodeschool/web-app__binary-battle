@@ -1,6 +1,6 @@
 require_relative "./_configure"
 
-
+DB.define_table("nominees")
 DB.define_column("nominees", "name", "string")
 DB.define_column("nominees", "bio", "text")
 DB.define_column("nominees", "image", "string")
@@ -14,7 +14,7 @@ DB.define_column("categories", "image", "string")
 DB.define_column("categories", "locked", "boolean")
 
 DB.define_table("pools")
-DB.define_column("pools", "nominees_id", "integer")
+DB.define_column("pools", "nominee_id", "integer")
 DB.define_column("pools", "category_id", "integer")
 DB.define_column("pools", "locked", "boolean")
 

@@ -1,6 +1,7 @@
 MyApp.get "/results" do
 
   erb :"/results/view_results"
+end
 
 MyApp.get "/results/add" do
 
