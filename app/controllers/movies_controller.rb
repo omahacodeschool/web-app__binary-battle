@@ -1,4 +1,6 @@
 MyApp.get "/add_movie" do
+  @movies = Movie.all
+  @movie  = Movie.new
   
   erb :"admin/add_movie"
 end
