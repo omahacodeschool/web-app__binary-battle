@@ -1,16 +1,16 @@
 <h1 style="text-align:center"> Choose your favorite building!</h1> 
 
 
-
 <form style="text-align: center" action="/building_vote/<%=@building1.id %>" method="post">
-  <img src="<%=@building1.building_image%>" alt="Building"  height="400" width="400"/>
+  <img src="<%=@building1.building_image%>" alt="Building"  height="50%" width="50%"/>
   <input type="submit" value="VOTE">
 </form>
 
 <form style="text-align: center" action="/building_vote/<%=@building2.id %>" method="post">
-  <img src="<%=@building2.building_image%>" alt="Building"  height="400" width="400"/>
+  <img src="<%=@building2.building_image%>" alt="Building"  height="50%" width="50%"/>
   <input type="submit" value="VOTE">
 </form>
+
 
 <p> <a href="/">Another Battle?</a> <p> 
 <p> <a href="/show_buildings">View all Buildings?</a> <p> 

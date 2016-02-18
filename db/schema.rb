@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "building_name"
     t.integer  "vote_count"
     t.string   "building_image"
+    t.string   "architect"
   end
 
   create_table "counts", force: :cascade do |t|

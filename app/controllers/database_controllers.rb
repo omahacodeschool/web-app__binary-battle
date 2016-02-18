@@ -22,6 +22,7 @@ MyApp.post "/add_building" do
   b = Building.new
   b.building_name = params["input_building"]
   b.building_image = params["input_url"]
+  b.architect = params["input_architect"]
   b.vote_count = 0
   b.save
   erb :"/buildings/building_added"
