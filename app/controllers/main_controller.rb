@@ -1,13 +1,18 @@
 require 'pry'
 
 MyApp.get "/" do
-  characters = Character.all
+  @universes = Universe.all
+  erb :"home"
+end
+
+MyApp.get "/battle/:id" do
+  characters = Character.where({"universe_id" => (params[:id])})
   #chooses 2 random characters
   @char1 = characters.sample
   @char2 = characters.sample
   #if it's the same character twice, picks 2 more
   if @char1.id == @char2.id
-    redirect to ("/")
+    redirect to ("/battle/:id")
   else
     erb :"battle"
   end

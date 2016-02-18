@@ -19,7 +19,7 @@ MyApp.get "/add_characters" do
 end
 
 MyApp.post "/newcharacter" do
-  @characters = Character.where{("universe_id" => params[:id])}
+  @characters = Character.({"universe_id" => (params[:id])})
   c = Character.new
   c.character_name = params[:charactername]
   c.save

@@ -1,0 +1,14 @@
+<h1>BATTLE OF THE 'VERSE</h1>
+<h2>ONCE AND FOR ALL</h2>
+<h2>WHO IS THE BEST CHARACTER
+
+<h3>Pick Your Universe:</h3>
+<ul>
+  <% @universes.each do |post| %>
+    <li><a href="/battle/<%=post.id%>"><%=post.universe_name%></a></li>
+  <% end %>
+</ul> 
+</h2>
+
+<h2>OR, <a href="/create_universe">ADD YOUR OWN FAVORITE</a>
+</h2>
