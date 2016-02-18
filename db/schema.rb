@@ -26,12 +26,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at",           null: false
     t.integer  "first_competitor_id"
     t.integer  "second_competitor_id"
-  end
-
-  create_table "wins", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "matchup_id"
     t.integer  "winner_competitor_id"
   end
 
