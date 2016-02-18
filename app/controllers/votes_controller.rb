@@ -1,9 +1,9 @@
-MyApp.post "/" do
+MyApp.get "/" do
   
-  erb :"/user/ballot_box"
+  erb :"user/ballot_box"
 end
 
 MyApp.get "/result" do
 
-  erb :"/user/result"
+  erb :"user/result"
 end
