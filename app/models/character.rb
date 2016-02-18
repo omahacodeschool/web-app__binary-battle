@@ -11,11 +11,19 @@ class Character < ActiveRecord::Base
     return losses.length
   end
 
-  def how_many_xanders
-    x = self.id
-    xanders = Xander.where({character_id => x})
-    return xanders.length
-  end 
+  def self.ranks
+    allcharacters = Character.all
+    characterhash = Hash.new
+      allcharacters.each do |character|
+        x = character.how_many_wins
+        y = character.how_many_wins + character.how_many_losses
+        score = x / y
+        characterhash[character.id] = score
+      end
+    characterarray = characterhash.sorty_by{|k,v|v}
+    return characterarray
+  end
+
 end
 
 #DB.define_table("characters")

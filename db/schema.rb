@@ -28,10 +28,4 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "character_name"
   end
 
-  create_table "xanders", force: :cascade do |t|
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "character_id"
-  end
-
 end

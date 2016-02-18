@@ -11,8 +11,14 @@ MyApp.get "/" do
   end
 end
 
-  
+MyApp.post "/vote" do
+  b = Battle.new
+  b.winner_id = params[:winner]
+  b.loser_id = params[:loser]
+  b.save
+  erb :"votesuccess"
 
+end
 
 
 MyApp.get "/add_characters" do
