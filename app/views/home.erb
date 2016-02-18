@@ -1,16 +1,16 @@
-<h1>Vote for your favorite food!</h1>
+<center><h1>Vote for your favorite food!</h1></center>
 
 
 
-
+<body background="http://www.trinityjoppa.org/events/checkered-red-tablecloth-8017.gif">
 
 <html>
-<body>
+
 <% @dworfs.each do |d| %>
 <p>
 <a href="vote_dworf/<%= d.id %>">
-<img border="0" alt="huh" src="<%= d.image %>" width="200" height="200">
-<%= d.name %>
+<center><img border="0" alt="huh" src="<%= d.image %>" width="250" height="250"></center>
+<center><%= d.name %></center>
 
 </a>
 </p>
@@ -18,3 +18,4 @@
 </body>
 </html>
 <% end %>
+

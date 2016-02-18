@@ -1,4 +1,8 @@
-
+<style>
+body {
+    background-color: silver;
+}
+</style>
 <p>
   <% @dworfs.each do |d| %>
     <img border="0" alt="huh" src="<%= d.image %>" width="300" height="300">
@@ -8,4 +12,6 @@
     <%= d.vote %>
 </p>
 <% end %>
-
+<p>
+<a href = "/">Place another vote!</a>
+</p>
