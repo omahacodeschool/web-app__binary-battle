@@ -4,14 +4,25 @@ MyApp.get "/categories" do
 end
 
 MyApp.get "/categories/add" do
-
-  erb :"/categories/add_categories"
+  @message = Category.all
+  @nominees = Nominee.all
+  erb :"/categories/add_category"
 end
 
 MyApp.post "/categories/add/confirmation" do
-  @category = Category.New
+  @message = Category.all
+  @category = Category.new
+  @nominees = Nominee.all
+  @category.name = params[:add_name]
+  @category.locked = false
 
-  redirect :"/categories/categories/category/#{@category_id}"
+  if Category.exists?(:name => params[:add_name]) ## EVENTUALLY INCLUDE METHOD TO CHECK IF POOL (WITH CATEGORY ID) IS LOCKED
+    @error = true
+    erb :"/categories/add_category"
+  else
+    @category.save
+    redirect :"/categories/category/#{@category.id}"
+  end
 end
 
 MyApp.post "/categories/category/:id/delete" do

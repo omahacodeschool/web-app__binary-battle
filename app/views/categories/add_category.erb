@@ -1,0 +1,20 @@
+<center><h1> Add Category</h1>
+
+<!-- RETURNS conditional method when controller returns to add screen-->
+<!--  due to an "active" pre-existing entry check being flaggged as True in controller  -->
+<% if @error == true %>
+  <p><%= @message.get_category_already_exists_error %></p>
+  <br>
+  <br>
+<% end %>
+<form  method="POST" action="/categories/add/confirmation">
+  Category Name :&emsp;<input type="text" name="add_name" value="<%= params[:add_name] %>">&emsp;&emsp;
+ <br>
+ <br>
+   TRY TO FIGURE OUT HOW CHECKBOXES WORK TO SET POOL
+  <br><br>    
+  <input type="submit" value="Add Category">
+</form>
+<br><br>
+
+</center> 
