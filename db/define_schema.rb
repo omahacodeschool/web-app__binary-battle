@@ -5,7 +5,7 @@ DB.define_column("nominees", "name", "string")
 DB.define_column("nominees", "bio", "text")
 DB.define_column("nominees", "image", "string")
 DB.define_column("nominees", "thumbnail", "string")
-DB.define_column("nominees", "boolean", "boolean")
+DB.define_column("nominees", "locked", "boolean")
 
 DB.define_table("categories")
 DB.define_column("categories", "name", "string")
