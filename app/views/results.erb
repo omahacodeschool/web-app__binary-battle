@@ -1,9 +1,11 @@
 
 <p>
   <% @dworfs.each do |d| %>
-
-    <%= d.name %> </a></p>
+    <img border="0" alt="huh" src="<%= d.image %>" width="300" height="300">
+    </a></p>
+    <%= d.name %>
     <P>
     <%= d.vote %>
 </p>
 <% end %>
+

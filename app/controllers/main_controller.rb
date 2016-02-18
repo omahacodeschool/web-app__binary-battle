@@ -5,13 +5,14 @@ end
 MyApp.get "/add_dworf" do
   @dworf_add = Dworf.new
   @dworf_add.name = params[:dworf_name]
+  @dworf_add.image = params[:dworf_pic]
   @dworf_add.vote = 1
   @dworf_add.save
   erb :"administrator"
 end
 MyApp.get "/vote_dworf/:place" do
   @dworf = Dworf.find_by_id(params[:place])
-              
+
   @dworf.vote = @dworf.vote + 1
   @dworf.save
 
