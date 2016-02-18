@@ -8,6 +8,22 @@ There can be but one,
 choose wisely...
 </i>
 </h3>
-
+<!--
+Create a form with 2 buttons, each linking to a randomly chosen movie from my movies table.
+Make sure that the same movie can't be chosen for both buttons.
+Once the User chooses one of the two movies, the winner ID is logged to the votes Table 'upvote' column and the loser ID is logged to the 'downvote' column.
+The User is taken to result.erb where they see a printout like:
+" You choose 'blah-blah' over 'nah-nah' "
+Also on result.erb will be a button leading them back to the voting page.
+When the voting page loads again, a new pair of movies will be loaded to repeat the process
+-->
+<form action="/result" method="post">
+  <p>
+    <%=  %>
+      <input type="button" value="<%=  %>">
+    <%=  %>
+      <input type="button" value="<%=  %>">
+  </p>
+</form>
 
 </center>

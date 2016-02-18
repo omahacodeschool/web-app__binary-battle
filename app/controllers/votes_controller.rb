@@ -5,5 +5,7 @@ end
 
 MyApp.get "/result" do
 
+  
+
   erb :"user/result"
 end

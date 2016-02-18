@@ -1,8 +1,8 @@
-MyApp.get "/add_movie" do
+MyApp.get "/add_movies" do
   @movies = Movie.all
   @movie  = Movie.new
   
-  erb :"admin/add_movie"
+  erb :"admin/add_movies"
 end
 
 MyApp.post "/add_movie_form" do
@@ -12,7 +12,7 @@ MyApp.post "/add_movie_form" do
   @movie.movie_title = (params["movie_title"])
   @movie.save
 
-  erb :"admin/add_movie"
+  erb :"admin/add_movies"
 end
 
 MyApp.post "/delete_movie/:movie_id" do
