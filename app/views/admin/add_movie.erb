@@ -10,7 +10,7 @@
   <br />
   </p>
   <p>
-    <input type="text" name="movie_title" required>
+    <input type="text" size="35" name="movie_title" required>
     <br />
   </p>
     <input type="submit" value="Add Movie">
@@ -33,7 +33,7 @@
 
       <tr>
         <td>
-        <center>
+        <center style="color:blue">
           <%= movie.movie_title %>
         </center>
         </td>
@@ -41,9 +41,13 @@
       <tr>
         <td>
         <center>
-          <a href="/delete_movie/<%= movie.id %>"> delete</a>
+          <a href="/delete_movie/<%= movie.id %>" style="color:red">
+          delete
+          </a>
 
-          <a href="/update_movie/<%= movie.id %>"> update</a>
+          <a href="/update_movie/<%= movie.id %>" style="color:green"> 
+          update
+          </a>
         </center>
         </td>
       </tr>

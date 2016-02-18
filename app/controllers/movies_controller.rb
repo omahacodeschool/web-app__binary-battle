@@ -15,7 +15,7 @@ MyApp.post "/add_movie_form" do
   erb :"admin/add_movie"
 end
 
-MyApp.get "/delete_movie/:movie_id" do
+MyApp.post "/delete_movie/:movie_id" do
   @movies = Movie.all
   @movie  = Movie.find_by_id(params[:movie_id])
   
