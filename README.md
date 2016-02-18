@@ -39,9 +39,26 @@ Over time, many [hypothetical] people visit this site and make their votes. In t
 
 If the user wants to see which is the _best_ dwarf, based on the current votes, they can visit a page that ranks all of the dwarves.
 
+Specifically, they should see the following information represented in some way:
+
+1. A list of all matchups so far and who won. (E.g. "Sleepy was picked over Grumpy".)
+2. An ordered list of the dwarves ranked.
+
+Ranking is not necessarily simple. If two dwarves have the same number of votes, the one that's ranked higher should be the one who was picked more often than the other. E.g. if both Sleepy and Bashful were picked 8 times in their respective matchups; but Sleepy was picked _over Bashful_ more than Bashful was picked over Sleepy, then Sleepy is ranked higher.
+
+Note: If you are greedy, then this ranking will take you approximately 4 weeks to build. It can get **super complicated**. Start simple. And, for this assignment, also end simple. The ranking algorithm I've laid out above is sufficient for now. If there is still a tie between two dwarves, then just pick a way to arbitarily settle it.
+
 #### Bonus
 
-**After finishing the core set of features,** you can consider adding this feature:
+**After finishing the core set of features,** you can consider adding these features:
+
+##### Track Voting Bias
+
+There might be some bias in voting, if people are more likely to vote for the dwarf that's listed first. Or maybe they are more likely to vote for the one listed second! Either way, it'll be smart to store that information.
+
+So for each vote that's recorded, store whether the dwarf who was picked happened to be the one that was listed first.
+
+Then add a feature to your Reporting page that indicates the percentage of votes that are for first-listed versus second-listed.
 
 ##### Multiple Nominee Groups
 
