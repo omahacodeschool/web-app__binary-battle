@@ -1,20 +1,11 @@
 <center><h1>Pick select the superior spice:</h1>
 <%=@match_competitors_ids%>
 
+
+
   <form method="post" action="/vote/create/<%=@match_competitors[0].id%>/<%=@match_competitors[1].id%>">
-    <select name="winner_id">
-        <% @match_competitors.each do |c| %>
-        <option value="<%=c.id%>"> <%=c.name%></option>
-        <% end %>
-    </select>
-    <select name="loser_id">
-        <% @match_competitors.each do |c| %>
-        <option value="<%=c.id%>"> <%=c.name%></option>
-        <% end %>
-    </select>
-    <input type="submit" value="Vote">
-  </form>
-</center>
-
-
+  <input type="radio" name="winner_id" value="<%=@match_competitors[0].id%>"><%=@match_competitors[0].name%>
   
+  <input type="radio" name="winner_id" value="<%=@match_competitors[1].id%>"><%=@match_competitors[1].name%>
+  <input type="submit" value="Vote">
+  </form>
