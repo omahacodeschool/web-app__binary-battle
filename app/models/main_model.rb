@@ -10,9 +10,5 @@ class Planet < ActiveRecord::Base
     return @two_planets
   end
 
-  def find_planet_to_award_point
-    
-  end
-
 
 end
