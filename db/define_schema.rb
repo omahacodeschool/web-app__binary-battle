@@ -16,7 +16,8 @@ DB.define_column("categories", "locked", "boolean")
 
 
 DB.define_table("results")
-DB.define_column("results", "winner_id", "integer")
+DB.define_column("results", "victor_id", "integer")
 DB.define_column("results", "loser_id", "integer")
 DB.define_column("results", "category_id", "integer")
+DB.define_column("results", "entry_id", "integer")
 
