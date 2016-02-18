@@ -4,6 +4,32 @@
 <p>
   <% @dworfs.each do |d| %>
     <a href="vote_dworf/<%= d.id%>">
-    <%= d.name %> </a></p>
-
+     </a></p>
+     <%= d.name %>
 <% end %>
+
+
+<html>
+<body>
+
+
+<% @dworfs.each do |d| %>
+<%= d.name %>
+<% end %>
+<a href="vote_dworf/<%= d.id%>">
+  <img src="http://static.comicvine.com/uploads/square_small/6/67602/2907988-snowwhite_grumpy_7.gif" alt="HTML tutorial" style="width:200px;height:200px;border:0">
+</a>
+
+
+<h1>OR</h1>
+<a href="vote_dworf/<%= d.id%>">
+  <img src="http://ecx.images-amazon.com/images/I/41QJXFbhkdL.jpg" alt="HTML tutorial" style="width:200px;height:200px;border:0">
+</a>
+
+
+
+
+<p>We have added "border:0" to prevent IE9 (and earlier) from displaying a border around the image.</p>
+
+</body>
+</html>

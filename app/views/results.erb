@@ -1,2 +1,9 @@
-@dworfs.each do |d|
-d.name
+
+<p>
+  <% @dworfs.each do |d| %>
+
+    <%= d.name %> </a></p>
+    <P>
+    <%= d.vote %>
+</p>
+<% end %>
