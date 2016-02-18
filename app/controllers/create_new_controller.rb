@@ -1,28 +1,3 @@
-require 'pry'
-
-MyApp.get "/" do
-  characters = Character.all
-  @char1 = characters.sample
-  @char2 = characters.sample
-  if @char1.id == @char2.id
-    redirect to ("/")
-  else
-    erb :"battle"
-  end
-end
-
-MyApp.post "/vote" do
-  b = Battle.new
-  b.winner_id = params[:winner]
-  b.loser_id = params[:loser]
-  b.save
-  @winner = Character.find_by_id(params[:winner])
-  @loser = Character.find_by_id(params[:loser])
-  erb :"votesuccess"
-
-end
-
-
 MyApp.get "/add_characters" do
    @characters = Character.all
   erb :"add_characters"
