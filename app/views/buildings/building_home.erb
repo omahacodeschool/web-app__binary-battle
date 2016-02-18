@@ -2,5 +2,16 @@
 
 
 
-<img src="../../app/public/dart.jpg" alt="Building"  height="50%" width="50%"/>
-<p> <a href="/new_building">Add a Building</a> <p> 
+<form style="text-align: center" action="/building_vote/<%=@building1.id %>" method="post">
+  <img src="<%=@building1.building_image%>" alt="Building"  height="400" width="400"/>
+  <input type="submit" value="VOTE">
+</form>
+
+<form style="text-align: center" action="/building_vote/<%=@building2.id %>" method="post">
+  <img src="<%=@building2.building_image%>" alt="Building"  height="400" width="400"/>
+  <input type="submit" value="VOTE">
+</form>
+
+<p> <a href="/">Another Battle?</a> <p> 
+<p> <a href="/show_buildings">View all Buildings?</a> <p> 
+<p> <a href="/new_building">Add another Building?</a> <p> 

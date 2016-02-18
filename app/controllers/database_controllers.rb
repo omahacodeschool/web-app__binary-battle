@@ -31,5 +31,7 @@ end
 MyApp.post "/building_vote/:id" do
   @w = Building.find_by_id(params[:id])
   @w.increment!(:vote_count)
+  #binding.pry
   @w.save
+  erb :"/buildings/building_voted"
 end

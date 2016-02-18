@@ -24,9 +24,12 @@ end
 
 #Go to view to vote for buildings
 MyApp.get "/home_buildings" do
-  # @buildings = Building.all
+  buildings = Building.all
+  sample = buildings.sample(2)
+  @building1 = sample[0]
+  @building2 = sample[1]
 
-  # @sample = @movies.sample(2)
+
   #binding.pry
   erb :"/buildings/building_home"
 end
@@ -39,6 +42,7 @@ end
 MyApp.get "/show_buildings" do
   @buildings = Building.all
   @sorted = @buildings.order("vote_count DESC")
+
   erb :"/buildings/display_buildings"
 end
 
