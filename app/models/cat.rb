@@ -44,28 +44,29 @@ class Cat < ActiveRecord::Base
 
 		if @list_top_cats.count == 1
 			return @ordered_list
-
+binding.pry
 		else 
-			return who_beat_who_more_often
-		# else
-		# 	cat_one = list_top_cats.keys[0]
-		# 	cat_two = list_top_cats.keys[1]
+			# return who_beat_who_more_often
+			cat_one = @list_top_cats.keys[0]
+			cat_two = @list_top_cats.keys[1]
 
-		# 	cat1 = Cat.where(:name => cat_one).first
-		# 	cat2 = Cat.where(:name => cat_two).first
+			cat1 = Cat.where(:name => cat_one).first
+			cat2 = Cat.where(:name => cat_two).first
 
-		# 	cat1_wins = Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
-		# 	cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
+			cat1_wins = Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
+			cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
 
-		# 	if cat1_wins == nil || cat2_wins == nil || cat1_wins == nil && cat2_wins== nil 
-		# 		return nil
-		# 	elsif cat1_wins.length > cat2_wins.length
-		# 		return ordered_list
-		# 	elsif cat1_wins.length < cat2_wins.length
-		# 		return
-		# 		# put cat2 in first postition of ordered_list
-		# 	end
-
+			if cat1_wins == nil || cat2_wins == nil || cat1_wins == nil && cat2_wins== nil 
+				return nil
+			elsif cat1_wins.length > cat2_wins.length
+				return @ordered_list
+			elsif cat1_wins.length < cat2_wins.length
+				cat_two_value = @list_top_cats.values[1]
+				@ordered_list.delete(cat_two)
+				modified_ordered_list = Hash[cat_two, cat_two_value].merge!(@ordered_list)
+				binding.pry
+				return modified_ordered_list
+			 end
 		end
 	end
 
