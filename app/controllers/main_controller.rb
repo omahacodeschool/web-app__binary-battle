@@ -37,14 +37,7 @@ end
 MyApp.post "/vote/create/" do
   matchup = Matchup.new
   matchup.winner_competitor_id = params["winner_id"]
-
-  competitors = params["competitors"]
-  competitors_ids = competitors.split
-  loser_competitor_id = competitors_ids.delete(params["winner_id"])
-  binding.pry
-  matchup.loser_competitor_id = loser_competitor_id[0]
-  #@competitors = Competitor.where({"id" => params[:match_competitor_ids]}). #where.not({"id" => params["winner_id"]})
-  
+  matchup.loser_competitor_id = params["loser_id"]
   matchup.save
   @confirm_message = "Successfully voted for #{matchup.winner_name} over #{matchup.loser_name}!"
   erb :"confirm_submission"
