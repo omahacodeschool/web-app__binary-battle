@@ -62,7 +62,7 @@ class Cat < ActiveRecord::Base
 		cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
 		# if cat1_wins == nil && cat2_wins== nil 
 		# 	return nil
-		if cat1_wins.length > cat2_wins.length
+		if cat1_wins.length > cat2_wins.length || cat1_wins.length == cat2_wins.length
 			return @ordered_list
 		elsif cat1_wins.length < cat2_wins.length 
 				cat_two_value = @list_top_cats.values[1]
