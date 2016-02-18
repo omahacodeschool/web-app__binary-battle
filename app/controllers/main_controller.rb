@@ -5,7 +5,7 @@ end
 
 MyApp.get "/choice_selected/:num" do
   @planet_chosen = params[:num]
-  binding.pry
+  
   erb :"main/choice_selected"
 end
 
