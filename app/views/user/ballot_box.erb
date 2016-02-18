@@ -17,11 +17,12 @@ The User is taken to result.erb where they see a printout like:
 Also on result.erb will be a button leading them back to the voting page.
 When the voting page loads again, a new pair of movies will be loaded to repeat the process
 -->
-<form action="/result" method="post">
+<form action="/user_vote" method="post">
   <p>
-    <%=  %>
+
+    <%= @movie_1.movie_title %>
       <input type="button" value="<%=  %>">
-    <%=  %>
+    <%= @movie_2.movie_title %>
       <input type="button" value="<%=  %>">
   </p>
 </form>
