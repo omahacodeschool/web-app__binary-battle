@@ -1,23 +1,18 @@
 <h1 style="text-align:center"> Choose your favorite movie!</h1> 
 
-<!-- <form action="/add_vote/<%=@random_movie1.id %>" method="post">
-  <%= @random_movie1.movie_name %> 
-  <input type="submit" value="VOTE">
+<p style="text-align: center"><img src="/pixar.jpg" style="width:50%; height:50%">
+</p>
+<form style="text-align: center" action="/add_vote/<%=@random_movie1.id %>" method="post">
+  <input type="submit" value="<%=@random_movie1.movie_name%>" style="width: 500px; height: 500px; font-size: 200px">
 </form>
+<br/>
 
-<form action="/add_vote/<%=@random_movie2.id %>" method="post">
-  <%= @random_movie2.movie_name %> 
-  <input type="submit" value="VOTE">
-</form> -->
-
-<% @sample.each do |y| %>
-  <form style="text-align: center" action="/add_vote/<%=y.id %>" method="post">
-  <%= y.movie_name %> 
-  <input type="submit" value="VOTE">
-  <% end %>
+<form style="text-align: center" action="/add_vote/<%=@random_movie2.id %>" method="post">
+<input type="submit" value="<%=@random_movie2.movie_name%>" style="width: 500px; height: 500px; font-size: 200px">
 </form>
 
 <!-- <p> <a href="/new_movie">Add a Movie</a> <p> -->
 <p style="text-align: center"> <a href="/show_movies">View the curent results</a> <p>
 
 <p style="text-align: center"> <a href="/">Vote on another topic?</a> <p>
+

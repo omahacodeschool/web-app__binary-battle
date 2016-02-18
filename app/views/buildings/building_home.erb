@@ -2,13 +2,11 @@
 
 
 <form style="text-align: center" action="/building_vote/<%=@building1.id %>" method="post">
-  <img src="<%=@building1.building_image%>" alt="Building"  height="50%" width="50%"/>
-  <input type="submit" value="VOTE">
+  <input type="image" name="submit" src="<%=@building1.building_image%>" alt="Building"  height="50%" width="50%"/>
 </form>
 
 <form style="text-align: center" action="/building_vote/<%=@building2.id %>" method="post">
-  <img src="<%=@building2.building_image%>" alt="Building"  height="50%" width="50%"/>
-  <input type="submit" value="VOTE">
+  <input type="image" name="submit" src="<%=@building2.building_image%>" alt="Building"  height="50%" width="50%"/>
 </form>
 
 
