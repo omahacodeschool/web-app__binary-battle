@@ -1,0 +1,18 @@
+<h2>Update <%= @movie.movie_title %> movie:</h2>
+
+<a href="/">Home</a>
+<br />
+<a href="/add_movies">Back</a>
+<br />
+
+<form action="/process_movie_update/<%= @movie.id %>" method="post">
+  <p>
+  Movie Title:
+  <br /> 
+  <input type="text" name="movie_title_update" 
+    value="<%= @movie.movie_title %>" required>
+  </p>
+  <p>
+  <input type="submit" value="Update Movie">
+  </p>
+</form>

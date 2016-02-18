@@ -16,4 +16,39 @@
     <input type="submit" value="Add Movie">
 </form>
 
+<br />
+
+<table border="1">
+  <thead>
+    <tr>
+      <th colspan="3"> ADDED MOVIES </th>
+    </tr>
+    <tr>
+      <th> Title </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+
+      <tr>
+        <td>
+          <%= movie.movie_title %>
+        </td>
+        <td>
+        <center>
+          <a href="/delete_movie/<%= movie.id %>"> delete</a>
+        </center>
+        </td>
+        <td>
+        <center>
+          <a href="/update_movie/<%= movie.id %>"> update</a>
+        </center>
+        </td>
+      </tr>
+      
+    <% end %>
+  </tbody>
+</table>
+
 </center>
