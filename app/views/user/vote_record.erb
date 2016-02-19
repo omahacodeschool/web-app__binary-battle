@@ -1,3 +1,15 @@
+<center>
+
+<h2>Vote Records</h2>
+
+<% @movies.each do |movie| %>
+<p>
+  <a href="/movie_stats/<%= movie.id %>"><%= movie.movie_title %></a>
+  <br />
+</p>
+<% end %>
+
+</center>
 <!--
 Define table to list the running top 3 vote results
 Define dynamic, each-loop, table to list stats for each movie

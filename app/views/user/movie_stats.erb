@@ -1,0 +1,53 @@
+<center>
+  
+<h2>Vote Stats for <%= @movie.movie_title %></h2>
+
+<a href="/">Vote</a>
+<br />
+<a href="/vote_record">Back</a>
+<br />
+
+<p>
+<table border="1"> 
+  
+  <thead>
+    <tr>
+      <th colspan="2"><%= @movie.movie_title %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Total Rounds:</td>
+      <!--Sum of instances of movie.id across upvote_id and downvote_id-->
+      <td></td>
+    </tr>
+    <tr>
+      <td>Upvotes:</td>
+      <!--All instances of movie.id in upvote_id-->
+      <td></td>
+    </tr>
+    <tr>
+      <td>Downvotes:</td>
+      <!--All instances of movie.id in downvote_id-->
+      <td></td>
+    </tr>
+    <tr>
+      <td>Win/Loss Ratio:</td>
+      <!--Ratio of movie.id instances of upvote_id and downvote_id-->
+      <td></td>
+    </tr>
+    <tr>
+      <td>Button 1 Placement:</td>
+      <!--Instances of movie.id with vote_button == 1-->
+      <td></td>
+    </tr>
+    <tr>
+      <td>Button 2 Placement:</td>
+      <!--Instances of movie.id with vote_button == 2-->
+      <td></td>
+    </tr>
+</table>
+</p>
+
+</center>
