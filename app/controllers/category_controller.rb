@@ -13,9 +13,12 @@ MyApp.post "/categories/add/confirmation" do
   @category = Category.new
   @nominees = Nominee.all
   @category.name = params[:add_name]
+  @category.description = params[:category_description_textarea]
+  @category.image = params[:add_category_image_link]
+  @category.thumbnail = params[:add_category_thumbnail_link]
   @category.locked = false
 
-  if Category.exists?(:name => params[:add_name]) ## EVENTUALLY INCLUDE METHOD TO CHECK IF POOL (WITH CATEGORY ID) IS LOCKED
+  if Category.exists?(:name => params[:add_name])
     @error = true
     erb :"/categories/add_category"
   else
