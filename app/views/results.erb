@@ -6,7 +6,7 @@
 			<li>
 				<%= name %> has <%= likes %> likes
         <% if Cat.where(:name => name).first.percentage_in_first_position != nil %>
-        with <%= Cat.where(:name => name).first.percentage_in_first_position %>% of their votes occuring when they were shown first.
+        with <b><%= Cat.where(:name => name).first.percentage_in_first_position %>%</b> of their votes occuring when they were shown first.
          <% end %>
 			 </li>
 		<% end %>

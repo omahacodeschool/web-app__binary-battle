@@ -110,27 +110,27 @@ def Cat.who_beat_who(cat,k)
 
 	# this method compares two Cats and checks which one has 
 	# been winner more often when the other has been loser
-	def Cat.who_beat_who_more_often
-		cat_one = @list_top_cats.keys[0]
-		cat_two = @list_top_cats.keys[1]
+	# def Cat.who_beat_who_more_often
+	# 	cat_one = @list_top_cats.keys[0]
+	# 	cat_two = @list_top_cats.keys[1]
 
-		cat1 = Cat.where(:name => cat_one).first
-		cat2 = Cat.where(:name => cat_two).first
+	# 	cat1 = Cat.where(:name => cat_one).first
+	# 	cat2 = Cat.where(:name => cat_two).first
 
-		cat1_wins = Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
-		cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
-		# if cat1_wins == nil && cat2_wins== nil 
-		# 	return nil
-		if cat1_wins.length > cat2_wins.length || cat1_wins.length == cat2_wins.length
-			return @ordered_list
-		elsif cat1_wins.length < cat2_wins.length 
-				cat_two_value = @list_top_cats.values[1]
-				@ordered_list.delete(cat_two)
-				modified_ordered_list = Hash[cat_two, cat_two_value].merge!(@ordered_list)
-				@ordered_list = modified_ordered_list
-				return @ordered_list
-		end
-	end
+	# 	cat1_wins = Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
+	# 	cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
+	# 	# if cat1_wins == nil && cat2_wins== nil 
+	# 	# 	return nil
+	# 	if cat1_wins.length > cat2_wins.length || cat1_wins.length == cat2_wins.length
+	# 		return @ordered_list
+	# 	elsif cat1_wins.length < cat2_wins.length 
+	# 			cat_two_value = @list_top_cats.values[1]
+	# 			@ordered_list.delete(cat_two)
+	# 			modified_ordered_list = Hash[cat_two, cat_two_value].merge!(@ordered_list)
+	# 			@ordered_list = modified_ordered_list
+	# 			return @ordered_list
+	# 	end
+	# end
 end
 
 

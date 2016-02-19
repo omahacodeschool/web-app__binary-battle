@@ -5,7 +5,7 @@
 				<%= c.name %> has <%= c.count_likes %> likes 
 
         <% if c.percentage_in_first_position != nil %>
-           with <%= c.percentage_in_first_position %>% of their votes occuring when they were shown first.
+           with <b><%= c.percentage_in_first_position %>%</b> of their votes occuring when they were shown first.
           <% end %>
 
 				<form action="/cat_delete/<%= c.id %>" method="post">
