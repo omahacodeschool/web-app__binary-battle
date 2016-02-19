@@ -25,6 +25,9 @@ class Character < ActiveRecord::Base
     #a method to sort an array of characters
     x = self.how_many_wins.to_f
     y = self.how_many_wins.to_f + self.how_many_losses.to_f
+      if y == 0
+        y = 1
+      end
     score = x / y
     return score
   end

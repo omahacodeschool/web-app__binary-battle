@@ -37,7 +37,6 @@ MyApp.get "/ranks/:id" do
     x = character.rank
     ranks[character.character_name] = x
   end
-  binding.pry
   @arr = ranks.sort{|a1,a2| a2[1]<=>a1[1]}
   #returns an array, sorted most to least
   #@winner is the name of the #1 spot

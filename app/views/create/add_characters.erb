@@ -9,9 +9,8 @@
       <input type="Submit" value="Add">
   </fieldset>
 </form>
-
-<h3>So far we have:<h3>
 <% if @characters %>
+  <h3>So far we have:<h3>
   <ul>
     <% @characters.each do |post| %>
       <li><%= post.character_name%></li>
