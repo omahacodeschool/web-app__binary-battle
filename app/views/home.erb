@@ -1,14 +1,21 @@
-<h1>BATTLE OF THE 'VERSE</h1>
-<h2>ONCE AND FOR ALL</h2>
-<h2>WHO IS THE BEST CHARACTER
+<h1>BATTLE FOR THE UNIVERSE</h1>
+<h2>DETERMINING, ONCE AND FOR ALL</h2>
+<h2>WHO IS THE BEST CHARACTER</h2>
+<h2>IN THE UNIVERSE</h2>
 
-<h3>Pick Your Universe:</h3>
-<ul>
-  <% @universes.each do |post| %>
-    <li><a href="/battle/<%=post.id%>"><%=post.universe_name%></a></li>
-  <% end %>
-</ul> 
-</h2>
+You can:
+<p></p>
+<% if @universes%>
+  <h3>Pick An Existing Universe:</h3>
+  <ul>
+    <% @universes.each do |post| %>
+      <li><a href="/battle/<%=post.id%>"><%=post.universe_name%></a></li>
+    <% end %>
+  </ul> 
+<% else %>
+<% end %>
 
-<h2>OR, <a href="/create_universe">ADD YOUR OWN FAVORITE</a>
-</h2>
+<h2><a href="/create_universe">Add Your Own Favorite</a></h2>
+
+<h2><a href="/battle_royal">THIS BUTTON DOESN'T DO ANYTHING YET</a></h2>
+<h2><a href="/nerd_out">THIS BUTTON IS ALSO USELESS AT THE MOMENT</a>
