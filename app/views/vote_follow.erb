@@ -1,10 +1,12 @@
 
 <style>
 body {
-    background-color: lightblue;
+    background-color: lightgrey;
 }
-</style><h1>Thank you for your vote for:</h1>
- <img border="0" alt="huh" src="<%= @dworf.image %>" width="300" height="300">
+</style>
+<center><h1>Thank you for your vote for</h1></center>
+<center><img border="0" alt="huh" src="<%= @dworf.image %>" width="400" height="400"></center>
+ <center><h3><%= @dworf.name %></h3></center>
 
 <a href = "/"></a>
 <body><p>
@@ -18,11 +20,21 @@ body {
 </a>
 
 <body>
-<p>
-<a href = "/">Place another vote!</a>
-</p>
 
-<p>
-<a href = "/results">View Standings</a>
+
+
+
+
+
+
+<p style=" position: absolute; bottom: 0; left: 0; width: 100%; text-align: center;">
+<a href="/">
+<img border="0" alt="Meier" src="http://static.nfl.com/static/content/public/image/probowl/ballot/thank-you/btn-ty-vote-again.png" width="100" height="25">
+</a>
+<a href="/results">
+<img border="0" alt="Meier" src="http://cache1.asset-cache.net/xc/523966935.jpg?v=2&c=IWSAsset&k=2&d=-B4AvK4tvE_lbB5Kn-rKl4F8nnbiSQJgqAATw-wlLBedHlXCA9XV89EflmmxwHYi0" width="100" height="25">
+</a>
+<a href="https://www.facebook.com/Food.com/">
+<img border="0" alt="Meier" src="http://rack.2.mshcdn.com/media/ZgkyMDEzLzExLzA3LzA5L1NjcmVlblNob3QyLjRmMTk3LnBuZwpwCXRodW1iCTEyMDB4OTYwMD4/82a3b768/101/Screen-Shot-2013-11-06-at-3.49.42-PM.png" width="125" height="50">
+</a>
 </p>
-</body>

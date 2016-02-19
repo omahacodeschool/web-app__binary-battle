@@ -27,7 +27,9 @@ MyApp.get "/administrator" do
 end
 MyApp.get "/results" do
 
-  @dworfs = Dworf.all
-  @result = Result.all
+  @dworfs = Dworf.all                   
+  @result = Result.all                #
+  @result.win = @win                  #taking the win column in result as var
+  @win.mode = @winner                 #setting the mode on the column to a var
   erb :"results"
 end
