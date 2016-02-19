@@ -4,7 +4,7 @@ MyApp.get "/" do
 end
 
 MyApp.get "/admin" do
-    @avengers = Avenger.all
+  @avengers = Avenger.all
   erb :'admin'
 end 
 
@@ -14,4 +14,18 @@ MyApp.post "/new_avenger" do
   @avenger.votes = 0
   @avenger.save
   redirect :'admin'
+end
+
+MyApp.post "/process_vote" do
+  chosen_hero = params["hero_vote"]
+  @avenger = Avenger.find_by_id(chosen_hero)
+  @avenger.votes +=1
+  @avenger.save
+  @avengers = Avenger.all
+  redirect "/results"
+end 
+
+MyApp.get "/results" do
+  @avengers = Avenger.all
+  erb :'results'
 end

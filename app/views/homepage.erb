@@ -2,9 +2,11 @@
 
 <h1>Avengers Showdown!</h1>
 
-<form>
-  <input type="radio" name="hero_1_vote" value="<%= @hero_1.name %>"> 
-    <br>
-  <input type="radio" name="hero_2_vote" value="<%= @hero_2.name %>"> 
-    <br>
+<form action="/process_vote" method="post">
+  <input type="radio" name="hero_vote" value="<%= @hero_1.id %>" checked> 
+    <%= @hero_1.name %><br>
+  <input type="radio" name="hero_vote" value="<%= @hero_2.id %>"> 
+    <%= @hero_2.name %><br>
+  <input type="submit" value="Vote!">
+
 </form>
