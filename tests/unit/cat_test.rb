@@ -76,6 +76,8 @@ class CatTest < Minitest::Test
     @result_9.loser_id = @cat1.id
     @result_9.winner_order = 1
     @result_9.save
+
+
   end
 
   def test_list_likes
@@ -101,13 +103,11 @@ class CatTest < Minitest::Test
     assert_equal(Cat.who_beat_who("Gita", "XiaoGui"), {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
   end
 
-  # def test_re_order_list
-  #   @cat2.delete_competitor_info
-  #   assert_nil(@cat2.event_entry)
-  # end
+  def test_re_order_list
+     assert_equal(Cat.re_order_list(@cat3), @ordered_list = {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
+  end
 
-  # def test_percentage
-  #   @cat2.delete_competitor_info
-  #   assert_nil(@cat2.event_entry)
-  # end
+  def test_percentage
+    assert_equal(@cat1.percentage_in_first_position, 50.0)
+  end
 end
