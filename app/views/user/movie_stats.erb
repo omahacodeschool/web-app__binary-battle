@@ -33,11 +33,15 @@
       <td><%= @movie.movie_downvotes %></td>
     </tr>
     <tr>
-      <td>Win/Loss Ratio:</td>
+      <td>Win Percent:</td>
       <!--Ratio of movie.id instances of upvote_id and downvote_id-->
-      <td></td>
+      <td><%= @movie.movie_win_percent %> %</td>
     </tr>
-
+    <tr>
+      <td>Loss Percent:</td>
+      <!--Ratio of movie.id instances of upvote_id and downvote_id-->
+      <td><%= @movie.movie_loss_percent %> %</td>
+    </tr>
     <tr>
       <td>Button 1 Upvote:</td>
       <!--Instances of movie.id with vote_button == 1-->

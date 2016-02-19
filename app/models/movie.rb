@@ -14,6 +14,14 @@ class Movie < ActiveRecord::Base
     x.count
   end
 
+  def movie_win_percent
+    (self.movie_upvotes.to_f / self.total_rounds.to_f) * 100
+  end
+
+  def movie_loss_percent
+    (self.movie_downvotes.to_f / self.total_rounds.to_f) * 100
+  end
+
   def movie_button_1_up
     x = Vote.where({"vote_button" => 1})
     y = x.where({"upvote_id" => self.id})
