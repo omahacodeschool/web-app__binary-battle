@@ -37,15 +37,27 @@
       <!--Ratio of movie.id instances of upvote_id and downvote_id-->
       <td></td>
     </tr>
+
     <tr>
-      <td>Button 1 Placement:</td>
+      <td>Button 1 Upvote:</td>
       <!--Instances of movie.id with vote_button == 1-->
-      <td></td>
+      <td><%= @movie.movie_button_1_up %></td>
     </tr>
     <tr>
-      <td>Button 2 Placement:</td>
+      <td>Button 2 Upvote:</td>
       <!--Instances of movie.id with vote_button == 2-->
-      <td></td>
+      <td><%= @movie.movie_button_2_up %></td>
+    </tr>
+
+    <tr>
+      <td>Button 1 Downvote:</td>
+      <!--Instances of movie.id with vote_button == 1-->
+      <td><%= @movie.movie_button_1_down %></td>
+    </tr>
+    <tr>
+      <td>Button 2 Downvote:</td>
+      <!--Instances of movie.id with vote_button == 2-->
+      <td><%= @movie.movie_button_2_down %></td>
     </tr>
 </table>
 </p>
