@@ -90,19 +90,16 @@ class CatTest < Minitest::Test
   end
 
   def test_collect_all_the_likes
-    Cat.get_all_cats_like_counts
     assert_equal(Cat.get_all_cats_like_counts, cat_hash = {"Gita"=>4, "Clementine"=>1, "XiaoGui"=>4, "Baby Boy"=>0, "Gracey"=>0})
   end
 
-  # def test_rank_cats
-  #   @cat2.delete_competitor_info
-  #   assert_nil(@cat2.event_entry)
-  # end
+  def test_rank_cats
+    assert_equal(Cat.rank_cats, @ordered_list = {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
+  end
 
-  # def test_who_beat_who
-  #   @cat2.delete_competitor_info
-  #   assert_nil(@cat2.event_entry)
-  # end
+  def test_who_beat_who
+    assert_equal(Cat.who_beat_who("Gita", "XiaoGui"), {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
+  end
 
   # def test_re_order_list
   #   @cat2.delete_competitor_info
