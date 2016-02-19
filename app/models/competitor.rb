@@ -20,15 +20,15 @@ class Competitor < ActiveRecord::Base
 
 
 
-  #Gets a hash of competitor id(key) and their win percent(value)
+  #Gets the win percent of a competitor
 
-  def winner_with_win_percent
+  def win_percent
       winner_with_win_percent = {}
       win_count = self.get_win_count
       loss_count = self.get_loss_count
       win_percent = (win_count/(win_count + loss_count))
-      winner_with_win_percent[self.id] = win_percent
-    return winner_with_win_percent
+      #winner_with_win_percent[self.id] = win_percent
+    return win_percent
   end
 
   # def rank

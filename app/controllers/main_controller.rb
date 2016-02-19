@@ -34,16 +34,12 @@ MyApp.post "/vote/create/:winner_id/:loser_id" do
 end
 
 MyApp.get "/vote/view" do
-  c = Competitor.find_by_id(4)
-  @hash = c.winner_with_win_percent
-
-  # array_to_sort = []
-  # competitors = Competitor.all
-  #   competitors.each do |c|
-  #     y = c.winner_with_win_percent
-  #     array_to_sort << y
-  #   end
-  #   @rankings_array = array_to_sort.sort_by {|key, value| value }
+  hash = {}
+  competitors = Competitor.all
+    competitors.each do |c|
+      hash[c.id] = c.win_percent
+    end
+    @rankings_hash = hash.sort_by {|key, value| value }
 
   #get all the matchups where one competitor is the winner
   #get all the matchups where that same competitor is the loser
