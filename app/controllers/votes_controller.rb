@@ -1,5 +1,3 @@
-# This controller action collects the the user votes and places the results accordingly
-# How will it know what the other option is that wasn't selected?
 MyApp.post "/user_vote" do
   @votes = Vote.all
   @vote  = Vote.new
@@ -15,7 +13,6 @@ MyApp.post "/user_vote" do
 end
 
 MyApp.get "/vote_result" do
-
 
   erb :"user/result"
 end

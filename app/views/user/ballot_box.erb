@@ -15,7 +15,7 @@ choose wisely...
 <form action="/user_vote" method="post">
 
 <p>
-  <img src="<%= @movie_1.movie_poster %>" alt="<%= @movie_1.movie_title %>" style="width:50%;height:50%;">
+  <img src="<%= @movie_1.movie_poster %>" alt="<%= @movie_1.movie_title %>" style="width:15%;height:15%;">
   <br />
   <input type="hidden" name="upvote_id" value="<%= @movie_1.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_2.id %>">
@@ -24,12 +24,10 @@ choose wisely...
 
 </form>
 
-<br />
-
 <form action="/user_vote" method="post">
 
 <p>
-  <img src="<%= @movie_2.movie_poster %>" alt="<%= @movie_2.movie_title %>" style="width:50%;height:50%;">
+  <img src="<%= @movie_2.movie_poster %>" alt="<%= @movie_2.movie_title %>" style="width:15%;height:15%;">
   <br />
   <input type="hidden" name="upvote_id" value="<%= @movie_2.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_1.id %>">
