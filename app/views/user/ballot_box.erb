@@ -1,4 +1,5 @@
 <center>
+
 <h2>Choose the Superior '80s Sequal</h2>
 
 <h3>
@@ -8,31 +9,31 @@ There can be but one,
 choose wisely...
 </i>
 </h3>
-<!--
-Create a form with 2 buttons, each linking to a randomly chosen movie from my movies table.
-Make sure that the same movie can't be chosen for both buttons.
-Once the User chooses one of the two movies, the winner ID is logged to the votes table 'upvote' column and the loser ID is logged to the 'downvote' column.
-The User is taken to result.erb where they see a printout like:
-" You chose 'blah-blah' over 'nah-nah' "
-Also on result.erb will be a button leading them back to the voting page.
-When the voting page loads again, a new pair of movies will be loaded to repeat the process
--->
+
+<br />
+
 <form action="/user_vote" method="post">
 
 <p>
-  <%= @movie_1.movie_title %>
-  <br />
+  <h2><%= @movie_1.movie_title %></h2>
+  
   <input type="hidden" name="upvote_id" value="<%= @movie_1.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_2.id %>">
-  <input type="submit" value="Vote">
+  <input type="submit" name="movie_1_vote" value="Vote">
+</p>
 
-  <br />
+</form>
 
-  <%= @movie_2.movie_title %>
-  <br />
+<br />
+
+<form action="/user_vote" method="post">
+
+<p>
+  <h2><%= @movie_2.movie_title %></h2>
+  
   <input type="hidden" name="upvote_id" value="<%= @movie_2.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_1.id %>">
-  <input type="submit" value="Vote">
+  <input type="submit" name="movie_2_vote" value="Vote">
 </p>
   
 </form>

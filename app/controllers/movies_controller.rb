@@ -1,6 +1,6 @@
 MyApp.get "/" do
   @movies = Movie.all
-  x = Movie.ids.sample(2)
+  x       = Movie.ids.sample(2)
 
   @movie_1 = @movies.find_by_id(x[0])
   @movie_2 = @movies.find_by_id(x[1])

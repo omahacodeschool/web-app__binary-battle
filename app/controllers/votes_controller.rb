@@ -8,6 +8,9 @@ MyApp.post "/user_vote" do
   @vote.downvote_id = (params["downvote_id"])
   @vote.save
 
+  @upvote = Movie.find_by_id(params["upvote_id"])
+  @downvote = Movie.find_by_id(params["downvote_id"])
+
   erb :"user/vote_result"
 end
 
