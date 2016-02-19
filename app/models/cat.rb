@@ -66,7 +66,7 @@ def Cat.who_beat_who(cat,k)
 
 		cat1_wins = Result.where("winner_id" => cat1.id, "loser_id" => cat2.id)
 		cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
-		
+
 		if cat1_wins.length > cat2_wins.length 
 			
 			# cat_one = @list_top_cats.select{|k, v| k = self.key}.to_h
@@ -74,7 +74,7 @@ def Cat.who_beat_who(cat,k)
 			# 	modified_ordered_list = Hash[cat.key, cat.value].merge!(@ordered_list)
 			# 	@ordered_list = modified_ordered_list
 			# return @ordered_list
-			return re_order_list(cat1)
+			return Cat.re_order_list(cat1)
 
 		elsif cat1_wins.length < cat2_wins.length 
 			
@@ -83,7 +83,7 @@ def Cat.who_beat_who(cat,k)
 			# 	modified_ordered_list = Hash[cat.key, cat.value].merge!(@ordered_list)
 			# 	@ordered_list = modified_ordered_list
 				# return @ordered_list
-				return re_order_list(cat2)
+				return Cat.re_order_list(cat2)
 
 			else 
 				return @ordered_list
@@ -93,13 +93,14 @@ def Cat.who_beat_who(cat,k)
 # this method re_orders the Hash @ordered_list
 #the input is the Hash @list_top_cats.select{|k, v| k = self.key}.to_h
 #it returns the Hash with this cat in the first position of the Hash
- def re_order_list(cat)
- 				cat = @list_top_cats.select{|k, v| k = cat.key}.to_h
- 				binding.pry
-				@ordered_list.delete(cat)
-				modified_ordered_list = Hash[cat.key, cat.value].merge!(@ordered_list)
-				@ordered_list = modified_ordered_list
-				return @ordered_list
+ def Cat.re_order_list(cat)
+ 			cat_name = cat.name
+			cat = @list_top_cats.select{|k, v| k = cat_name}.to_h
+			binding.pry
+			@ordered_list.delete(cat)
+			modified_ordered_list = Hash[cat.key, cat.value].merge!(@ordered_list)
+			@ordered_list = modified_ordered_list
+			return @ordered_list
  end
 
 # this method determines the percentage of how often this Cat object is 
