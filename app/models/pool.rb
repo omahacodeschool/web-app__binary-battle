@@ -1,4 +1,5 @@
 class Pool < ActiveRecord::Base
+  has_many :ids, through: :nominee_ids
 
   # RETURNS String containing error mesage when attempting to add new category that matches prexisting one
   def get_already_exists_error

@@ -29,7 +29,11 @@
     </textarea>
  <br>
  <br>
-   TRY TO FIGURE OUT HOW CHECKBOXES WORK TO SET POOL NOMINEES
+  <% @nominees.each do |n| %>
+    <%if n.locked == false && n.id != nil %>
+      <input type="checkbox" name= "nominees[]" value=<%= n.id %> checked= <%= n.id == params[:nominees[n.id]] ? "checked" : "unchecked" %>><%= n.name %> <br>
+    <% end %>
+  <% end %>
   <br><br>    
   <input type="submit" value="Create">
 </form>
