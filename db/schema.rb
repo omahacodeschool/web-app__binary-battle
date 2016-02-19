@@ -23,10 +23,8 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "showdowns", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "1st_hero_id"
-    t.integer  "2nd_hero_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "winner_id"
     t.integer  "loser_id"
   end

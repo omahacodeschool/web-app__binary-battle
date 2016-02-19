@@ -17,11 +17,10 @@ MyApp.post "/new_avenger" do
 end
 
 MyApp.post "/process_vote" do
-  chosen_hero = params["hero_vote"]
-  @avenger = Avenger.find_by_id(chosen_hero)
-  @avenger.votes +=1
-  @avenger.save
-  @avengers = Avenger.all
+  x = params["hero_vote"]
+  @voted_hero = Avenger.find_by_id(x)
+  @voted_hero.votes += 1
+  @voted_hero.save
   redirect "/results"
 end 
 
@@ -29,3 +28,4 @@ MyApp.get "/results" do
   @avengers = Avenger.all
   erb :'results'
 end
+
