@@ -1,6 +1,6 @@
 <center>
 
-<h2>Choose the Superior '80s Sequal</h2>
+<h2>Choose the Superior '80s Sequel</h2>
 
 <h3>
 <i>
@@ -10,30 +10,43 @@ choose wisely...
 </i>
 </h3>
 
+-+-+-+-+-+-+-+-
+
 <br />
 
-<form action="/user_vote" method="post">
+<form action="/user_vote" method="post" id="button_1_vote">
 
 <p>
   <img src="<%= @movie_1.movie_poster %>" alt="<%= @movie_1.movie_title %>" style="width:15%;height:15%;">
   <br />
+  <input type="hidden" name="vote_button" value="1">
   <input type="hidden" name="upvote_id" value="<%= @movie_1.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_2.id %>">
-  <input type="submit" name="movie_1_vote" value="<%= @movie_1.movie_title %>">
+  <input type="submit" form="button_1_vote" value="<%= @movie_1.movie_title %>">
 </p>
 
 </form>
 
-<form action="/user_vote" method="post">
+
+<form action="/user_vote" method="post" id="button_2_vote">
 
 <p>
   <img src="<%= @movie_2.movie_poster %>" alt="<%= @movie_2.movie_title %>" style="width:15%;height:15%;">
   <br />
+  <input type="hidden" name="vote_button" value="2">
   <input type="hidden" name="upvote_id" value="<%= @movie_2.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_1.id %>">
-  <input type="submit" name="movie_2_vote" value="<%= @movie_2.movie_title %>">
+  <input type="submit" form="button_2_vote" value="<%= @movie_2.movie_title %>">
 </p>
   
 </form>
+
+-+-+-+-+-+-+-+-
+
+<br />
+
+<p>
+  <a href="/vote_record">Vote Record</a>
+</p>
 
 </center>

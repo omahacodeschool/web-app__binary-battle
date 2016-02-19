@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at",  null: false
     t.integer  "upvote_id"
     t.integer  "downvote_id"
+    t.integer  "vote_button"
   end
 
 end
