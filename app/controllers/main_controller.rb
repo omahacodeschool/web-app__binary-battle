@@ -34,21 +34,33 @@ MyApp.get "/competitor/vote" do
   erb :"competitor/vote"
 end
 
-MyApp.post "/vote/create/:comp_1_id/:comp_2_id" do
+MyApp.post "/vote/create/:winner_id/:loser_id" do
+  winner_id = params[:winner_id]
+  loser_id = params[:loser_id]
   matchup = Matchup.new
-  loser_object_id = []
-  matchup.winner_competitor_id = params["winner_id"]
-  competitors = Competitor.where({"id" => [params[:comp_1_id], params[:comp_2_id]]})
-  loser_object = competitors.where.not({"id" => params["winner_id"]})
-loser_object.each do |c|
-  loser_object_id << c.id
-end
-  matchup.loser_competitor_id = loser_object_id[0]
-  binding.pry
+  matchup.winner_competitor_id = winner_id
+  matchup.loser_competitor_id = loser_id
   matchup.save
   @confirm_message = "Successfully voted for #{matchup.winner_name} over #{matchup.loser_name}!"
   erb :"confirm_submission"
 end
+
+
+# MyApp.post "/vote/create/:comp_1_id/:comp_2_id" do
+#   matchup = Matchup.new
+#   loser_object_id = []
+#   matchup.winner_competitor_id = params["winner_id"]
+#   competitors = Competitor.where({"id" => [params[:comp_1_id], params[:comp_2_id]]})
+#   loser_object = competitors.where.not({"id" => params["winner_id"]})
+# loser_object.each do |c|
+#   loser_object_id << c.id
+# end
+#   matchup.loser_competitor_id = loser_object_id[0]
+#   binding.pry
+#   matchup.save
+#   @confirm_message = "Successfully voted for #{matchup.winner_name} over #{matchup.loser_name}!"
+#   erb :"confirm_submission"
+# end
 
 
 
