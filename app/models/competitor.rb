@@ -31,6 +31,17 @@ class Competitor < ActiveRecord::Base
     return win_percent
   end
 
+# This is a method I can call on the Competitor class to get a hash of #competitor ids and win percents. Add a feature to pass in an argument for the #category later
+  def self.rank
+    hash = {}
+    competitors = Competitor.all
+      competitors.each do |c|
+      hash[c.id] = c.win_percent
+      end
+    rankings_hash = hash.sort_by {|key, value| value }
+    return rankings_hash
+  end
+
   # def rank
   #   array_to_sort = []
   #   competitors = Competitor.all

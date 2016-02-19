@@ -34,17 +34,8 @@ MyApp.post "/vote/create/:winner_id/:loser_id" do
 end
 
 MyApp.get "/vote/view" do
-  hash = {}
-  competitors = Competitor.all
-    competitors.each do |c|
-      hash[c.id] = c.win_percent
-    end
-    @rankings_hash = hash.sort_by {|key, value| value }
-
-  #get all the matchups where one competitor is the winner
-  #get all the matchups where that same competitor is the loser
-  # divide the number of matchups where they are the winner by the number of matchups where they appeared at all
-erb :"competitor/view_votes"
+  @rankings_hash = Competitor.rank
+  erb :"competitor/view_votes"
 end
 
 
