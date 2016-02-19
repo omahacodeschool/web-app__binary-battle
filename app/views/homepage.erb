@@ -4,7 +4,7 @@
 
 <p>Which Avenger do you think is cooler than the other?</p>
 
-<form action="/process_vote" method="post">
+<form action="/process_vote/<=@showdown.id=>" method="post">
   <input type="radio" name="hero_vote" value="<%= @hero_1.id %>" checked> 
     <%= @hero_1.name %><br>
   <input type="radio" name="hero_vote" value="<%= @hero_2.id %>"> 

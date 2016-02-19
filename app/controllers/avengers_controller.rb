@@ -20,10 +20,14 @@ MyApp.post "/new_avenger" do
   redirect :'admin'
 end
 
-MyApp.post "/process_vote" do
+MyApp.post "/process_vote/:showdown_id" do
   x = params["hero_vote"]
   @winner = Avenger.find_by_id(x)
   @winner.votes += 1
+  @winner.save
+  @showdown = Showdown.find_by_id(params[:showdown_id]
+  @showdown.winner_id = x
+  @showdown.save
 
   redirect "/results"
 end 
