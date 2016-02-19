@@ -3,6 +3,7 @@ MyApp.get "/" do
   @showdown = Showdown.new
   @showdown.hero_1_id = @hero_1.id
   @showdown.hero_2_id = @hero_2.id
+  @showdown.save
   erb :'homepage'
 end
 
