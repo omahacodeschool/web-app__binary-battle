@@ -1,0 +1,25 @@
+<center><h1>Vote for your favorite food!</h1></center>
+
+
+
+<body background="https://s-media-cache-ak0.pinimg.com/564x/7f/6b/e3/7f6be3d2743ad84cac47652ad19bc4e9.jpg">
+
+<html>
+
+<ol>
+       <li>
+
+  <center><img border="0" alt="huh" src="<%= @dworf1.image %>" width="250" height="250"></center>
+ <center><form action="/vote_dworf/<%= @dworf1.id %>/<%= @dworf2.id %>" method="get"></center>
+ <center><input type="submit" value="<%= @dworf1.name %>"></center>
+ </form>
+  </li>
+ 
+       <li>
+
+    <center><img border="0" alt="huh" src="<%= @dworf2.image %>" width="250" height="250"></center>
+  <center><form action="/vote_dworf/<%= @dworf2.id %>/<%= @dworf1.id %>" method="get"></center>
+  <center><input type="submit" value="<%= @dworf2.name %>"></center> 
+           </form>
+       </li>
+     </ol> 
