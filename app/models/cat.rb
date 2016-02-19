@@ -68,21 +68,9 @@ def Cat.who_beat_who(cat,k)
 		cat2_wins = Result.where("winner_id" => cat2.id, "loser_id" => cat1.id)
 
 		if cat1_wins.length > cat2_wins.length 
-			
-			# cat_one = @list_top_cats.select{|k, v| k = self.key}.to_h
-			# 	@ordered_list.delete(cat_one)
-			# 	modified_ordered_list = Hash[cat.key, cat.value].merge!(@ordered_list)
-			# 	@ordered_list = modified_ordered_list
-			# return @ordered_list
 			return Cat.re_order_list(cat1)
 
 		elsif cat1_wins.length < cat2_wins.length 
-			
-			# cat_two = @list_top_cats.select{|k, v| k = cat.key}.to_h
-			# 	@ordered_list.delete(cat_two)
-			# 	modified_ordered_list = Hash[cat.key, cat.value].merge!(@ordered_list)
-			# 	@ordered_list = modified_ordered_list
-				# return @ordered_list
 				return Cat.re_order_list(cat2)
 
 			else 
@@ -95,10 +83,10 @@ def Cat.who_beat_who(cat,k)
 #it returns the Hash with this cat in the first position of the Hash
  def Cat.re_order_list(cat)
  			cat_name = cat.name
-			cat = @list_top_cats.select{|k, v| k = cat_name}.to_h
-			binding.pry
-			@ordered_list.delete(cat)
-			modified_ordered_list = Hash[cat.key, cat.value].merge!(@ordered_list)
+			this_cat = @list_top_cats.select{|k, v| k == cat_name}.to_h
+			cat_value = @list_top_cats[cat_name]
+			@ordered_list.delete(cat_name)
+			modified_ordered_list = Hash[cat_name, cat_value].merge!(@ordered_list)
 			@ordered_list = modified_ordered_list
 			return @ordered_list
  end
@@ -119,15 +107,6 @@ def Cat.who_beat_who(cat,k)
 		end
 	end
 
-	# def who_wins_a_tie(opponent)
-	# 	self_wins = Result.where("winner_id" => self.id, "loser_id" => opponent.id)
-	# 	opponent_wins = Result.where("winner_id" => opponent.id, "loser_id" => self.id)
-	# 	if self_wins.length > opponent_wins.length
-	# 		return true
-	# 	end
-	# end
-
-end
 
 	# this method compares two Cats and checks which one has 
 	# been winner more often when the other has been loser
@@ -152,4 +131,14 @@ end
 				return @ordered_list
 		end
 	end
+end
 
+
+
+	# def who_wins_a_tie(opponent)
+	# 	self_wins = Result.where("winner_id" => self.id, "loser_id" => opponent.id)
+	# 	opponent_wins = Result.where("winner_id" => opponent.id, "loser_id" => self.id)
+	# 	if self_wins.length > opponent_wins.length
+	# 		return true
+	# 	end
+	# end
