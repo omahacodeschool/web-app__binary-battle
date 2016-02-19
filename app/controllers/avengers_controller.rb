@@ -1,5 +1,8 @@
 MyApp.get "/" do
   @hero_1, @hero_2 = Avenger.all.sample(2)
+  @showdown = Showdown.new
+  @showdown.hero_1_id = @hero_1.id
+  @showdown.hero_2_id = @hero_2.id
   erb :'homepage'
 end
 
