@@ -1,6 +1,6 @@
-<h1>BATTLE OF THE BUFFY</h1>
+<h1>BATTLE OF THE <%=@universe.universe_name.upcase%>-VERSE</h1>
 
-<H2>The people have spoken and <b><%=@winner%></b> is the best Buffy character!</H2>
+<H2>The people have spoken and <b><%=@winner%></b> is the best <%=@universe.universe_name%> character!</H2>
 
 <h3>The Gang, Ranked:<h3>
 
@@ -10,4 +10,6 @@
   <% end %>
 </ol>
 
-Shocked? Angry? Disagree? Feel free to <a href="/">VOTE MORE</a>
+Shocked? Angry? Disagree? Feel free to <a href="/battle/<%=@universe.id%>">VOTE MORE</a>
+
+Or, to choose a different universe, you can always <a href="/">go home</a>
