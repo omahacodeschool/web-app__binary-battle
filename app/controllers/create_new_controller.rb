@@ -8,21 +8,24 @@ MyApp.post "/newuniverse" do
   u = Universe.new
   u.universe_name = params[:universename]
   u.save
-  id = u.id
+  @universe = u 
   erb :"/create/add_characters"
 end
 
 MyApp.get "/add_characters" do
-  @current_universe = Universe.find_by_id(params[:id])
-  @characters = Character.all
+  @currentuniverse = Universe.find_by_id(@universe)
+  @characters = Character.where({"universe_id" => @universe.id})
   erb :"/create/add_characters"
 end
 
 MyApp.post "/newcharacter" do
-  @characters = Character.({"universe_id" => (params[:id])})
+  @characters = Character.where({"universe_id" => params[:universeid]})
   c = Character.new
   c.character_name = params[:charactername]
+  c.universe_id = params[:universeid]
   c.save
+  @universe = Universe.find_by_id(params[:universeid])
+  @characters = Character.where({"universe_id" => params[:universeid]})
   erb :"/create/add_characters"
 
 end

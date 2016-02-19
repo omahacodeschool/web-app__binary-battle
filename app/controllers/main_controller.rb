@@ -6,7 +6,8 @@ MyApp.get "/" do
 end
 
 MyApp.get "/battle/:id" do
-  characters = Character.where({"universe_id" => (params[:id])})
+  @universe = Universe.find_by_id(params[:id])
+  characters = Character.where({"universe_id" => @universe.id})
   #chooses 2 random characters
   @char1 = characters.sample
   @char2 = characters.sample
