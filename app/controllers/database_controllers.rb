@@ -13,7 +13,6 @@ MyApp.post "/add_vote/:id" do
   @w = Movie.find_by_id(params[:id])
   @w.increment!(:vote_count)
   @w.save
-#Put cool stuff here.
 erb :"/movies/movie_voted"
 end
 
