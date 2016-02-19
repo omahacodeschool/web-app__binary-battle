@@ -1,1 +1,8 @@
-THIS IS A UNIQUE CATEGORY
+<center> <h1> <%= @category.name %> </h1>
+
+
+<% @pool.each do |pool| %>
+<%nominee = pool.get_nominee_info%>
+<%= nominee.name %><br> 
+<% end %>
+</center>

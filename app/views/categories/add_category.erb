@@ -21,6 +21,13 @@
     <%=  params[:category_description_textarea] %>
     </textarea>
   <br><br>    
+  
+  <% @nominees.each do |n| %>
+    <%if n.locked == false && n.id != nil %>
+      <input type="checkbox" name= "checkbox_nominees[]" value=<%= n.id %>><%= n.name %> <br>
+    <% end %>
+  <% end %>
+
   <input type="submit" value="Add Category">
 </form>
 <br><br>

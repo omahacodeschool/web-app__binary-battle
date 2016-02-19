@@ -9,7 +9,7 @@ MyApp.get "/categories/add" do
   erb :"/categories/add_category"
 end
 
-MyApp.post "/categories/add/confirmation" do
+MyApp.post"/categories/add/confirmation" do
   @category = Category.new
   @nominees = Nominee.all
   @category.name = params[:add_name]
@@ -23,8 +23,17 @@ MyApp.post "/categories/add/confirmation" do
     erb :"/categories/add_category"
   else
     @category.save
+    params[:checkbox_nominees].each do |nominee|
+      if nominee != nil
+        @pool = Pool.new 
+        @pool.nominee_id = nominee
+        @pool.category_id = @category.id
+        @pool.save
+      end
+    end
     redirect :"/categories/category/#{@category.id}"
   end
+
 end
 
 MyApp.post "/categories/category/:id/delete" do
@@ -35,6 +44,7 @@ end
 
 MyApp.get "/categories/category/:id" do
   @category = Category.find_by_id(params[:id])
+  @pool = Pool.where({"category_id" => params[:id]})
 
   erb :"/categories/view_category"
 end

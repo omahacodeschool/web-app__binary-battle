@@ -39,20 +39,16 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "pools", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "name"
-    t.string   "thumbnail"
-    t.string   "image"
-    t.text     "description"
     t.integer  "nominee_id"
     t.integer  "category_id"
-    t.boolean  "locked"
   end
 
   create_table "results", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "loved_id"
     t.integer  "lost_id"
+    t.integer  "category_id"
     t.boolean  "locked"
   end
 

@@ -16,16 +16,12 @@ DB.define_column("categories", "image", "string")
 DB.define_column("categories", "locked", "boolean")
 
 DB.define_table("pools")
-DB.define_column("pools", "name", "string")
-DB.define_column("pools", "thumbnail", "string")
-DB.define_column("pools", "image", "string")
-DB.define_column("pools", "description", "text")
 DB.define_column("pools", "nominee_id", "integer")
 DB.define_column("pools", "category_id", "integer")
-DB.define_column("pools", "locked", "boolean")
 
 DB.define_table("results")
 DB.define_column("results", "loved_id", "integer")
 DB.define_column("results", "lost_id", "integer")
+DB.define_column("results", "category_id", "integer")
 DB.define_column("results", "locked", "boolean")
 
