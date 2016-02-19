@@ -25,8 +25,9 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "showdowns", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "hero_1_id"
+    t.integer  "hero_2_id"
     t.integer  "winner_id"
-    t.integer  "loser_id"
   end
 
 end

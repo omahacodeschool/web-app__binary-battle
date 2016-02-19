@@ -18,9 +18,9 @@ end
 
 MyApp.post "/process_vote" do
   x = params["hero_vote"]
-  @voted_hero = Avenger.find_by_id(x)
-  @voted_hero.votes += 1
-  @voted_hero.save
+  @winner = Avenger.find_by_id(x)
+  @winner.votes += 1
+
   redirect "/results"
 end 
 
