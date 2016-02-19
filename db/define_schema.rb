@@ -1,4 +1,4 @@
 require_relative "./_configure"
 
-DB.define_table("dwarves")
-DB.define_column("dwarves", "name", "string")
+DB.define_table("legends")
+DB.define_column("legends", "name", "string")
