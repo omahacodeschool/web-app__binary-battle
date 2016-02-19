@@ -14,18 +14,18 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-19T16:12:29-06:00">2016-02-19T16:12:29-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-19T16:31:07-06:00">2016-02-19T16:31:07-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">25.0%</span></span>
+    (<span class="covered_percent"><span class="red">33.33%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.34
+       <span class="green">
+         1.47
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>3</b> files in total.
     <b>84</b> relevant lines. 
-    <span class="green"><b>21</b> lines covered</span> and
-    <span class="red"><b>63</b> lines missed </span>
+    <span class="green"><b>28</b> lines covered</span> and
+    <span class="red"><b>56</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#5279176ddcbac40b5dcc37d75b666ae129f8b36c" class="src_link" title="app/models/cat.rb">app/models/cat.rb</a></td>
-        <td class="red strong">24.53 %</td>
-        <td>144</td>
+        <td class="red strong">37.74 %</td>
+        <td>143</td>
         <td>53</td>
-        <td>13</td>
-        <td>40</td>
-        <td>0.4</td>
+        <td>20</td>
+        <td>33</td>
+        <td>2.2</td>
       </tr>
       
       <tr>
@@ -375,11 +375,11 @@
         <div class="source_table" id="5279176ddcbac40b5dcc37d75b666ae129f8b36c">
   <div class="header">
     <h3>app/models/cat.rb</h3>
-    <h4><span class="red">24.53 %</span> covered</h4>
+    <h4><span class="red">37.74 %</span> covered</h4>
     <div>
       <b>53</b> relevant lines. 
-      <span class="green"><b>13</b> lines covered</span> and
-      <span class="red"><b>40</b> lines missed.</span>
+      <span class="green"><b>20</b> lines covered</span> and
+      <span class="red"><b>33</b> lines missed.</span>
     </div>
   </div>
   
@@ -422,14 +422,14 @@
           <code class="ruby">	def list_likes</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="7">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="15" data-linenumber="7">
+          <span class="hits">15</span>
           
           <code class="ruby">		likes = Result.where(&quot;winner_id&quot; =&gt; self.id)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="8">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="15" data-linenumber="8">
+          <span class="hits">15</span>
           
           <code class="ruby">		return likes</code>
         </li>
@@ -470,20 +470,20 @@
           <code class="ruby">	def count_likes</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="15">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="13" data-linenumber="15">
+          <span class="hits">13</span>
           
           <code class="ruby">		how_many_likes = self.list_likes</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="16">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="13" data-linenumber="16">
+          <span class="hits">13</span>
           
           <code class="ruby">		total_likes = how_many_likes.length</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="17">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="13" data-linenumber="17">
+          <span class="hits">13</span>
           
           <code class="ruby">		return total_likes</code>
         </li>
@@ -524,202 +524,202 @@
           <code class="ruby">	def Cat.get_all_cats_like_counts</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
-          
+        <li class="covered" data-hits="2" data-linenumber="24">
+          <span class="hits">2</span>
           
           <code class="ruby">		cat_hash = {}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="25">
-          
+        <li class="covered" data-hits="2" data-linenumber="25">
+          <span class="hits">2</span>
           
           <code class="ruby">		all_cats = Cat.all</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="27">
-          
+        <li class="covered" data-hits="2" data-linenumber="26">
+          <span class="hits">2</span>
           
           <code class="ruby">		all_cats.each do |cat|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
-          
+        <li class="covered" data-hits="10" data-linenumber="27">
+          <span class="hits">10</span>
           
           <code class="ruby">			name = cat.name</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="29">
-          
+        <li class="covered" data-hits="10" data-linenumber="28">
+          <span class="hits">10</span>
           
           <code class="ruby">			likes = cat.count_likes</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="30">
-          
+        <li class="covered" data-hits="10" data-linenumber="29">
+          <span class="hits">10</span>
           
           <code class="ruby">			cat_hash[name] = likes</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="31">
+        <li class="never" data-hits="" data-linenumber="30">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
-          
+        <li class="covered" data-hits="2" data-linenumber="31">
+          <span class="hits">2</span>
           
           <code class="ruby">		return cat_hash</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">	end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">	 #this method takes the result of the get_all_cats_like_counts method and </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
           
           
-          <code class="ruby">	 #this method takes the result of the get_all_cats_like_counts method and </code>
+          <code class="ruby">	 #then sorts them by max value</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="36">
           
           
-          <code class="ruby">	 #then sorts them by max value</code>
+          <code class="ruby">	#if there is only one top scorer, it returns the ordered list</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">	#if there is only one top scorer, it returns the ordered list</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
-          
-          
           <code class="ruby">	#if there is more than one top scorer, it proceeds to break the tie using another method</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="39">
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
           <code class="ruby">	def Cat.rank_cats</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="40">
+        <li class="missed" data-hits="0" data-linenumber="39">
           
           
           <code class="ruby">		cat_hash = Cat.get_all_cats_like_counts</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="41">
+        <li class="missed" data-hits="0" data-linenumber="40">
           
           
           <code class="ruby">		@ordered_list = cat_hash.sort_by {|k,v| v}.reverse.to_h</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="42">
+        <li class="missed" data-hits="0" data-linenumber="41">
           
           
           <code class="ruby">		@list_top_cats = @ordered_list.select { |k, v| v == @ordered_list.values.max}</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="43">
+        <li class="missed" data-hits="0" data-linenumber="42">
           
           
           <code class="ruby">		if @list_top_cats.count == 1</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="44">
+        <li class="missed" data-hits="0" data-linenumber="43">
           
           
           <code class="ruby">			return @ordered_list</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby">		else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
+        <li class="missed" data-hits="0" data-linenumber="45">
           
           
           <code class="ruby">			@list_top_cats.each do |cat,v|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="47">
+        <li class="missed" data-hits="0" data-linenumber="46">
           
           
           <code class="ruby">				other_cats = @list_top_cats.select{|k, v| k != cat}.to_h</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="48">
+        <li class="missed" data-hits="0" data-linenumber="47">
           
           
           <code class="ruby">				other_cats.each do |k, v|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
+        <li class="missed" data-hits="0" data-linenumber="49">
           
           
           <code class="ruby">					Cat.who_beat_who(cat,k)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="51">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">				end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby">			end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="missed" data-hits="0" data-linenumber="52">
           
           
           <code class="ruby">			return @ordered_list</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">			 # return Cat.who_beat_who_more_often</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">		 end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="57">
@@ -737,301 +737,301 @@
         <li class="never" data-hits="" data-linenumber="59">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">	# this method compares two Cats and checks which one has </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="60">
           
           
-          <code class="ruby">	# this method compares two Cats and checks which one has </code>
+          <code class="ruby">	# been winner more often when the other has been loser</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="61">
           
           
-          <code class="ruby">	# been winner more often when the other has been loser</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
           <code class="ruby">	# the Cat object who has been winner more often gets moved to the front of the hash</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="63">
+        <li class="covered" data-hits="1" data-linenumber="62">
           <span class="hits">1</span>
           
           <code class="ruby">def Cat.who_beat_who(cat,k)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="64">
+        <li class="missed" data-hits="0" data-linenumber="63">
           
           
           <code class="ruby">		cat1 = Cat.where(:name =&gt; cat).first</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="65">
+        <li class="missed" data-hits="0" data-linenumber="64">
           
           
           <code class="ruby">		cat2 = Cat.where(:name =&gt; k).first</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="67">
+        <li class="missed" data-hits="0" data-linenumber="66">
           
           
           <code class="ruby">		cat1_wins = Result.where(&quot;winner_id&quot; =&gt; cat1.id, &quot;loser_id&quot; =&gt; cat2.id)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="68">
+        <li class="missed" data-hits="0" data-linenumber="67">
           
           
           <code class="ruby">		cat2_wins = Result.where(&quot;winner_id&quot; =&gt; cat2.id, &quot;loser_id&quot; =&gt; cat1.id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="70">
+        <li class="missed" data-hits="0" data-linenumber="69">
           
           
           <code class="ruby">		if cat1_wins.length &gt; cat2_wins.length </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="71">
+        <li class="missed" data-hits="0" data-linenumber="70">
           
           
           <code class="ruby">			return Cat.re_order_list(cat1)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="73">
+        <li class="missed" data-hits="0" data-linenumber="72">
           
           
           <code class="ruby">		elsif cat1_wins.length &lt; cat2_wins.length </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="74">
+        <li class="missed" data-hits="0" data-linenumber="73">
           
           
           <code class="ruby">				return Cat.re_order_list(cat2)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="76">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">			else </code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="77">
+        <li class="missed" data-hits="0" data-linenumber="76">
           
           
           <code class="ruby">				return @ordered_list</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="78">
+        <li class="never" data-hits="" data-linenumber="77">
           
           
           <code class="ruby">		end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby">	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="79">
           
           
-          <code class="ruby">	end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="80">
           
           
-          <code class="ruby"></code>
+          <code class="ruby"># this method re_orders the Hash @ordered_list</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="81">
           
           
-          <code class="ruby"># this method re_orders the Hash @ordered_list</code>
+          <code class="ruby">#the input is the Hash @list_top_cats.select{|k, v| k = self.key}.to_h</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="82">
           
           
-          <code class="ruby">#the input is the Hash @list_top_cats.select{|k, v| k = self.key}.to_h</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
           <code class="ruby">#it returns the Hash with this cat in the first position of the Hash</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="84">
+        <li class="covered" data-hits="1" data-linenumber="83">
           <span class="hits">1</span>
           
           <code class="ruby"> def Cat.re_order_list(cat)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="85">
+        <li class="missed" data-hits="0" data-linenumber="84">
           
           
           <code class="ruby"> 			cat_name = cat.name</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="86">
+        <li class="missed" data-hits="0" data-linenumber="85">
           
           
           <code class="ruby">			this_cat = @list_top_cats.select{|k, v| k == cat_name}.to_h</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="87">
+        <li class="missed" data-hits="0" data-linenumber="86">
           
           
           <code class="ruby">			cat_value = @list_top_cats[cat_name]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="88">
+        <li class="missed" data-hits="0" data-linenumber="87">
           
           
           <code class="ruby">			@ordered_list.delete(cat_name)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="89">
+        <li class="missed" data-hits="0" data-linenumber="88">
           
           
           <code class="ruby">			modified_ordered_list = Hash[cat_name, cat_value].merge!(@ordered_list)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="90">
+        <li class="missed" data-hits="0" data-linenumber="89">
           
           
           <code class="ruby">			@ordered_list = modified_ordered_list</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="91">
+        <li class="missed" data-hits="0" data-linenumber="90">
           
           
           <code class="ruby">			return @ordered_list</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="never" data-hits="" data-linenumber="91">
           
           
           <code class="ruby"> end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="93">
+        <li class="never" data-hits="" data-linenumber="92">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="94">
+        <li class="never" data-hits="" data-linenumber="93">
           
           
           <code class="ruby"># this method determines the percentage of how often this Cat object is </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="95">
+        <li class="never" data-hits="" data-linenumber="94">
           
           
           <code class="ruby"># selected when it&#39;s in the first position on the page</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="96">
+        <li class="never" data-hits="" data-linenumber="95">
           
           
           <code class="ruby"># it returns a Float</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="97">
+        <li class="covered" data-hits="1" data-linenumber="96">
           <span class="hits">1</span>
           
           <code class="ruby">	def percentage_in_first_position</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="98">
+        <li class="missed" data-hits="0" data-linenumber="97">
           
           
           <code class="ruby">		first = Result.where(&quot;winner_id&quot; =&gt; self.id, &quot;winner_order&quot; =&gt; 1)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="99">
+        <li class="missed" data-hits="0" data-linenumber="98">
           
           
           <code class="ruby">		second = Result.where(&quot;winner_id&quot; =&gt; self.id, &quot;winner_order&quot; =&gt; 2)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="100">
+        <li class="missed" data-hits="0" data-linenumber="99">
           
           
           <code class="ruby">		total = second.length.to_f + first.length.to_f</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="101">
+        <li class="missed" data-hits="0" data-linenumber="100">
           
           
           <code class="ruby">		top = first.length.to_f</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="102">
+        <li class="missed" data-hits="0" data-linenumber="101">
           
           
           <code class="ruby">		 if first.length == 0 &amp;&amp; second.length == 0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="103">
+        <li class="never" data-hits="" data-linenumber="102">
           
           
           <code class="ruby">		 	return nil</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+        <li class="never" data-hits="" data-linenumber="103">
           
           
           <code class="ruby">		 else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="105">
+        <li class="missed" data-hits="0" data-linenumber="104">
           
           
           <code class="ruby">			percentage = top/total</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="106">
+        <li class="missed" data-hits="0" data-linenumber="105">
           
           
           <code class="ruby">			return percentage * 100.0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="107">
+        <li class="never" data-hits="" data-linenumber="106">
           
           
           <code class="ruby">		end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="108">
+        <li class="never" data-hits="" data-linenumber="107">
           
           
           <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="109">
@@ -1043,151 +1043,151 @@
         <li class="never" data-hits="" data-linenumber="110">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">	# this method compares two Cats and checks which one has </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="111">
           
           
-          <code class="ruby">	# this method compares two Cats and checks which one has </code>
+          <code class="ruby">	# been winner more often when the other has been loser</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="112">
           
           
-          <code class="ruby">	# been winner more often when the other has been loser</code>
+          <code class="ruby">	# def Cat.who_beat_who_more_often</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="113">
           
           
-          <code class="ruby">	# def Cat.who_beat_who_more_often</code>
+          <code class="ruby">	# 	cat_one = @list_top_cats.keys[0]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="114">
           
           
-          <code class="ruby">	# 	cat_one = @list_top_cats.keys[0]</code>
+          <code class="ruby">	# 	cat_two = @list_top_cats.keys[1]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="115">
           
           
-          <code class="ruby">	# 	cat_two = @list_top_cats.keys[1]</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="116">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">	# 	cat1 = Cat.where(:name =&gt; cat_one).first</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="117">
           
           
-          <code class="ruby">	# 	cat1 = Cat.where(:name =&gt; cat_one).first</code>
+          <code class="ruby">	# 	cat2 = Cat.where(:name =&gt; cat_two).first</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="118">
           
           
-          <code class="ruby">	# 	cat2 = Cat.where(:name =&gt; cat_two).first</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="119">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">	# 	cat1_wins = Result.where(&quot;winner_id&quot; =&gt; cat1.id, &quot;loser_id&quot; =&gt; cat2.id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="120">
           
           
-          <code class="ruby">	# 	cat1_wins = Result.where(&quot;winner_id&quot; =&gt; cat1.id, &quot;loser_id&quot; =&gt; cat2.id)</code>
+          <code class="ruby">	# 	cat2_wins = Result.where(&quot;winner_id&quot; =&gt; cat2.id, &quot;loser_id&quot; =&gt; cat1.id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="121">
           
           
-          <code class="ruby">	# 	cat2_wins = Result.where(&quot;winner_id&quot; =&gt; cat2.id, &quot;loser_id&quot; =&gt; cat1.id)</code>
+          <code class="ruby">	# 	# if cat1_wins == nil &amp;&amp; cat2_wins== nil </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="122">
           
           
-          <code class="ruby">	# 	# if cat1_wins == nil &amp;&amp; cat2_wins== nil </code>
+          <code class="ruby">	# 	# 	return nil</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="123">
           
           
-          <code class="ruby">	# 	# 	return nil</code>
+          <code class="ruby">	# 	if cat1_wins.length &gt; cat2_wins.length || cat1_wins.length == cat2_wins.length</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="124">
           
           
-          <code class="ruby">	# 	if cat1_wins.length &gt; cat2_wins.length || cat1_wins.length == cat2_wins.length</code>
+          <code class="ruby">	# 		return @ordered_list</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="125">
           
           
-          <code class="ruby">	# 		return @ordered_list</code>
+          <code class="ruby">	# 	elsif cat1_wins.length &lt; cat2_wins.length </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="126">
           
           
-          <code class="ruby">	# 	elsif cat1_wins.length &lt; cat2_wins.length </code>
+          <code class="ruby">	# 			cat_two_value = @list_top_cats.values[1]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="127">
           
           
-          <code class="ruby">	# 			cat_two_value = @list_top_cats.values[1]</code>
+          <code class="ruby">	# 			@ordered_list.delete(cat_two)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="128">
           
           
-          <code class="ruby">	# 			@ordered_list.delete(cat_two)</code>
+          <code class="ruby">	# 			modified_ordered_list = Hash[cat_two, cat_two_value].merge!(@ordered_list)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="129">
           
           
-          <code class="ruby">	# 			modified_ordered_list = Hash[cat_two, cat_two_value].merge!(@ordered_list)</code>
+          <code class="ruby">	# 			@ordered_list = modified_ordered_list</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="130">
           
           
-          <code class="ruby">	# 			@ordered_list = modified_ordered_list</code>
+          <code class="ruby">	# 			return @ordered_list</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="131">
           
           
-          <code class="ruby">	# 			return @ordered_list</code>
+          <code class="ruby">	# 	end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="132">
           
           
-          <code class="ruby">	# 	end</code>
+          <code class="ruby">	# end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="133">
           
           
-          <code class="ruby">	# end</code>
+          <code class="ruby">end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="134">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="135">
@@ -1205,46 +1205,40 @@
         <li class="never" data-hits="" data-linenumber="137">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">	# def who_wins_a_tie(opponent)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="138">
           
           
-          <code class="ruby">	# def who_wins_a_tie(opponent)</code>
+          <code class="ruby">	# 	self_wins = Result.where(&quot;winner_id&quot; =&gt; self.id, &quot;loser_id&quot; =&gt; opponent.id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="139">
           
           
-          <code class="ruby">	# 	self_wins = Result.where(&quot;winner_id&quot; =&gt; self.id, &quot;loser_id&quot; =&gt; opponent.id)</code>
+          <code class="ruby">	# 	opponent_wins = Result.where(&quot;winner_id&quot; =&gt; opponent.id, &quot;loser_id&quot; =&gt; self.id)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="140">
           
           
-          <code class="ruby">	# 	opponent_wins = Result.where(&quot;winner_id&quot; =&gt; opponent.id, &quot;loser_id&quot; =&gt; self.id)</code>
+          <code class="ruby">	# 	if self_wins.length &gt; opponent_wins.length</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="141">
           
           
-          <code class="ruby">	# 	if self_wins.length &gt; opponent_wins.length</code>
+          <code class="ruby">	# 		return true</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="142">
           
           
-          <code class="ruby">	# 		return true</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="143">
-          
-          
           <code class="ruby">	# 	end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="144">
+        <li class="never" data-hits="" data-linenumber="143">
           
           
           <code class="ruby">	# end</code>

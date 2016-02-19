@@ -23,7 +23,6 @@ class Cat < ActiveRecord::Base
 	def Cat.get_all_cats_like_counts
 		cat_hash = {}
 		all_cats = Cat.all
-
 		all_cats.each do |cat|
 			name = cat.name
 			likes = cat.count_likes
