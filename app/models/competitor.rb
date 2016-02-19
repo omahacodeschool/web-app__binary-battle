@@ -18,22 +18,27 @@ class Competitor < ActiveRecord::Base
     return loss_count.to_f
   end
 
-  def rank
-    competitors = Competitor.all
-    winner_with_win_percent = {}
-    competitors.each do |c|
-      win_count = c.get_win_count
-      loss_count = c.get_loss_count
-      win_percent = (win_count/loss_count)
-      #store a hash with the competitor object as key and win_percent as value?
-      #is wanting to create a hash a good indicator that I should create 
-      #another column in my table?
-      winner_with_win_percent[c] = win_percent
-    end
-    return winner_with_win_percent.sort_by {|key, value| value }
 
 
+  #Gets a hash of competitor id(key) and their win percent(value)
+
+  def winner_with_win_percent
+      winner_with_win_percent = {}
+      win_count = self.get_win_count
+      loss_count = self.get_loss_count
+      win_percent = (win_count/(win_count + loss_count))
+      winner_with_win_percent[self.id] = win_percent
+    return winner_with_win_percent
   end
+
+  # def rank
+  #   array_to_sort = []
+  #   competitors = Competitor.all
+  #   competitors.each do |c|
+  #     y = c.winner_with_win_percent
+  #     array_to_sort << y
+  #   end
+  # end
 
 
 

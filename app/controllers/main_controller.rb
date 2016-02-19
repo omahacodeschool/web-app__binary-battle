@@ -33,13 +33,22 @@ MyApp.post "/vote/create/:winner_id/:loser_id" do
   erb :"confirm_submission"
 end
 
-MyApp.get "/vote/view/" do
-  competitors = Competitor.all
-  
+MyApp.get "/vote/view" do
+  c = Competitor.find_by_id(4)
+  @hash = c.winner_with_win_percent
+
+  # array_to_sort = []
+  # competitors = Competitor.all
+  #   competitors.each do |c|
+  #     y = c.winner_with_win_percent
+  #     array_to_sort << y
+  #   end
+  #   @rankings_array = array_to_sort.sort_by {|key, value| value }
+
   #get all the matchups where one competitor is the winner
   #get all the matchups where that same competitor is the loser
   # divide the number of matchups where they are the winner by the number of matchups where they appeared at all
-
+erb :"competitor/view_votes"
 end
 
 

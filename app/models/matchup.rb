@@ -14,4 +14,11 @@ class Matchup < ActiveRecord::Base
     return loser_name
   end
 
+
+
+  #get all the matchups where one competitor is the winner
+  #get all the matchups where that same competitor is the loser
+  # divide the number of matchups where they are the winner by the number of matchups where they appeared at all
+  #.sort_by {|key, value| value }
+
 end
