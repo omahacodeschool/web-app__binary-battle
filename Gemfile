@@ -14,6 +14,8 @@ gem "pg"
 gem 'sinatra-flash'
 gem 'sinatra-redirect-with-flash'
 
+gem "minitest-rg"
+
 gem "rake"
 gem "database_cleaner"
 gem 'simplecov', :require => false, :group => :test

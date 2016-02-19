@@ -32,6 +32,8 @@ GEM
     json (1.8.3)
     method_source (0.8.2)
     minitest (5.8.3)
+    minitest-rg (5.2.0)
+      minitest (~> 5.0)
     multi_json (1.11.2)
     pg (0.18.4)
     pry (0.10.3)
@@ -76,6 +78,7 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   database_cleaner
+  minitest-rg
   pg
   pry
   rake
