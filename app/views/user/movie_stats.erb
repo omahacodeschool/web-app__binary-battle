@@ -20,17 +20,17 @@
     <tr>
       <td>Total Rounds:</td>
       <!--Sum of instances of movie.id across upvote_id and downvote_id-->
-      <td></td>
+      <td><%= @movie.total_rounds %></td>
     </tr>
     <tr>
       <td>Upvotes:</td>
       <!--All instances of movie.id in upvote_id-->
-      <td></td>
+      <td><%= @movie.movie_upvotes %></td>
     </tr>
     <tr>
       <td>Downvotes:</td>
       <!--All instances of movie.id in downvote_id-->
-      <td></td>
+      <td><%= @movie.movie_downvotes %></td>
     </tr>
     <tr>
       <td>Win/Loss Ratio:</td>
