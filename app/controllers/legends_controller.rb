@@ -8,7 +8,7 @@ MyApp.get "/edit_legend/:number" do
   erb :"legends/edit_legend"
 end
 
-MyApp.get "/edit_legend/success/:number" do
+MyApp.post "/edit_legend/success/:number" do
   @legend = Legend.find_by_id(params[:number])
   @legend.name = params["name"]
   @legend.save
