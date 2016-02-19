@@ -3,8 +3,19 @@ MyApp.get "/legends" do
   erb :"legends/legends"
 end
 
+MyApp.get "/edit_legend/:number" do
+  @legend = Legend.find_by_id(params[:number])
+  erb :"legends/edit_legend"
+end
+
+MyApp.get "/edit_legend/success/:number" do
+  @legend = Legend.find_by_id(params[:number])
+  @legend.name = params["name"]
+  @legend.save
+  erb :"legends/edit_legend_success"
+end
+
 MyApp.get "/add_legend" do
-  
   erb :"legends/add_legend"
 end
 

@@ -5,6 +5,6 @@
 <a href="/add_legend">add a legend</a>
 <ol>
 <% @legend.each do |l| %>
-  <li><%= l.name %></li>
+  <li><%= l.name %> - <a href="/edit_legend/<%= l.id %>">edit</a></li>
 <% end %>
 </ol>
