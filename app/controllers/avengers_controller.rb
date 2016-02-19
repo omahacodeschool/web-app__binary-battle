@@ -26,6 +26,8 @@ end
 
 MyApp.get "/results" do
   @avengers = Avenger.all
+  @ranked = @avengers.order("votes DESC")
   erb :'results'
 end
+
 
