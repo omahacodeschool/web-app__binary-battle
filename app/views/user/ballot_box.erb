@@ -15,11 +15,11 @@ choose wisely...
 <form action="/user_vote" method="post">
 
 <p>
-  <h2><%= @movie_1.movie_title %></h2>
-  
+  <img src="<%= @movie_1.movie_poster %>" alt="<%= @movie_1.movie_title %>" style="width:50%;height:50%;">
+  <br />
   <input type="hidden" name="upvote_id" value="<%= @movie_1.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_2.id %>">
-  <input type="submit" name="movie_1_vote" value="Vote">
+  <input type="submit" name="movie_1_vote" value="<%= @movie_1.movie_title %>">
 </p>
 
 </form>
@@ -29,11 +29,11 @@ choose wisely...
 <form action="/user_vote" method="post">
 
 <p>
-  <h2><%= @movie_2.movie_title %></h2>
-  
+  <img src="<%= @movie_2.movie_poster %>" alt="<%= @movie_2.movie_title %>" style="width:50%;height:50%;">
+  <br />
   <input type="hidden" name="upvote_id" value="<%= @movie_2.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_1.id %>">
-  <input type="submit" name="movie_2_vote" value="Vote">
+  <input type="submit" name="movie_2_vote" value="<%= @movie_2.movie_title %>">
 </p>
   
 </form>

@@ -19,7 +19,8 @@ MyApp.post "/add_movie_form" do
   @movies = Movie.all
   @movie  = Movie.new
 
-  @movie.movie_title = (params["movie_title"])
+  @movie.movie_title  = (params["movie_title"])
+  @movie.movie_poster = (params["movie_poster"])
   @movie.save
 
   erb :"admin/add_movies"
@@ -45,7 +46,8 @@ MyApp.post "/process_movie_update/:movie_id" do
   @movies = Movie.all
   @movie  = Movie.find_by_id(params[:movie_id])
 
-  @movie.movie_title = (params["movie_title_update"])
+  @movie.movie_title  = (params["movie_title_update"])
+  @movie.movie_poster = (params["movie_poster_update"])
   @movie.save
 
   erb :"admin/add_movies"
