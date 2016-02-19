@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "image"
     t.string   "thumbnail"
     t.boolean  "locked"
+    t.boolean  "confirmed"
   end
 
   create_table "pools", force: :cascade do |t|

@@ -4,13 +4,12 @@ MyApp.get "/categories" do
 end
 
 MyApp.get "/categories/add" do
-  @message = Category.all
+  @category = Category.new
   @nominees = Nominee.all
   erb :"/categories/add_category"
 end
 
 MyApp.post "/categories/add/confirmation" do
-  @message = Category.all
   @category = Category.new
   @nominees = Nominee.all
   @category.name = params[:add_name]

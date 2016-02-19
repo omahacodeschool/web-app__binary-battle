@@ -3,7 +3,7 @@
 <!-- RETURNS conditional method when controller returns to add screen-->
 <!--  due to an "active" pre-existing entry check being flaggged as True in controller  -->
 <% if @error == true %>
-  <p><%= @message.get_category_already_exists_error %></p>
+  <p><%= @category.get_already_exists_error %></p>
   <br>
   <br>
 <% end %>

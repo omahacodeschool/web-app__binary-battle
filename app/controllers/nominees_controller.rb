@@ -4,36 +4,50 @@ MyApp.get "/nominees" do
 end
 
 MyApp.get "/nominees/add" do
-
-  erb :"/nominees/add_nominees"
+  @nominee = Nominee.new
+  @category = Category.all
+  erb :"/nominees/add_nominee"
 end
 
 MyApp.post "/nominees/add/confirmation" do
-  @nominee = nominee.New
-
-  redirect :"/nominees/nominees/nominee/#{@nominee_id}"
+  @nominee = Nominee.new
+  @category = Category.all
+  @nominee.name = params[:add_nominee_name_textbox]
+  @nominee.bio = params[:nominee_bio_textarea]
+  @nominee.image = params[:add_nominee_image_link]
+  @nominee.thumbnail = params[:add_nominee_thumbnail_link]
+  @nominee.confirmed = params[:confirmed_radio]
+  @nominee.locked = false
+ 
+ if Nominee.exists?(:name => params[:add_nominee_name_textbox]) && @nominee.confirmed != true
+    @duplicate_nominee_warning = true
+    erb :"/nominees/add_nominee"
+  else
+    @nominee.save
+    redirect :"/nominees/nominee/#{@nominee.id}"
+  end
 end
 
 MyApp.post "/nominees/nominee/:id/delete" do
-  @nominee = nominee.find_by_id(params[:id])
+  @nominee = Nominee.find_by_id(params[:id])
 
   redirect :"/nominees"
 end
 
 MyApp.get "/nominees/nominee/:id" do
-  @nominee = nominee.find_by_id(params[:id])
+  @nominee = Nominee.find_by_id(params[:id])
 
   erb :"/nominees/view_nominee"
 end
 
 MyApp.get "/nominees/nominee/:id/update" do
-  @nominee = nominee.find_by_id(params[:id])
+  @nominee = Nominee.find_by_id(params[:id])
 
   erb :"/nominees/update_nominee"
 end
 
 MyApp.post "/nominees/nominee/:id/update/confirmation" do
-  @nominee = nominee.find_by_id(params[:id])
+  @nominee = Nominee.find_by_id(params[:id])
 
   redirect :"/nominees/nominee/#{@nominee_id}"
 end

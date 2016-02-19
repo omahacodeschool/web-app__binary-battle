@@ -1,0 +1,37 @@
+<center><h1> Add New Nominee</h1>
+
+  <form  method="POST" action="/nominees/add/confirmation">
+
+  <% if @duplicate_nominee_warning == true %>
+    <p><%= @nominee.already_exists_error %></p>
+    <br>
+    <br>
+    <% end %>
+
+    Name:&emsp;<input type="text" name="add_nominee_name_textbox" value="<%= params[:add_nominee_name_textbox] %>">
+
+    Image Link:&emsp;<input type="text" name="add_nominee_image_link" value="<%= params[:add_nominee_image_link] %>">
+    &emsp;&emsp;
+
+    Thumbnail Link:&emsp;<input type="text" name="add_nominee_thumbnail_link" value="<%= params[:add_nominee_thumbnail_link] %>">
+    
+    <br>
+    <br>
+    Include an optional description of your nominee below:<br>
+    <textarea name="nominee_bio_textarea" cols="70" rows="8">
+    <%=  params[:nominee_bio_textarea] %>
+    </textarea>
+    
+    <br>
+    <br>
+     <% if @duplicate_nominee_warning == true %>
+    <input type="radio" name="confirmed_radio" value=<%= true %>> I confirm that this nominee has not been registered.
+  <br>
+  <br>
+  <% end %> 
+  <input type="submit" value="Add Nominee">
+</form>
+<br>
+<br>
+
+</center> 
