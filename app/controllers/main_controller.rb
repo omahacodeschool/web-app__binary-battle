@@ -1,5 +1,7 @@
 MyApp.get "/" do
-  @dworfs = Dworf.limit(2).order("RANDOM()")
+  
+  @dworf1, @dworf2 = Dworf.limit(2).order("RANDOM()")
+
   erb :"home"
 end
 MyApp.get "/add_dworf" do
@@ -10,12 +12,14 @@ MyApp.get "/add_dworf" do
   @dworf_add.save
   erb :"administrator"
 end
-MyApp.get "/vote_dworf/:place" do
+MyApp.get "/vote_dworf/:place/:holder" do
   @dworf = Dworf.find_by_id(params[:place])
-
+  @result = Result.new
+  @result.win = params[:place]
+  @result.loose = params[:holder]
   @dworf.vote = @dworf.vote + 1
   @dworf.save
-
+  @result.save
   erb :"vote_follow"
 end
 MyApp.get "/administrator" do
@@ -24,5 +28,6 @@ end
 MyApp.get "/results" do
 
   @dworfs = Dworf.all
+  @result = Result.all
   erb :"results"
 end

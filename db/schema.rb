@@ -23,4 +23,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "image"
   end
 
+  create_table "results", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "win"
+    t.integer  "loose"
+  end
+
 end

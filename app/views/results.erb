@@ -1,3 +1,33 @@
+
+
+<table border="1">
+  <thead>
+    <tr>
+
+      <th>Match</th>
+      <th>Winners Id!</th>
+      <th>Loosers Id!</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @result.each do |x| %>
+      <tr>
+        <td><%= x.id %></td>
+        <td><%= x.win %></td>
+        <td><%= x.loose %></td>
+
+
+      
+        
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+result
+
 <style>
 body {
     background-color: silver;
