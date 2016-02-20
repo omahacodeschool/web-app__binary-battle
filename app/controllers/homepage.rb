@@ -2,7 +2,6 @@
 #Homepage view 
 MyApp.get "/" do
   @a = Artist.limit(2).order("RANDOM()")
-  binding.pry
   erb :"vote" 
 end
 

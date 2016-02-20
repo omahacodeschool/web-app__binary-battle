@@ -2,9 +2,11 @@
 
 <center>
 <form action="/submit_vote">
-  <input type="radio" name="rank" value="<%= @a.name %>"><%= @a.name %><br>
-  <input type="radio" name="rank" value="<%= @a.name %>"><%= @a.name %><br>
-  <input type="submit"
+  <% @a.each do |a| %>
+    <form action="/submit_vote/<%= a.id %>" method="post">
+          <button name="<%= @a.name %>" type="submit" value=<%= 1 %>><%= a.name %></button>
+          </form>
+  <% end %>
 </form>
 </center>
 
