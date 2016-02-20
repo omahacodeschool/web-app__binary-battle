@@ -10,9 +10,10 @@ end
 #Increment the movie in questions vote count by 1
 MyApp.post "/add_vote/:showdown/:movie_id" do
   x = params[:movie_id]
+  y = Movie.all
   w = Count.find_by_id(params[:showdown])
   w.winner_id = x
-  @winner = w.winner_id
+  @winner = y.find_by_id(x).movie_name
   @loser = params["loser"]
 
   w.save
