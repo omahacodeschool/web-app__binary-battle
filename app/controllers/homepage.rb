@@ -23,7 +23,7 @@ end
 
 #view artist and their results
 MyApp.get "/view_artist" do
-  @a = Artist.all.order(rank: :asc)
+  @a = Artist.all.order(rank: :desc)
   erb :"artist_rank"
 end
 
