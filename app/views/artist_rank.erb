@@ -5,19 +5,21 @@
   <title>ARTIST BATTLE</title>
 </head>
 
+<table</table>
   <tr>
   <th>Artist</th>
+  <th>Rank</th>
   </tr>
 
-<body>
+<tbody>
  
   <% @a.each do |artist| %>
-    
     <tr>
-      <td><p><%= artist.name %></p></td>
+      <td><p><%= artist.name %> - <%= artist.rank %></p></td>
     </tr>
   <% end %> 
-</body>
+</tbody>
+</table>
 </html>
 
 <a href="/">Home</a>
