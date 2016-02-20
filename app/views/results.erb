@@ -11,10 +11,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @ranked.each do |a| %>
+    <% @showdown.each do |s| %>
       <tr>
-        <td><%= a.name %></td> 
-        <td><%= a.votes %></td>        
+        <td><%= s.winner_name %></td> 
+        <td><%= s.vote_count %></td>        
       </tr>
     <% end %>                  
   </tbody>

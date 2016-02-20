@@ -15,17 +15,15 @@ end
 MyApp.post "/new_avenger" do
   @avenger = Avenger.new
   @avenger.name = params["new_avenger"]
-  @avenger.votes = 0
   @avenger.save
   redirect :'admin'
 end
 
 MyApp.post "/process_vote/:showdown_id" do
   x = params["hero_vote"]
-  @winner = Avenger.find_by_id(x)
-  @winner.votes += 1
+  @winner = Avenger.find_by_id(x) 
   @winner.save
-  @showdown = Showdown.find_by_id(params[:showdown_id]
+  @showdown = Showdown.find_by_id(params[:showdown_id])
   @showdown.winner_id = x
   @showdown.save
 
@@ -34,7 +32,6 @@ end
 
 MyApp.get "/results" do
   @avengers = Avenger.all
-  @ranked = @avengers.order("votes DESC")
   erb :'results'
 end
 
