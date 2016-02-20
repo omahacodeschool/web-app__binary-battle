@@ -8,6 +8,11 @@ MyApp.get "/home_movies" do
   sample = movies.sample(2)
   @random_movie1 = sample[0] 
   @random_movie2 = sample[1]
+  @showdown = Count.all
+  binding.pry
+  @showdown.movie1_id = @random_movie1.id
+  @showdown.movie2_id = @random_movie2.id
+  @showdown.save
   erb :"/movies/movie_home"
 end
 #Go to View to add movies

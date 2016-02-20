@@ -10,7 +10,8 @@ end
 
 #Increment the movie in questions vote count by 1
 MyApp.post "/add_vote/:id" do
-  @w = Movie.find_by_id(params[:id])
+  @w = Count.find_by_id(params[:id])
+  @w.movie_1.id = params([])
   @w.increment!(:vote_count)
   @w.save
 erb :"/movies/movie_voted"
