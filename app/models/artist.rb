@@ -1,11 +1,8 @@
 class Artist < ActiveRecord::Base
 
-  def random_artist
-    a = Artist.all
-    binding.pry
-    @a.order("RAND(:id)").first
-    binding.pry
-  end
+  #def increment_counter(counter_name, id)
+  #  self.increment_counter(:rank, 1)
+  #end
 
 end
 

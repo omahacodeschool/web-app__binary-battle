@@ -6,8 +6,10 @@ MyApp.get "/" do
 end
 
 #submit users vote
-MyApp.get "/submit_vote/" do
-
+MyApp.post "/submit_vote/:id" do
+  @point = Artist.find_by_id(params[:id])
+  @point.increment(:rank, 1)
+  @point.save
   erb :"success_vote"
 end
 
