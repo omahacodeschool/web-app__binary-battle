@@ -11,10 +11,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @avengers.each do |a| %>
+    <% @rankings.each do |name, votes| %>
       <tr>
-        <td><%= a.name %></td> 
-        <td><%= a.vote_count %></td>
+        <td><%= name %></td> 
+        <td><%= votes %></td>
       </tr>
     <% end %>                  
   </tbody>

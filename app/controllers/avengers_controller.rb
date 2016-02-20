@@ -30,6 +30,7 @@ end
 MyApp.get "/results" do
   @showdowns = Showdown.all
   @avengers = Avenger.all
+  @rankings = Avenger.rank
   erb :'results'
 end
 

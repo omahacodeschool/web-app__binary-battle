@@ -6,8 +6,11 @@ class Showdown < ActiveRecord::Base
     y.name
   end
 
-  def vote_count
-    x = self.
+  def get_loser
+    if self.hero_1_id != self.winner_id
+      self.hero_1_id
+    else 
+      self.hero_2_id
   end
 
 end
