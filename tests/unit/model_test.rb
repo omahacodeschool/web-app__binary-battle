@@ -1,3 +1,5 @@
+require 'test_helper'
+
 class PlanetTest < Minitest::Test
   def setup
     super
@@ -23,7 +25,14 @@ class PlanetTest < Minitest::Test
     @pluto.save
   end
 
+  def test_list_planet_names
+    assert_includes(Planet.list_planet_names, "Copernicus")
+    assert_includes(Planet.list_planet_names, "Saturn")
+    assert_includes(Planet.list_planet_names, "Jupiter")
+  end
+
   def test_select_two_planets
-    assert_includes(Planet.all, Planet.select_two_planets)
+    assert_includes(Planet.list_planet_names, Planet.select_two_planets[0])
+    assert_includes(Planet.list_planet_names, Planet.select_two_planets[1])
   end
 end
