@@ -7,14 +7,14 @@
 
 <fieldset>
 <legend><%= @legend_1.name %></p></legend>
-<form action="vote_added/<%= @legend_1.id%>/<%= @legend_2.id%>/1" method="post">
+<form action="vote_added/<%= @legend_1.id%>/<%= @legend_2.id%>" method="post">
 <input type="submit" value="vote">
 </form>
 </fieldset>
 
 <fieldset>
 <legend><%= @legend_2.name %></p></legend>
-<form action="vote_added/<%= @legend_2.id%>/<%= @legend_1.id%>/2" method="post">
+<form action="vote_added/<%= @legend_2.id%>/<%= @legend_1.id%>" method="post">
 <input type="submit" value="vote">
 </form>
 </fieldset>
