@@ -1,4 +1,9 @@
 class Avenger < ActiveRecord::Base
-  def showdown_access
+  def vote_count
+    x = self.id
+    y = Showdown.all
+    y.count(:conditions => "winner_id == x")
   end
+
+
 end

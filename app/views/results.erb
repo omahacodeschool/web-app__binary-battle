@@ -11,10 +11,10 @@
     </tr>
   </thead>
   <tbody>
-    <% @showdown.each do |s| %>
+    <% @avengers.each do |a| %>
       <tr>
-        <td><%= s.winner_name %></td> 
-        <td><%= s.vote_count %></td>        
+        <td><%= a.name %></td> 
+        <td><%= a.vote_count %></td>
       </tr>
     <% end %>                  
   </tbody>

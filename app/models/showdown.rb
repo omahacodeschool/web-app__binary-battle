@@ -7,8 +7,7 @@ class Showdown < ActiveRecord::Base
   end
 
   def vote_count
-    x = Avenger.where("id" => self.winner_id)
-    x.winner_id.count
+    x = self.
   end
 
 end
