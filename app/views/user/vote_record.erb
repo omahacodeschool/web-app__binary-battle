@@ -2,12 +2,31 @@
 
 <h2>Vote Records</h2>
 
-<% @movies.each do |movie| %>
 <p>
-  <a href="/movie_stats/<%= movie.id %>"><%= movie.movie_title %></a>
-  <br />
+  <a href="/">Vote</a>
 </p>
-<% end %>
+-+-+-+-+-+-+-+-
+<p>
+  <strong>
+    Movie Stats:
+  </strong>
+</p>
+<form action="/movie_stats" method="get">
+
+  <p>
+    <select name="movie_id">
+      <% @movies.each do |movie| %>
+        <option value="<%= movie.id %>">
+        <%= movie.movie_title %>
+        </option>
+      <% end %>
+    </select>
+  </p>
+
+  <p>
+    <input type="submit" value="Check it">
+  </p>
+</form>
 
 </center>
 <!--

@@ -53,9 +53,9 @@ MyApp.post "/process_movie_update/:movie_id" do
   erb :"admin/add_movies"
 end
 
-MyApp.get "/movie_stats/:movie_id" do
+MyApp.get "/movie_stats" do
   @movies = Movie.all
-  @movie  = Movie.find_by_id(params[:movie_id])
+  @movie  = Movie.find_by_id(params["movie_id"])
   @votes  = Vote.all
 
   erb :"user/movie_stats"
