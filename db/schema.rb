@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "building_name"
-    t.integer  "vote_count"
     t.string   "building_image"
     t.string   "architect"
   end
@@ -27,23 +26,25 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "counts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "movie_id"
-    t.integer  "vote_count"
-    t.integer  "yes_votes"
-    t.integer  "no_votes"
     t.integer  "movie1_id"
     t.integer  "movie2_id"
     t.integer  "winner_id"
     t.integer  "loser_id"
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "building1_id"
+    t.integer  "building2_id"
+    t.integer  "winner_id"
+    t.integer  "loser_id"
+  end
+
   create_table "movies", force: :cascade do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "movie_name"
-    t.boolean  "voted"
-    t.integer  "vote_count"
-    t.integer  "appearance_count"
   end
 
 end

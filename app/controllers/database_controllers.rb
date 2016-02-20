@@ -2,18 +2,20 @@
 MyApp.post "/add_movie" do
   s = Movie.new
   s.movie_name = params["input_movie"]
-  s.vote_count = 0
   s.save
 
   erb :"/movies/movie_added"
 end
 
 #Increment the movie in questions vote count by 1
-MyApp.post "/add_vote/:id" do
-  @w = Count.find_by_id(params[:id])
-  @w.movie_1.id = params([])
-  @w.increment!(:vote_count)
-  @w.save
+MyApp.post "/add_vote/:showdown/:movie_id" do
+  x = params[:movie_id]
+  w = Count.find_by_id(params[:showdown])
+  w.winner_id = x
+  @winner = w.winner_id
+  @loser = params["loser"]
+
+  w.save
 erb :"/movies/movie_voted"
 end
 

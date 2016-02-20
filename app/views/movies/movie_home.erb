@@ -2,17 +2,21 @@
 
 <p style="text-align: center"><img src="/pixar.jpg" style="width:50%; height:50%">
 </p>
-<!-- <form style="text-align: center" action="/add_vote/<%=@showdown.id %>" method="post">
-  <input type="submit" value="<%=@random_movie1.movie_name%>" style="width: 500px; height: 500px; font-size: 200px">
-  <input type="hidden" value="<%=@showdown.movie2_id %>">
+<form style="text-align: center" action="/add_vote/<%=@showdown.id%>/<%=@showdown.movie1_id%>" method="post">
+
+  <input type="submit" value="<%=@showdown.first_movie_name%>">
+  <input type="hidden" name="loser" value="<%=@showdown.second_movie_name%>">
 </form>
-<br/>
 
-<form style="text-align: center" action="/add_vote/<%=@showdown.movie2_id %>" method="post">
-<input type="submit" value="<%=@random_movie2.movie_name%>" style="width: 500px; height: 500px; font-size: 200px">
-</form> -->
+<form style="text-align: center" action="/add_vote/<%=@showdown.id%>/<%=@showdown.movie2_id%>" method="post">
 
-<!-- <p> <a href="/new_movie">Add a Movie</a> <p> -->
+  <input type="submit" value="<%=@showdown.second_movie_name%>">
+  <input type="hidden" name="loser" value="<%=@showdown.first_movie_name%>">
+</form>
+
+
+
+<p> <a href="/new_movie">Add a Movie</a> <p> 
 <p style="text-align: center"> <a href="/show_movies">View the curent results</a> <p>
 
 <p style="text-align: center"> <a href="/">Vote on another topic?</a> <p>
