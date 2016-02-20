@@ -35,6 +35,7 @@ end
 
 MyApp.get "/vote/view" do
   @rankings_hash = Competitor.rank
+  @competitors = Competitor.all
   erb :"competitor/view_votes"
 end
 

@@ -1,4 +1,4 @@
-<center><h1>Definite Rankings of Spice Girl Superiority:</h1></center>
+<center><h1>Definitive Rankings of Spice Girl Superiority:</h1></center>
 
 
 <p><a href="/competitor/add">Add Competitor</a></p>
@@ -24,6 +24,24 @@
 
   </tbody>
 
+<table>
+  <thead>
+    <tr>
+    <th>Spice</th>
+    <th># of Wins</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+    <%@competitors.each do |c|%>
+    <td><%=c.name%></td>
+    <td><%=c.get_win_count%></td>
+    </tr>
+    <%end%>
+    
+
+  </tbody>
 
 
 </table>
