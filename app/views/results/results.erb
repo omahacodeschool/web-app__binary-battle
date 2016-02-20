@@ -1,0 +1,9 @@
+<h1>Current Results</h1>
+
+<ul>
+  <% @results each do |r| %>
+  
+  <li><%= r.created_at %> - <%= r.winner.name %> defeated <%= r.loser.name %></li>
+
+  <% end %>
+</ul>

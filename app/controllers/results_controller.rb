@@ -1,14 +1,14 @@
 MyApp.post "/vote_added/:winner/:loser" do
   @winner = Legend.find(params[:winner])
   @loser = Legend.find(params[:loser])
-  @vote = Vote.new
-  @vote.winner_id = @winner.id
-  @vote.loser_id = @loser.id
+  @result = Result.new
+  @result.winner_id = @winner.id
+  @result.loser_id = @loser.id
   # @vote.order = params[:order]
-  @vote.save
+  @result.save
   # binding.pry
   # redirect :"vote_added/#{@winner_id}/#{@loser_id}"
-  erb :"votes/vote_added"
+  erb :"results/vote_added"
 end
 
 # MyApp.get "/votes/:winner/:loser" do
@@ -18,6 +18,7 @@ end
 # end
 
 MyApp.get "/results" do
-  erb :"votes/results"
+  @results = Result.all
+  erb :"results/results"
 end
 

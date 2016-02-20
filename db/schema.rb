@@ -21,14 +21,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "name"
   end
 
-  create_table "votes", force: :cascade do |t|
+  create_table "results", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "legend_id"
     t.integer  "winner_id"
     t.integer  "loser_id"
-    t.integer  "comparison"
-    t.integer  "order"
   end
 
 end
