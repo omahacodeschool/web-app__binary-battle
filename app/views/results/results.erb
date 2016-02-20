@@ -1,9 +1,25 @@
 <h1>Current Results</h1>
+<a href="/">Vote Again</a>
+<h2>Most Wins: </h2>
+
+<table style="width:50%" border="1">
+  <tr>
+    <td>Legend:</td>
+    <td>Wins:</td>
+  </tr>
+  <% @legends.each do |l| %>
+  <tr>
+    <td><%= l.name %></td>
+    <td><%= l.wins %></td> 
+  </tr>
+  <% end %>
+</table>
 
 <ul>
-  <% @results each do |r| %>
+  <% @results.each do |r| %>
   
-  <li><%= r.created_at %> - <%= r.winner.name %> defeated <%= r.loser.name %></li>
+  <li><%= r.created_at %>: <%= r.winner.name %> defeated <%= r.loser.name %></li>
 
   <% end %>
 </ul>
+

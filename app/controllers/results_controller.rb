@@ -11,13 +11,8 @@ MyApp.post "/vote_added/:winner/:loser" do
   erb :"results/vote_added"
 end
 
-# MyApp.get "/votes/:winner/:loser" do
-#   @winner = Legend.find(params[:winner])
-#   @loser = Legend.find(params[:loser])
-#   erb :"votes/vote_added"  
-# end
-
 MyApp.get "/results" do
+  @legends = Legend.all
   @results = Result.all
   erb :"results/results"
 end
