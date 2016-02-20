@@ -36,7 +36,7 @@ class Competitor < ActiveRecord::Base
     hash = {}
     competitors = Competitor.all
       competitors.each do |c|
-      hash[c.id] = c.win_percent
+      hash[c.name] = c.win_percent
       end
     rankings_hash = hash.sort_by {|key, value| value }
     return rankings_hash

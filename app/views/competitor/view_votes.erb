@@ -4,6 +4,26 @@
 <p><a href="/competitor/add">Add Competitor</a></p>
 
 <p><a href="/competitor/vote">Cast Your Vote</a></p>
-<h2>Posh Spice</h2>
-<p><%=@rankings_hash%>
-</p>
+
+<table>
+  <thead>
+    <tr>
+    <th>Spice</th>
+    <th>Percent of battles won</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+    <%@rankings_hash.each do |key, value|%>
+    <td><%=key%></td>
+    <td><%=value%></td>
+    </tr>
+    <%end%>
+    
+
+  </tbody>
+
+
+
+</table>
