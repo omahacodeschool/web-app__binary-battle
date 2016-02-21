@@ -10,7 +10,6 @@ MyApp.get "/" do
   @new_showdown.frequency_one = @last_showdown.frequency_one
   @new_showdown.frequency_two = @last_showdown.frequency_two
   @new_showdown.save
-  binding.pry
   erb :"main/welcome"
 end
 
@@ -39,6 +38,7 @@ MyApp.get "/choice_selected/:num" do
 end
 
 MyApp.get "/planets_ranking" do
+  @showdowns = Showdown.all
   @planets = Planet.all
   @ordered_planets = @planets.order('points DESC')
   erb :"main/planets_ranking"
