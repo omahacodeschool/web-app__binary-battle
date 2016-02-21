@@ -30,9 +30,7 @@ class Legend < ActiveRecord::Base
 
   def self.sorted_hash
     hash = Legend.wins_hash
-    hash.sort_by {|name, wins| wins}.reverse
-    return hash
-    
+    return hash.sort_by {|name, wins| wins}.reverse
   end
 
 end
