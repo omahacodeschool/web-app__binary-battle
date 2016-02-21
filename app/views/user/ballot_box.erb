@@ -18,7 +18,7 @@ choose wisely...
 
 <p>
   <strong>
-  <%= @movie_1.movie_title %>
+  <%= @movie_1.movie_title.upcase %>
   </strong>
   <br />
   <input type="hidden" name="vote_button" value="1">
@@ -34,7 +34,7 @@ choose wisely...
 
 <p>
   <strong>
-  <%= @movie_2.movie_title %>
+  <%= @movie_2.movie_title.upcase %>
   </strong>
   <br />
   <input type="hidden" name="vote_button" value="2">
@@ -54,3 +54,11 @@ choose wisely...
 </p>
 
 </center>
+
+<p>
+  <form action="/admin_sign_in" method="post">
+
+  Password: <input type="password" name="password">
+
+  </form>
+</p>
