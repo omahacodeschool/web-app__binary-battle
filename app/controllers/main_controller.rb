@@ -19,7 +19,11 @@ MyApp.get "/choice_selected/:num" do
 
   @last_showdown = Showdown.last
   if @last_showdown.choice_one == @planet_chosen
-    #give point to frequency_one
+    @current_score_of_freq_one = @last_showdown.frequency_one
+    @new_score_of_freq_one = @current_score_of_freq_one + 1
+    @last_showdown.frequency_one = @new_score_of_freq_one
+    @last_showdown.save
+    binding.pry
   elsif @last_showdown.choice_two == @planet_chosen
     #give point to frequency_two
   end
