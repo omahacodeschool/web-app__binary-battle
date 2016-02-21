@@ -1,1 +1,6 @@
-results meep
+<center><h1> <%= @category.name %> Results </h1>
+
+<% @results.each do |r| %>
+<%= r.id %>&emsp;&emsp;<%= r.loved_id%>&emsp;&emsp;<%= r.loved_id%>&emsp;&emsp;<%= r.category_id%><br>
+<% end %>
+</center>

@@ -27,7 +27,7 @@
       CLOSED
       <% end %></td>
 
-      <td><form  method="POST" action="/battles/battle/<%= category.id %>/results">
+      <td><form  method="GET" action="/categories/category/<%= category.id %>/results">
         <input type="submit" value="Results"></form></td>
       </tr>
     <% end %>

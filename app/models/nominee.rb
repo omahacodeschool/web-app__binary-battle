@@ -7,4 +7,8 @@ class Nominee < ActiveRecord::Base
      However, to continue creating the record, please confirm and click 'Add Nominee.'"
   end
 
+  def get_nominee_info_for_winner(result_winner_id)
+    return Nominee.find_by_id(result_winner_id)
+  end
+
 end

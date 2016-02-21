@@ -1,0 +1,15 @@
+<center>
+
+  <h1> RESULTS </h1>
+
+  you voted for <%= @winner.name %>, over <%= @loser.name%>
+  <br>
+  <br>
+  <form  method="POST" action="/battles/battle/<%= @category.id %>/play">
+  <input type="submit" value="Vote Again"></form>
+
+  <form  method="GET" action="/categories/category/<%= @category.id %>/results">
+  <input type="submit" value="View Results"></form>
+
+
+</center>

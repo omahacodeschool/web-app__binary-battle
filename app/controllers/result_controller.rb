@@ -20,8 +20,9 @@ MyApp.post "/results/result/:id/delete" do
   redirect :"/results"
 end
 
-MyApp.get "/results/result/:id" do
-  @result = result.find_by_id(params[:id])
+MyApp.get "/categories/category/:id/results" do
+@category = Category.find_by_id(params[:id])
+@results = Result.where({"category_id" => @category.id})
 
   erb :"/results/view_result"
 end
