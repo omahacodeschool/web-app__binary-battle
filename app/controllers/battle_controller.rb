@@ -8,10 +8,12 @@ MyApp.get "/" do
   erb :"/home_page"
 end
 
-MyApp.post "/vote/:winner/:loser" do # "a" or "b"
+MyApp.post "/vote/:battle/:winner/:loser" do # "a" or "b"
 
-@winner = params[:winner]
-@loser =  params[:loser]
+@battle = Battle.find_by_id(params[:battle])
+@battle.movie_loser = params[:loser]
+@battle.movie_winner = params[:winner]
+@battle.save
 
   erb :"/results"
 end

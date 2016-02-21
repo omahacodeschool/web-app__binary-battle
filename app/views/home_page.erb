@@ -16,7 +16,7 @@
 
 
 
-<form action="/vote/<%= @battle.movie_left %>/<%= @battle.movie_right %>" method="post">
+<form action="/vote/<%= @battle.id %>/<%= @battle.movie_left %>/<%= @battle.movie_right %>" method="post">
 <input type="submit">
 </form>
 
@@ -25,7 +25,7 @@ VERSUS
 <%= @battle.movie_right %>
 
 
-<form action="/vote/<%= @battle.movie_right %>/<%= @battle.movie_left %>" method="post">
+<form action="/vote/<%= @battle.id %>/<%= @battle.movie_right %>/<%= @battle.movie_left %>" method="post">
 <input type="submit">
 </form>
 
