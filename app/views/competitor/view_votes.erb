@@ -5,6 +5,41 @@
 
 <p><a href="/competitor/vote">Cast Your Vote</a></p>
 
+<table border="1">
+  <thead>
+    <tr>
+    <th>Matchup ID</th>
+    <th>Winner</th>
+    <th>Winner Win Count</th>
+    <th>Winner Loss Count</th>
+    <th>Winner Win Percent</th>
+    <th>Loser</th>
+    <th>Loser Win Count</th>
+    <th>Loser Loss Count</th>
+    <th>Loser Win Percent</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+    <%@matchups.each do |m|%>
+    <td><%=m.id%></td>
+    <td><%=m.winner_name%></td>
+    <td><%=m.get_winner_win_count%></td>
+    <td><%=m.get_winner_loss_count%></td>
+    <td><%=m.get_winner_win_percent%></td>
+    <td><%=m.loser_name%></td>
+    <td><%=m.get_loser_win_count%></td>
+    <td><%=m.get_loser_loss_count%></td>
+    <td><%=m.get_loser_win_percent%></td>
+    </tr>
+    <%end%>
+    
+
+  </tbody>
+
+
+
 <table>
   <thead>
     <tr>

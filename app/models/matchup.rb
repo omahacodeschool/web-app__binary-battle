@@ -14,7 +14,43 @@ class Matchup < ActiveRecord::Base
     return loser_name
   end
 
+ def get_winner_win_count
+    wins = Matchup.where({"winner_competitor_id" => self.winner_competitor_id})
+    win_count = wins.count
+    return win_count.to_f
+  end
 
+  def get_winner_loss_count
+    losses = Matchup.where({"loser_competitor_id" => self.winner_competitor_id})
+    loss_count = losses.count
+    return loss_count.to_f
+  end
+
+  def get_winner_win_percent
+      win_count = self.get_winner_win_count
+      loss_count = self.get_winner_loss_count
+      win_percent = (win_count/(win_count + loss_count))
+    return win_percent
+  end
+
+ def get_loser_win_count
+    wins = Matchup.where({"winner_competitor_id" => self.loser_competitor_id})
+    win_count = wins.count
+    return win_count.to_f
+  end
+
+   def get_loser_loss_count
+    losses = Matchup.where({"loser_competitor_id" => self.loser_competitor_id})
+    loss_count = losses.count
+    return loss_count.to_f
+  end
+
+  def get_loser_win_percent
+      win_count = self.get_loser_win_count
+      loss_count = self.get_loser_loss_count
+      win_percent = (win_count/(win_count + loss_count))
+    return win_percent
+  end
 
   #get all the matchups where one competitor is the winner
   #get all the matchups where that same competitor is the loser

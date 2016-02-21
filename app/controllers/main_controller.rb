@@ -36,6 +36,8 @@ end
 MyApp.get "/vote/view" do
   @rankings_hash = Competitor.rank
   @competitors = Competitor.all
+  all_matchups = Matchup.all
+  @matchups = all_matchups.order("winner_competitor_id", "loser_competitor_id")
   erb :"competitor/view_votes"
 end
 
