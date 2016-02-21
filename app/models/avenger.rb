@@ -2,8 +2,7 @@ class Avenger < ActiveRecord::Base
   def vote_count
     x = self.id
     y = Showdown.where("winner_id" => x)
-    count = y.count
-    if count == 
+    y.count
   end
 
   def self.rank
@@ -15,8 +14,5 @@ class Avenger < ActiveRecord::Base
     rankings_hash = hash.sort_by {|key, value| value}.reverse
     rankings_hash
   end
-
-  def Showdown.select(:winner_id).group(:winner).having("count(*) > 1")
-
 
 end

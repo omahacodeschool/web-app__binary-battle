@@ -11,6 +11,11 @@ class Showdown < ActiveRecord::Base
       self.hero_1_id
     else 
       self.hero_2_id
+    end
   end
+
+  def ties
+    Showdown.select(:winner_id).group(:winner).having("count(*) > 1")
+  end 
 
 end
