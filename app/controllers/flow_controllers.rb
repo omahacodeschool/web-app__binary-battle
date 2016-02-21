@@ -21,6 +21,7 @@ end
 #Go to View to see movies and votes
 MyApp.get "/show_movies" do
   x = Count.all
+  @movie = Movie.all
   @sorted = x.winning_movie
   erb :"/movies/display_movies"
 end

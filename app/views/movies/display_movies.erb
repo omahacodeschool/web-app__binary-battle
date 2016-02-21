@@ -13,9 +13,9 @@
   <tbody>
     <% @sorted.each_pair do |key, value| %>
 
-      <tr>
-        <td> <%= key %></a> </td>
 
+      <tr>
+        <td> <%=@movie.find_by_id(key).movie_name%></a> </td>
         <td> <%= value %></td>
       </tr>
     <% end %>
