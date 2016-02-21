@@ -12,7 +12,7 @@
 [Please vote for your favorite of the two!]
 <br>
 
-<%= @battle.movie_left %>
+<%= Movie.find_by_id(@battle.movie_left).movie_name %>
 
 
 
@@ -22,7 +22,7 @@
 
 VERSUS
 
-<%= @battle.movie_right %>
+<%= Movie.find_by_id(@battle.movie_right).movie_name %>
 
 
 <form action="/vote/<%= @battle.id %>/<%= @battle.movie_right %>/<%= @battle.movie_left %>" method="post">
