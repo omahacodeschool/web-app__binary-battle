@@ -1,0 +1,9 @@
+<h1>List of Competitors</h1>
+
+<p>Here's a list of all the competitors duking it out for the title of "Best <%= @competitors.type %>"!</p>
+
+<% @competitors.each do |competitor| %>
+  <%= competitor.name %>
+<% end %>
+
+<a href = "/">Back</a>
