@@ -17,12 +17,14 @@ choose wisely...
 <form action="/user_vote" method="post" id="button_1_vote">
 
 <p>
-  <img src="<%= @movie_1.movie_poster %>" alt="<%= @movie_1.movie_title %>" style="width:15%;height:15%;">
+  <strong>
+  <%= @movie_1.movie_title %>
+  </strong>
   <br />
   <input type="hidden" name="vote_button" value="1">
   <input type="hidden" name="upvote_id" value="<%= @movie_1.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_2.id %>">
-  <input type="submit" form="button_1_vote" value="<%= @movie_1.movie_title %>">
+  <input type="image" form="button_1_vote" src="<%= @movie_1.movie_poster %>" style="width:15%;height:15%;">
 </p>
 
 </form>
@@ -31,12 +33,14 @@ choose wisely...
 <form action="/user_vote" method="post" id="button_2_vote">
 
 <p>
-  <img src="<%= @movie_2.movie_poster %>" alt="<%= @movie_2.movie_title %>" style="width:15%;height:15%;">
+  <strong>
+  <%= @movie_2.movie_title %>
+  </strong>
   <br />
   <input type="hidden" name="vote_button" value="2">
   <input type="hidden" name="upvote_id" value="<%= @movie_2.id %>">
   <input type="hidden" name="downvote_id" value="<%= @movie_1.id %>">
-  <input type="submit" form="button_2_vote" value="<%= @movie_2.movie_title %>">
+  <input type="image" form="button_2_vote" src="<%= @movie_2.movie_poster %>" style="width:15%;height:15%;">
 </p>
   
 </form>
