@@ -8,11 +8,27 @@ THAT
 </h4>
 -+-+-+-+-+-+-+-
 <p>
-  <h2><%= @upvote.movie_title.upcase %></h2>
+  <strong>
+  <%= @upvote.movie_title.upcase %>
+  </strong>
 
-  <h4 style="color:red">TROUNCES</h4>
+  <br />
 
-  <h2><%= @downvote.movie_title.upcase %></h2>
+  <a href="/movie_stats/<%= @upvote.id %>">
+  <img src="<%= @upvote.movie_poster %>" style="width:15%;height:15%;">
+  </a>
+
+  <h2 style="color:red">TROUNCES</h2>
+
+  <strong>
+  <%= @downvote.movie_title.upcase %>
+  </strong>
+
+  <br />
+
+  <a href="/movie_stats/<%= @downvote.id %>">
+  <img src="<%= @downvote.movie_poster %>" style="width:15%;height:15%;">
+  </a>
 </p>
 
 <br />
