@@ -2,16 +2,27 @@
 
 <% if @competitor != nil %>
   <h3>May the best <%= @competitor.type %> win!</h3>
+    
+    <p>Which <%= @competitor.type %> is the best <%= @competitor.type %>?</p>
 
-  <form action = "/results" method = "post">
-    <input type = "submit" value = "Vote">
-  </form>
+    <p>
+      Vote for <%= @competitor.name %> here!
+        <form action = "/results" method = "post">
+          <input type = "submit" name = "comp_1" value = "Vote">
+        </form>
+    </p>
 
-  <form action = "/results" method = "post">
-    <input type = "submit" value = "Vote">
-  </form>
-  
+    <p>
+      Vote for <%= @competitor.name %> here!
+        <form action = "/results" method = "post">
+          <input type = "submit" name = "comp_2" value = "Vote">
+        </form>
+    </p>
+
 <% else %>
+
   <h3>No competitors.  If you want to battle, you'll need to add some.</h3>
+
     <a href="/form_to_add_competitor">Click here to add competitors</a>
+
 <% end %>
