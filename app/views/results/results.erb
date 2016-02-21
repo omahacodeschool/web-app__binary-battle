@@ -2,11 +2,13 @@
 <a href="/">Vote Again</a>
 <h2>Most Wins: </h2>
 
-<% if @ordered_list != nil %>
-<ol><% @legends
+<%= @legends.wins_hash %>
 
-</ol>
+<ol>
+<% @legends.each do |l| %>
+  <li><%= "#{l.name} - #{l.wins_count}" %></li>
 <% end %>
+</ol>
 
 <ul>
   <% @results.each do |r| %>

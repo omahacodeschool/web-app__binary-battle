@@ -19,13 +19,13 @@ class Legend < ActiveRecord::Base
 
   # this method stores the Legend object 'name' and 'wins'.
   # returns a Hash
-  def Legend.hash_name_wins
-    hash_name_wins = {}
-    all_legends = Legend.all
+  def wins_hash
+    hash = {}
+    all_legends = self.all
     all_legends.each do |l|
-      wins_hash[self.name] = self.wins_count
+      hash[l.name] = l.wins_count
     end
-    return wins_hash
+    return hash.reverse
   end
 
 end
