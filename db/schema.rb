@@ -25,4 +25,15 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer  "pres_points"
   end
 
+  create_table "showdowns", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "choice_one_id"
+    t.integer  "choice_two_id"
+    t.integer  "frequency_one"
+    t.integer  "frequency_two"
+    t.string   "choice_one"
+    t.string   "choice_two"
+  end
+
 end

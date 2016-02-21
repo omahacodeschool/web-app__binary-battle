@@ -1,5 +1,11 @@
 MyApp.get "/" do 
   @display_planets = Planet.select_two_planets
+  @new_showdown = Showdown.new
+  @new_showdown.choice_one = @display_planets[0]
+  @new_showdown.choice_two = @display_planets[1]
+  @new_showdown.frequency_one = 0
+  @new_showdown.frequency_two = 0
+  @new_showdown.save
   erb :"main/welcome"
 end
 
@@ -10,6 +16,13 @@ MyApp.get "/choice_selected/:num" do
   @new_points = @current_score_of_planet_chosen + 1
   @planet_object.points = @new_points
   @planet_object.save
+
+  @last_showdown = Showdown.last
+  if @last_showdown.choice_one == @planet_chosen
+    #give point to frequency_one
+  elsif @last_showdown.choice_two == @planet_chosen
+    #give point to frequency_two
+  end
   erb :"main/choice_selected"
 end
 
@@ -23,21 +36,13 @@ end
 
 
 
-
-
-
-
-
-
-
-
-  # MyApp.post "/planet_submitted" do
-  #   x = Planet.new
-  #   x.planet = params[:planet_name]
-  #   x.points = 0
-  #   x.legs_points = 0
-  #   x.smile_points = 0
-  #   x.pres_points = 0
-  #   x.save
-  #   erb :"main/planet_submitted"
-  # end
+MyApp.post "/planet_submitted" do
+  x = Planet.new
+  x.planet = params[:planet_name]
+  x.points = 0
+  x.legs_points = 0
+  x.smile_points = 0
+  x.pres_points = 0
+  x.save
+  erb :"main/planet_submitted"
+end
