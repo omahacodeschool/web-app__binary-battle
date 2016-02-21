@@ -1,6 +1,9 @@
 MyApp.get "/" do
   
-  # x = Battle.new
+  x = Battle.new
+  x.run_battle
+
+  @battle = x
   
   erb :"/home_page"
 end

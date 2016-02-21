@@ -1,12 +1,15 @@
 class Battle < ActiveRecord::Base
 
   def run_battle
-    
-    
 
-  end
+    #z = Movies.all.count
 
-  def self.get_all_winners
+    self.movie_left = rand(1..14)
+    self.movie_right = rand(1..14)
+    self.save
+
+      
+
   end
 
 end
