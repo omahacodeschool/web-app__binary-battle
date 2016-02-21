@@ -1,3 +1,5 @@
-<% @pool.each do |pool| %>
-<%= pool.nominee_id %>
-<% end %>
+<% @nominees.each do |nominee| %>
+  <% nominee = nominee.get_nominee_info %>
+    <input type="radio" name="battle_selection_radio" value=<%= nominee.id%>> <%= nominee.name %>
+    <input type="hidden" name="nominee_ids_hidden_field" value=<%= @nominee_ids.join("") %>>
+  <% end %> 
