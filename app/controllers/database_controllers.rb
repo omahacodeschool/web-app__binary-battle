@@ -8,15 +8,17 @@ MyApp.post "/add_movie" do
 end
 
 #Increment the movie in questions vote count by 1
-MyApp.post "/add_vote/:showdown/:movie_id" do
-  x = params[:movie_id]
+MyApp.post "/add_vote/:winning_id/:losing_id" do
   y = Movie.all
-  w = Count.find_by_id(params[:showdown])
-  w.winner_id = x
-  @winner = y.find_by_id(x).movie_name
+  @winner = y.find_by_id(params[:winning_id]).movie_name
   @loser = params["loser"]
-
-  w.save
+  showdown = Count.new
+  showdown.winner_id = params[:winning_id]
+  showdown.movie1_id = params[:winning_id]
+  showdown.movie2_id = params[:losing_id]
+  #binding.pry
+  
+  showdown.save
 erb :"/movies/movie_voted"
 end
 
