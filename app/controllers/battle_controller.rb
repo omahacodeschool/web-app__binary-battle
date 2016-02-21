@@ -8,10 +8,10 @@ MyApp.get "/" do
   erb :"/home_page"
 end
 
-MyApp.post "/vote/:winner" do # "a" or "b"
+MyApp.post "/vote/:winner/:loser" do # "a" or "b"
 
 @winner = params[:winner]
-#@loser = 
+@loser =  params[:loser]
 
   erb :"/results"
 end
