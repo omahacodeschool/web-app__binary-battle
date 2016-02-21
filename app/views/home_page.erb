@@ -14,17 +14,18 @@
 
 <%= @battle.movie_left %>
 
+
+
+<form action="/vote/<%= @battle.movie_left %>" method="post">
+<input type="submit">
+</form>
+
 VERSUS
 
 <%= @battle.movie_right %>
 
 
-<form action="/vote/a" method="post">
-<input type="submit">
-</form>
-
-
-<form action="/vote/b" method="post">
+<form action="/vote/<%= @battle.movie_right %>" method="post">
 <input type="submit">
 </form>
 
