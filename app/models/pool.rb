@@ -9,10 +9,9 @@ class Pool < ActiveRecord::Base
       return Nominee.find_by_id(nominee)
     end
 
-    def get_selection_ids
+    def get_selection_ids(x)
       arr = []
-      selections = self.all
-      selections.each do |selection|
+      x.each do |selection|
         arr << selection.nominee_id
       end
       return arr

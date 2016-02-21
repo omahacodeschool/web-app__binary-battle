@@ -1,5 +1,17 @@
-<% @nominees.each do |nominee| %>
+  <center>
+  <form  method="POST" action="/battles/battle/<%= @category.id %>/play">
+
+  <input type="hidden" name="nominee_ids" value="<%= @nominee_ids %>">
+    <input type="hidden" name="category.id" value="<%= @category.id %>">
+
+
+<% @pool.each do |nominee| %>
   <% nominee = nominee.get_nominee_info %>
-    <input type="radio" name="battle_selection_radio" value=<%= nominee.id%>> <%= nominee.name %>
-    <input type="hidden" name="nominee_ids_hidden_field" value=<%= @nominee_ids.join("") %>>
+    <input type="radio" name="battle_selection_radio" value=<%= nominee.id%>> <%= nominee.name %>&emsp;&emsp;&emsp;&emsp;
   <% end %> 
+    <br>
+    <br>
+    <input type="submit" value="Vote">
+
+    </form>
+</center>
