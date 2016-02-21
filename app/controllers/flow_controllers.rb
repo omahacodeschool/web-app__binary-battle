@@ -19,15 +19,9 @@ end
 MyApp.get "/show_movies" do
   x = Count.all
   @movie = Movie.all
-  @sorted = x.winning_movie
-  duplicates = @sorted
-  arr = duplicates.group_by{|k, v| v}
-  v = arr.select{|k,v| v.count > 1}
-  binding.pry
-  v.each do |i|
-    i.values.flatten(2)
- binding.pry
- end
+  @wins = x.count_wins
+  @loses = x.count_loses
+
   erb :"/movies/display_movies"
 end
 

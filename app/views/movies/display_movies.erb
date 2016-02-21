@@ -6,14 +6,30 @@
   <thead>
     <tr>
       <th>Movies</th>
-      <th>Vote Count</th>
+      <th>Wins</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @sorted.each_pair do |key, value| %>
+    <% @wins.each_pair do |key, value| %>
+      <tr>
+        <td> <%=@movie.find_by_id(key).movie_name%></a> </td>
+        <td> <%= value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
+<table border="1">
+  <thead>
+    <tr>
+      <th>Movies</th>
+      <th>Loses</th>
+    </tr>
+  </thead>
 
+  <tbody>
+    <% @loses.each_pair do |key, value| %>
       <tr>
         <td> <%=@movie.find_by_id(key).movie_name%></a> </td>
         <td> <%= value %></td>

@@ -18,10 +18,20 @@ class Count < ActiveRecord::Base
     return y.movie_name
   end
     #Return Relation of movies in decending order based on their win counts.
-  def Count.winning_movie
-    x = self.group(:winner_id).count('winner_id')
+  def Count.count_wins
+    x = self.group(:winning_id).count('winning_id')
     sorted = x.sort_by {|key, value| value}.reverse.to_h
     return sorted
   end
 
+  def Count.count_loses
+    x = self.group(:losing_id).count('losing_id')
+    return x
+  end
+
+  #Check for ties.
+  #Call on a hash that is the result of Count.winning_movie 
+  #Return True if 2 movies have the same number of wins, else return False.
+
 end
+   

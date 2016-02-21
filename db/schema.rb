@@ -26,10 +26,8 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "counts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "movie1_id"
-    t.integer  "movie2_id"
-    t.integer  "winner_id"
-    t.integer  "loser_id"
+    t.integer  "winning_id"
+    t.integer  "losing_id"
   end
 
   create_table "matches", force: :cascade do |t|

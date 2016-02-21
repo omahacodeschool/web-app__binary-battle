@@ -13,9 +13,8 @@ MyApp.post "/add_vote/:winning_id/:losing_id" do
   @winner = y.find_by_id(params[:winning_id]).movie_name
   @loser = params["loser"]
   showdown = Count.new
-  showdown.winner_id = params[:winning_id]
-  showdown.movie1_id = params[:winning_id]
-  showdown.movie2_id = params[:losing_id]
+  showdown.winning_id = params[:winning_id]
+  showdown.losing_id = params[:losing_id]
   #binding.pry
   
   showdown.save

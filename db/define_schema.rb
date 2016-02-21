@@ -4,9 +4,9 @@ DB.define_table("movies")
 DB.define_column("movies", "movie_name", "string")
 
 DB.define_table("counts")
-DB.define_column("counts", "movie1_id", "integer")
-DB.define_column("counts", "movie2_id", "integer")
-DB.define_column("counts", "winner_id", "integer")
+DB.define_column("counts", "winning_id", "integer")
+DB.define_column("counts", "losing_id", "integer")
+
 
 
 
