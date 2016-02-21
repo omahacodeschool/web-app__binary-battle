@@ -5,29 +5,56 @@
 <p>
   <a href="/">Vote</a>
 </p>
+
 -+-+-+-+-+-+-+-
+
 <p>
-  <strong>
-    Movie Stats:
-  </strong>
+<table border="1"> 
+  
+  <thead>
+    <tr>
+      <th colspan="3">Movie Ranks</th>
+    </tr>
+
+    <tr>
+      <th> Rank </th>
+      <th> Title </th>
+      <th> Win Percent </th>
+    </tr>
+  </thead>
+
+  <%
+    x = Hash.new
+    
+    @movies.each do |m|
+    x[m.id] = m.movie_win_percent
+    end
+    
+    movie_sorted_rank_arr = x.sort_by(&:last).reverse
+  %>
+  
+  <% rank = 0 %>
+  
+  <% movie_sorted_rank_arr.each do |movie| %>
+    <tbody>
+      <tr>
+        <td>
+          <center><%= rank += 1 %></center>
+        </td>
+
+        <td>
+          <a href="/movie_stats/<%= movie[0] %>"><%= Movie.find_by_id(movie[0]).movie_title %></a>
+        </td>
+        
+        <td>
+          <center><%= movie[1] %> %</center>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+
+</table>
 </p>
-<form action="/movie_stats" method="get">
-
-  <p>
-    <select name="movie_id">
-      <% @movies.each do |movie| %>
-        <option value="<%= movie.id %>">
-        <%= movie.movie_title %>
-        </option>
-      <% end %>
-    </select>
-  </p>
-
-  <p>
-    <input type="submit" value="Check it">
-  </p>
-</form>
-
 </center>
 <!--
 Define table to list the running top 3 vote results

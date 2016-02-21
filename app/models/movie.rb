@@ -1,5 +1,13 @@
 class Movie < ActiveRecord::Base
 
+  def movie_rank
+    x = Hash.new
+    @movies.each do |m|
+      x[m.id, m.movie_win_percent]
+    end
+    x.sort
+  end
+  
   def total_rounds
     (self.movie_upvotes) + (self.movie_downvotes)
   end
@@ -45,4 +53,5 @@ class Movie < ActiveRecord::Base
     y = x.where({"downvote_id" => self.id})
     y.count
   end
+
 end
