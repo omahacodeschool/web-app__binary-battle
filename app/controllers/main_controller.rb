@@ -3,8 +3,8 @@ MyApp.get "/" do
   @new_showdown = Showdown.new
   @new_showdown.choice_one = @display_planets[0]
   @new_showdown.choice_two = @display_planets[1]
-  @new_showdown.frequency_one = 0
-  @new_showdown.frequency_two = 0
+  @new_showdown.frequency_one = 
+  @new_showdown.frequency_two = 
   @new_showdown.save
   erb :"main/welcome"
 end
@@ -23,9 +23,13 @@ MyApp.get "/choice_selected/:num" do
     @new_score_of_freq_one = @current_score_of_freq_one + 1
     @last_showdown.frequency_one = @new_score_of_freq_one
     @last_showdown.save
-    binding.pry
   elsif @last_showdown.choice_two == @planet_chosen
-    #give point to frequency_two
+    @last_showdown.choice_two == @planet_chosen
+    @current_score_of_freq_two = @last_showdown.frequency_two
+    @new_score_of_freq_two = @current_score_of_freq_two + 1
+    @last_showdown.frequency_two = @new_score_of_freq_two
+    @last_showdown.save
+    binding.pry
   end
   erb :"main/choice_selected"
 end
