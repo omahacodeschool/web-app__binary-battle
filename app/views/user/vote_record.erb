@@ -23,6 +23,7 @@
     </tr>
   </thead>
 
+<!--Not sure how to place this into a method in my Movie Model and call it on this page. Or is it alright to have this code in the View?-->
   <%
     x = Hash.new
     
@@ -32,7 +33,7 @@
     
     movie_sorted_rank_arr = x.sort_by(&:last).reverse
   %>
-  
+
   <% rank = 0 %>
   
   <% movie_sorted_rank_arr.each do |movie| %>
@@ -45,7 +46,7 @@
         <td>
           <a href="/movie_stats/<%= movie[0] %>"><%= Movie.find_by_id(movie[0]).movie_title %></a>
         </td>
-        
+
         <td>
           <center><%= movie[1] %> %</center>
         </td>
@@ -56,14 +57,3 @@
 </table>
 </p>
 </center>
-<!--
-Define table to list the running top 3 vote results
-Define dynamic, each-loop, table to list stats for each movie
-Stats:
-- Total times in vote battle (add upvotes and downvotes)
-- Total upvotes
-- Total downvotes
-- Ratio of upvote to downvote
-- Total vote button placement (movie_1 or movie_2)
-- Button placement bias (movie_1 upvote, upvote:downvote ratio and vice versa)
--->

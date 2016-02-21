@@ -3,9 +3,9 @@ class Movie < ActiveRecord::Base
   def movie_rank
     x = Hash.new
     @movies.each do |m|
-      x[m.id, m.movie_win_percent]
+      x[m.id] = m.movie_win_percent
     end
-    x.sort
+    movie_sorted_rank_arr = x.sort_by(&:last).reverse
   end
   
   def total_rounds
@@ -23,11 +23,11 @@ class Movie < ActiveRecord::Base
   end
 
   def movie_win_percent
-    (self.movie_upvotes.to_f / self.total_rounds.to_f) * 100
+    ((self.movie_upvotes.to_f / self.total_rounds.to_f) * 100).round(2)
   end
 
   def movie_loss_percent
-    (self.movie_downvotes.to_f / self.total_rounds.to_f) * 100
+    ((self.movie_downvotes.to_f / self.total_rounds.to_f) * 100).round(2)
   end
 
   def movie_button_1_up
