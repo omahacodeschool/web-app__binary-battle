@@ -3,6 +3,6 @@
 
 <% @pool.each do |pool| %>
 <%nominee = pool.get_nominee_info%>
-<%= nominee.name %><br> 
+<a href="/nominees/nominee/<%= nominee.id %>"><%= nominee.name %></a><br> 
 <% end %>
 </center>

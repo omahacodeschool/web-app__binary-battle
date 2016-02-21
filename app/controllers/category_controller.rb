@@ -1,5 +1,5 @@
 MyApp.get "/categories" do
-
+  @categories = Category.all
   erb :"/categories/view_categories"
 end
 

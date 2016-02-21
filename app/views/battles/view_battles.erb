@@ -1,0 +1,13 @@
+<center><h1> Start a Battle </h1>
+
+<form  method="POST" action="/battles/battle/<%= @category.id %>/play">
+Select a category: :&emsp;<select name="battle_category_dropdown">
+    <option value="<%= nil %>"><%= "---" %></option>
+    <% @category.each do |c| %>
+      <% if c.locked == false %>
+        <option value="<%= c.id %>"><%= c.name %></option>
+      <% end %> 
+    <% end %> 
+  </select>
+ <input type="submit" value="Start"></form>
+</center>

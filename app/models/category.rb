@@ -6,5 +6,9 @@ class Category < ActiveRecord::Base
      or edit your preexisting activity"
   end
 
+# RETURNS Collection of pools table rows with category_id columns matching selected category's id.
+  def get_pool
+    return Pool.where({"category_id" => self.id})
+  end
   
 end
