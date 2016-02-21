@@ -22,10 +22,11 @@ MyApp.get "/show_movies" do
   @sorted = x.winning_movie
   duplicates = @sorted
   arr = duplicates.group_by{|k, v| v}
-  v = arr.select{|k,v| v.count > 1}.values.flatten(2)
+  v = arr.select{|k,v| v.count > 1}
+  binding.pry
   v.each do |i|
-    tie_movies = i[0]
-   binding.pry
+    i.values.flatten(2)
+ binding.pry
  end
   erb :"/movies/display_movies"
 end
