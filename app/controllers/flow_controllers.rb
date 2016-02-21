@@ -20,8 +20,8 @@ MyApp.get "/new_movie" do
 end
 #Go to View to see movies and votes
 MyApp.get "/show_movies" do
-  @movies = Movie.all
-  @sorted = @movies.order("vote_count DESC")
+  x = Count.all
+  @sorted = x.winning_movie
   erb :"/movies/display_movies"
 end
 
