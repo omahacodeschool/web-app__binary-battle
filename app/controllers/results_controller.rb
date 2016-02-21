@@ -4,7 +4,6 @@ MyApp.post "/vote_added/:winner/:loser" do
   @result = Result.new
   @result.winner_id = @winner.id
   @result.loser_id = @loser.id
-  # @vote.order = params[:order]
   @result.save
   # binding.pry
   # redirect :"vote_added/#{@winner_id}/#{@loser_id}"

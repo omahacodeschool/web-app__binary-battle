@@ -1,8 +1,8 @@
 class Legend < ActiveRecord::Base
 
-  def self.random
-    return Legend.all.sample(2)
-  end
+  # def self.random
+  #   return Legend.all.sample(2)
+  # end
 
   # finds all of the instances in the Results table where the winner_id equals the legend_id
   # returns an Array
@@ -10,10 +10,22 @@ class Legend < ActiveRecord::Base
     return Result.where("winner_id" => self.id)
   end
 
-  # takes 'wins_arr' Array and counts the instances of winner_id equal to self.id via .length method
-  # returns an Integer
-  def wins
+  # takes 'wins_arr' and counts the instances when winner_id is equal to self.id
+  # returns an Integer via .length
+  def wins_count
     return self.wins_arr.length
+  end
+
+
+  # this method stores the Legend object 'name' and 'wins'.
+  # returns a Hash
+  def Legend.hash_name_wins
+    hash_name_wins = {}
+    all_legends = Legend.all
+    all_legends.each do |l|
+      wins_hash[self.name] = self.wins_count
+    end
+    return wins_hash
   end
 
 end
