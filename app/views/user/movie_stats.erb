@@ -1,16 +1,21 @@
 <center>
   
-<h2>Vote Stats for <%= @movie.movie_title %></h2>
+<h2>VOTE STATS</h2>
 
-<a href="/vote_record">Back</a>
-<br />
+<p>
+  <a href="/vote_record">Back</a>
+</p>
+
+<p>
+  <a href="/">Vote</a>
+</p>
 
 <p>
 <table border="1"> 
   
   <thead>
     <tr>
-      <th colspan="2"><%= @movie.movie_title %></th>
+      <th colspan="2"><%= @movie.movie_title.upcase %></th>
     </tr>
   </thead>
 
@@ -64,6 +69,4 @@
 </table>
 </p>
 
-<a href="/">Vote</a>
-<br />
 </center>

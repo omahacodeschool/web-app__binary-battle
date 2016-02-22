@@ -1,9 +1,13 @@
 <center>
   
-<h2>Total Round Stats</h2>
+<h2>TOTAL ROUND STATS</h2>
 
 <p>
   <a href="/movie_stats/<%= @movie.id %>">Back</a>
+</p>
+
+<p>
+  <a href="/">Vote</a>
 </p>
 
 <p>
@@ -15,23 +19,22 @@
     </thead>
 
     <tbody>
-      
       <% @votes.each do |round| %>
         
           <% if round.upvote_id == @movie.id %>
-          <tr>
-            <td style="color:green">
-              WIN vs <%= Movie.find_by_id(round.downvote_id).movie_title %>
-            </td>
-          </tr>
+            <tr>
+              <td style="color:green">
+                WIN vs <%= Movie.find_by_id(round.downvote_id).movie_title %>
+              </td>
+            </tr>
           <% elsif round.downvote_id == @movie.id %>
-          <tr>
-            <td style="color:red">
-              LOSS vs <%= Movie.find_by_id(round.upvote_id).movie_title %>
-            </td>
-          </tr>
+            <tr>
+              <td style="color:red">
+                LOSS vs <%= Movie.find_by_id(round.upvote_id).movie_title %>
+              </td>
+            </tr>
           <% end %>
-        </tr>
+
       <% end %>
     </tbody>
   </table>

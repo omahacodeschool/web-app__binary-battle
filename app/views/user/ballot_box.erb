@@ -1,53 +1,50 @@
 <center>
+<!-- <body background="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTBVVdeixlyESk0COAjKx5BxlLDNMG6mE4EvZrZYu9M4beyVtLVPQ"> -->
 
-<h2>Choose the Superior '80s Sequel</h2>
+<h2>CHOOSE THE SUPERIOR '80s SEQUEL</h2>
 
 <h3>
-<i>
 There can be but one,
 <br />
 choose wisely...
-</i>
 </h3>
 
 -+-+-+-+-+-+-+-
 
 <br />
 
-<form action="/user_vote" method="post" id="button_1_vote">
-
-<p>
-  <strong style="color:blue">
-  <%= @movie_1.movie_title.upcase %>
-  </strong>
-  <br />
-  <input type="hidden" name="vote_button" value="1">
-  <input type="hidden" name="upvote_id" value="<%= @movie_1.id %>">
-  <input type="hidden" name="downvote_id" value="<%= @movie_2.id %>">
-  <input type="image" form="button_1_vote" src="<%= @movie_1.movie_poster %>" style="width:15%;height:15%;">
-</p>
-
-</form>
-
-<p>
-  <h2 style="color:red">-- VS --</h2>
-</p>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <center>
+        <form action="/user_vote" method="post" id="button_1_vote">
+          <input type="hidden" name="vote_button" value="1">
+          <input type="hidden" name="upvote_id" value="<%= @movie_1.id %>">
+          <input type="hidden" name="downvote_id" value="<%= @movie_2.id %>">
+          <input type="image" form="button_1_vote" src="<%= @movie_1.movie_poster %>" title="<%= @movie_1.movie_title.upcase %>">
+        </form>
+        </center>
+      </td>
 
 
-<form action="/user_vote" method="post" id="button_2_vote">
+      <td>
+        <h2 style="color:red">-- VS --</h2>
+      </td>
 
-<p>
-  <strong style="color:blue">
-  <%= @movie_2.movie_title.upcase %>
-  </strong>
-  <br />
-  <input type="hidden" name="vote_button" value="2">
-  <input type="hidden" name="upvote_id" value="<%= @movie_2.id %>">
-  <input type="hidden" name="downvote_id" value="<%= @movie_1.id %>">
-  <input type="image" form="button_2_vote" src="<%= @movie_2.movie_poster %>" style="width:15%;height:15%;">
-</p>
-  
-</form>
+      <td>
+        <center>
+        <form action="/user_vote" method="post" id="button_2_vote">
+          <input type="hidden" name="vote_button" value="2">
+          <input type="hidden" name="upvote_id" value="<%= @movie_2.id %>">
+          <input type="hidden" name="downvote_id" value="<%= @movie_1.id %>">
+          <input type="image" form="button_2_vote" src="<%= @movie_2.movie_poster %>" title="<%= @movie_2.movie_title.upcase %>">
+        </form>
+        </center>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 -+-+-+-+-+-+-+-
 
@@ -61,8 +58,6 @@ choose wisely...
 
 <p>
   <form action="/admin_sign_in" method="post">
-
-  Password: <input type="password" name="password">
-
+    Password: <input type="password" name="password">
   </form>
 </p>
