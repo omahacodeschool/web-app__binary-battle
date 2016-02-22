@@ -26,7 +26,8 @@ class Count < ActiveRecord::Base
     #Return Hash of movies where key is the movie ID and value is number of winds.  Order them by their values.
   def Count.count_loses
     x = self.group(:losing_id).count('losing_id')
-    return x
+    sorted = x.sort_by {|key, value| value}.reverse.to_h
+    return sorted
   end
 
 

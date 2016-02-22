@@ -18,8 +18,8 @@ end
 #Go to View to see movies and votes
 MyApp.get "/show_movies" do
   x = Count.all
-  movie = Movie.all
-  @sorted = movie.order('rating_percentage_index')
+  @movie = Movie.all
+  @sorted = @movie.order('rating_percentage_index DESC')
   @wins = x.count_wins
   @loses = x.count_loses
   erb :"/movies/display_movies"

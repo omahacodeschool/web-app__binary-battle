@@ -21,7 +21,7 @@ MyApp.post "/add_vote/:winning_id/:losing_id" do
   percentage = (wins.to_f / appearances.to_f)
   @winner.winning_percentage = percentage
  
-  #write cool stuff to calculate o.w.p.
+  #write cool stuff to calculate opponent's winning percentage
   y.each do |i|
     win_percents = []
       next if i.id == @winner.id

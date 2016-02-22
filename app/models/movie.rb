@@ -41,7 +41,7 @@ class Movie < ActiveRecord::Base
   #Return Float of the average of the values in the o_w_p column minus the o_w_p value for the movie that we are calculating RPI for.
   def opponents_opponents_win_percentage
     movie_id = self.id
-    x = Movie.all.where.not({"id" => movie_id})
+    x = Movie.all
     average = x.average('o_w_p')
     return average 
   end
