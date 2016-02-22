@@ -1,2 +1,3 @@
 class Band < ActiveRecord::Base
-end 
+
+end
