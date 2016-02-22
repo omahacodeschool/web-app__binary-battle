@@ -42,10 +42,13 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   create_table "movies", force: :cascade do |t|
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "movie_name"
     t.decimal  "winning_percentage"
+    t.decimal  "o_w_p"
+    t.decimal  "o_o_w_p"
+    t.decimal  "rating_percentage_index"
   end
 
 end

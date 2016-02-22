@@ -20,11 +20,14 @@ MyApp.post "/add_vote/:winning_id/:losing_id" do
   appearances = winning_movie.count_appearances
   percentage = (wins.to_f / appearances.to_f)
   @winner.winning_percentage = percentage
+  win_percents = []
   #write cool stuff to calculate o.w.p.
   y.each do |i|
+    next if i == y
     opponent_win_percent = i.opponents_win_percentage(@winner)
-    @winner.o_w_p = opponent_win_percent
+    win_percents << opponent_win_percent
   end
+  binding.pry
   @winner.save
   showdown.save
 erb :"/movies/movie_voted"
