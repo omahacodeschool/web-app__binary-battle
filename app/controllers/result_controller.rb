@@ -22,7 +22,7 @@ end
 
 MyApp.get "/categories/category/:id/results" do
 @category = Category.find_by_id(params[:id])
-@results = @category.results_frequency_for_each_nominee
+@results = @category.appending_no_wins_to_nominee_winner_results_frequency
 @results_breakdown = @category.results_frequency_for_each_combination
 @rank = 0
   erb :"/results/view_result"

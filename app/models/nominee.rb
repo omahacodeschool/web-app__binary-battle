@@ -11,4 +11,14 @@ class Nominee < ActiveRecord::Base
     return Nominee.find_by_id(result_winner_id)
   end
 
+
+  def get_image_or_placeholder
+      if self.image == ""
+       return "https://wwww.edbacker.com/themes/edbacker/images/no-image.png"
+     else
+      return self.image
+    end
+  end
+
+  
 end
