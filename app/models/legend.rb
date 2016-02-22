@@ -41,11 +41,6 @@ class Legend < ActiveRecord::Base
     all_legends.each do |l|
       hash[l.name] = l.wins_count
     end
-    return hash
-  end
-
-  def self.sorted_hash
-    hash = Legend.wins_hash
     return hash.sort_by {|name, wins| wins}.reverse
   end
 

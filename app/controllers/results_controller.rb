@@ -11,7 +11,7 @@ MyApp.post "/vote_added/:winner/:loser" do
 end
 
 MyApp.get "/results" do
-  @legends = Legend.sorted_hash
+  @legends = Legend.wins_hash
   @results = Result.all
   erb :"results/results"
 end
