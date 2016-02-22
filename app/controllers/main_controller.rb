@@ -20,20 +20,10 @@ MyApp.get "/choice_selected/:num" do
   @new_points = @current_score_of_planet_chosen + 1
   @planet_object.points = @new_points
   @planet_object.save
-
   @last_showdown = Showdown.last
-  if @last_showdown.choice_one == @planet_chosen
-    @current_score_of_freq_one = @last_showdown.frequency_one
-    @new_score_of_freq_one = @current_score_of_freq_one + 1
-    @last_showdown.frequency_one = @new_score_of_freq_one
-    @last_showdown.save
-  elsif @last_showdown.choice_two == @planet_chosen
-    @last_showdown.choice_two == @planet_chosen
-    @current_score_of_freq_two = @last_showdown.frequency_two
-    @new_score_of_freq_two = @current_score_of_freq_two + 1
-    @last_showdown.frequency_two = @new_score_of_freq_two
-    @last_showdown.save
-  end
+  @last_showdown.winner = @planet_object.planet
+  @last_showdown.save
+  @last_showdown.give_freq_point_to_chosen_option
   erb :"main/choice_selected"
 end
 

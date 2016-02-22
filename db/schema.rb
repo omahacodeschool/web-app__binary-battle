@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at",    null: false
     t.string   "choice_one"
     t.string   "choice_two"
+    t.string   "winner"
     t.integer  "frequency_one"
     t.integer  "frequency_two"
   end

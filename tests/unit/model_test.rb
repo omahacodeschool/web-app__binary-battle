@@ -35,4 +35,5 @@ class PlanetTest < Minitest::Test
     assert_includes(Planet.list_planet_names, Planet.select_two_planets[0])
     assert_includes(Planet.list_planet_names, Planet.select_two_planets[1])
   end
+
 end
