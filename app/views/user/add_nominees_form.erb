@@ -1,0 +1,28 @@
+<h1>Add Nominees</h1>
+
+<form action="/add_nominees" method="post">
+  <label for="category">
+    <sub><i>Category:</i></sub>
+  </label>
+  <select name="nominee">
+    <% @categories.each do |c| %>
+      <option value="<%=c.id%>"
+        <%= "selected" if @category.id == c.id %>>
+        <%= c.category_title %>
+      </option>
+    <% end %>
+  </select>
+  <br>
+  <br>
+  <% @num_of_nominees.times do |i| %>
+    <% count = 1 %>
+      <label for="nominee_<%=count%>">
+        <sub><i>Nominee <%=count%></i></sub>
+      </label>
+      <input type="text" name="nominee_<%=count%>"><br>
+    <% count +=1 %>
+  <% end %>
+  <br>
+  <br>
+  <input type="submit">
+</form>
