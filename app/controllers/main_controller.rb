@@ -38,6 +38,7 @@ MyApp.get "/choice_selected/:num" do
 end
 
 MyApp.get "/planets_ranking" do
+  @last_showdown = Showdown.last
   @showdowns = Showdown.all
   @planets = Planet.all
   @ordered_planets = @planets.order('points DESC')

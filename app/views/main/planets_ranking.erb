@@ -6,12 +6,9 @@
 <br>
 <br>Testing choice bias:
 <br>
-<% @showdowns.each do |s| %>
-Round <%= s.id %>:
-The first choice has been selected <%= s.frequency_one %> times, and the 
-second choice has been selected <%= s.frequency_two %> times.
-
+The first choice has been selected <%= @last_showdown.frequency_one %> time(s), and the 
+second choice has been selected <%= @last_showdown.frequency_two %> time(s).<br>
 <br>
-<% end %>
+<br>
 <br>
 <a href="/">Vote again</a>
