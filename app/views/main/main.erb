@@ -1,15 +1,17 @@
+<center>
+
 <h1>Welcome to Binary Battle!</h1>
 
 <% if @competitors != nil %>
-  <% @competitors.first(1).each do |competitor| %>
+  <% @competitors.limit(1).each do |competitor| %>
     <h3>May the best <%= competitor.competitor_type %> win!</h3>
   <% end %>
 
-    <% @competitors.first(1).each do |competitor| %>
+    <% @competitors.limit(1).each do |competitor| %>
       <p>Which <%= competitor.competitor_type %> is the best <%= competitor.competitor_type %>?</p>
     <% end %>
 
-    <% @competitors.first(2).each do |competitor| %>
+    <% @competitors.limit(2).order("RANDOM()").each do |competitor| %>
       <p>
         Vote for <%= competitor.name %> here!
           <form action = "/results/<%= competitor.id %>" method = "post">
@@ -29,3 +31,5 @@
 <p>
   <a href = "/all_competitors">Click here to see a list of competitors</a>
 </p>
+
+</center>
