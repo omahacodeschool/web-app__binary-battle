@@ -38,6 +38,8 @@ MyApp.post "/add_vote/:winning_id/:losing_id" do
     i.o_o_w_p = percent
     i.save
   end
+  #write cool stuff here to finally add the RPI.
+  @winner.rating_percentage_index = @winner.movie_rpi
 
   @winner.save
   showdown.save

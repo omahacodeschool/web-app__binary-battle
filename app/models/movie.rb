@@ -45,6 +45,15 @@ class Movie < ActiveRecord::Base
     average = x.average('o_w_p')
     return average 
   end
+  #Find the ratings percent index for the movie in question.
+
+  #Return Float of the RPI.
+  def movie_rpi
+    movie_id = self.id
+    x = Movie.find_by_id(movie_id)
+    rpi = (0.25 * x.winning_percentage) + (0.5 * x.o_w_p) + (0.25 * x.o_o_w_p)
+    return rpi
+  end
 end
 
 

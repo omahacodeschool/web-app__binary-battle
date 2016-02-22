@@ -17,21 +17,20 @@ class Count < ActiveRecord::Base
     y = Movie.find_by_id(x)
     return y.movie_name
   end
-    #Return Hash of movies where .
+    #Return Hash of movies where key is the movie ID and value is number of winds.  Order them by their values.
   def Count.count_wins
     x = self.group(:winning_id).count('winning_id')
     sorted = x.sort_by {|key, value| value}.reverse.to_h
     return sorted
   end
-
+    #Return Hash of movies where key is the movie ID and value is number of winds.  Order them by their values.
   def Count.count_loses
     x = self.group(:losing_id).count('losing_id')
     return x
   end
 
-  #Check for ties.
-  #Call on a hash that is the result of Count.winning_movie 
-  #Return True if 2 movies have the same number of wins, else return False.
+
+ 
 
 end
    

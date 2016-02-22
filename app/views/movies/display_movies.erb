@@ -5,16 +5,17 @@
 <table border="1">
   <thead>
     <tr>
+      <th>Movie Ranking</th>
       <th>Movies</th>
-      <th>Wins</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @wins.each_pair do |key, value| %>
+  <% rank = 0 %>
+    <% @sorted.each do |y| %>
       <tr>
-        <td> <%=@movie.find_by_id(key).movie_name%></a> </td>
-        <td> <%= value %></td>
+        <td> <%= rank += 1%></a> </td>
+        <td> <%= y.movie_name %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,18 +24,19 @@
 <table border="1">
   <thead>
     <tr>
+      <th>Movie Win Percentage</th>
       <th>Movies</th>
-      <th>Loses</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @loses.each_pair do |key, value| %>
+    <% @sorted.each do |y| %>
       <tr>
-        <td> <%=@movie.find_by_id(key).movie_name%></a> </td>
-        <td> <%= value %></td>
+        <td> <%= y.winning_percentage%></a> </td>
+        <td> <%= y.movie_name %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 <a href="/home_movies">Vote for another movie?</a>
