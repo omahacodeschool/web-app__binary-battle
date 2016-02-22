@@ -5,8 +5,6 @@ MyApp.post "/vote_added/:winner/:loser" do
   @result.winner_id = @winner.id
   @result.loser_id = @loser.id
   @result.save
-  # binding.pry
-  # redirect :"vote_added/#{@winner_id}/#{@loser_id}"
   erb :"results/vote_added"
 end
 
