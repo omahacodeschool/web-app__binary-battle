@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer  "building2_id"
     t.integer  "winner_id"
     t.integer  "loser_id"
+    t.integer  "winning_id"
+    t.integer  "losing_id"
   end
 
   create_table "movies", force: :cascade do |t|
