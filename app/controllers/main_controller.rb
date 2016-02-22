@@ -9,8 +9,7 @@ MyApp.get "/battle/:id" do
   @universe = Universe.find_by_id(params[:id])
   characters = Character.where({"universe_id" => @universe.id})
   characters = characters.shuffle
-  @char1 = characters.pop
-  @char2 = characters.pop
+  @char1, @char2 = @universe.get_two
 
   erb :"battle"
 end
