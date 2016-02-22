@@ -1,11 +1,18 @@
-<h1>Binary Battle of the (Awful) Bands</h1>
+<h2>Battle of the (Awful) Bands</h2>
 
-<h2> Of these two musical abominations, which one is <i>worse</i>?</h2>
+<p> Of these two musical abominations, which "artist" is <i>worse</i>?</p>
 
-<form action="/voted" method="post">
-  <p>
-      <input type="button" value="<%= @band_1.name %>">
-      <input type="button" value="<%= @band_2.name %>">
-  </p>
-  </form>
-
+<form 
+  action="/voted/<%= @band_1.id %>/<%= @band_2.id %>" 
+  method="post">
+  <input type="submit" value="<%= @band_1.name %>">
+</form>
+<br>
+<form 
+  action="/voted/<%= @band_2.id %>/<%= @band_1.id %>" 
+  method="post">
+  <input type="submit" value="<%= @band_2.name %>">
+</form>
+<br>
+<br>
+<p><a href="/tally">View current rankings</a></p>

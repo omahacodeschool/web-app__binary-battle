@@ -1,9 +1,12 @@
  class Result < ActiveRecord::Base
-  # Finds instances of winner_id = self
-  #
-  # Returns Array
-  def wins
-    x = Result.where("winner_id" => self.id)
-    return x
+  def winner_name
+    x = self.winner_id
+    y = Band.find_by_id(x)
+    return y.name
   end
-end 
+  def loser_name
+    x = self.loser_id
+    y = Band.find_by_id(x)
+    return y.name
+  end
+end

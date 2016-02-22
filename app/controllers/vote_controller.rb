@@ -7,8 +7,11 @@ end
 
 
 # Processes the voting form
-MyApp.post "/voted/???" do 
-  x = Result.new
+MyApp.post "/voted/:w/:l" do 
+  @result = Result.new
+  @result.winner_id = params[:w]
+  @result.loser_id = params[:l]
+  @result.save
 
   erb :"voted"
 end

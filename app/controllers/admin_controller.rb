@@ -20,10 +20,4 @@ MyApp.get "/all_bands" do
   erb :"all_bands"
 end
 
-#Shows the scores for each artist
-MyApp.get "/tally" do 
-  @tally = Result.all
-
-  erb :"tally"
-end
 

@@ -1,3 +1,18 @@
-<% @tally.each do |x| %>   
-<p><%= x.name %> has <%= x.wins %> wins</p>
-<% end %> 
+<table border="1">
+  <thead>
+    <tr>
+      <th>Match</th>
+      <th>Winner</th>
+      <th>Loser</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @results.each do |x| %>
+      <tr>
+        <td><%= x.id %></td>
+        <td><%= x.winner_name %></td>
+        <td><%= x.loser_name %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
