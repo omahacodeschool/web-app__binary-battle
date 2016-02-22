@@ -1,23 +1,22 @@
 <h1>Welcome to Binary Battle!</h1>
 
 <% if @competitors != nil %>
-  <h3>May the best <%= @competitor.competitor_type %> win!</h3>
-    
-    <p>Which <%= @competitor.competitor_type %> is the best <%= @competitor.competitor_type %>?</p>
+  <% @competitors.first(1).each do |competitor| %>
+    <h3>May the best <%= competitor.competitor_type %> win!</h3>
+  <% end %>
 
-    <p>
-      Vote for <%= @competitor.name %> here!
-        <form action = "/results" method = "post">
-          <input type = "submit" name = "comp_1" value = "Vote">
-        </form>
-    </p>
+    <% @competitors.first(1).each do |competitor| %>
+      <p>Which <%= competitor.competitor_type %> is the best <%= competitor.competitor_type %>?</p>
+    <% end %>
 
-    <p>
-      Vote for <%= @competitor.name %> here!
-        <form action = "/results" method = "post">
-          <input type = "submit" name = "comp_2" value = "Vote">
-        </form>
-    </p>
+    <% @competitors.first(2).each do |competitor| %>
+      <p>
+        Vote for <%= competitor.name %> here!
+          <form action = "/results/<%= competitor.id %>" method = "post">
+            <input type = "submit" value = "Vote">
+          </form>
+      </p>
+    <% end %>
 
 <% else %>
 

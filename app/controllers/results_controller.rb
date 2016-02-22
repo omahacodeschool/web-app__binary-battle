@@ -1,12 +1,21 @@
-MyApp.post "/results" do
-  # x = Result.new
-  # x.comp_id_1 = params["comp_id_1"]
-  # x.comp_id_2 = params["comp_id_2"]
-  # if params["comp_1"]
-  # x.winner = x
-  # x.save
-  # @y = [x.comp_id_1, x.comp_id_2, x.winner]
-  erb :"results/results"
+MyApp.post "/results_1" do
+  x = Result.new
+  x.comp_id_1 = params["comp_id_1"]
+  x.comp_id_2 = params["comp_id_2"]
+  x.winner = x.comp_id_1
+  x.save
+  @y = [x.comp_id_1, x.comp_id_2, x.winner]
+  erb :"results/results_1"
+end
+
+MyApp.post "/results_2" do
+  x = Result.new
+  x.comp_id_1 = params["comp_id_1"]
+  x.comp_id_2 = params["comp_id_2"]
+  x.winner = x.comp_id_2
+  x.save
+  @y = [x.comp_id_1, x.comp_id_2, x.winner]
+  erb :"results/results_1"
 end
 
 MyApp.get "/all_results" do 
