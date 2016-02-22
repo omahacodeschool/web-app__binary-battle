@@ -3,6 +3,9 @@ require_relative "./_configure"
 DB.define_table("movies")
 DB.define_column("movies", "movie_name", "string")
 DB.define_column("movies", "winning_percentage", "decimal")
+DB.define_column("movies", "o_w_p", "decimal")
+DB.define_column("movies", "o_o_w_p", "decimal")
+DB.define_column("movies", "rating_percentage_index", "decimal")
 
 DB.define_table("counts")
 DB.define_column("counts", "winning_id", "integer")

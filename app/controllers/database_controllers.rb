@@ -10,7 +10,7 @@ end
 #Increment the movie in questions vote count by 1
 MyApp.post "/add_vote/:winning_id/:losing_id" do
   y = Movie.all
-  @winner = y.find_by_id(params[:winning_id]).movie_name
+  @winner = y.find_by_id(params[:winning_id])
   @loser = params["loser"]
   showdown = Count.new
   showdown.winning_id = params[:winning_id]
@@ -19,7 +19,13 @@ MyApp.post "/add_vote/:winning_id/:losing_id" do
   wins = winning_movie.count_wins
   appearances = winning_movie.count_appearances
   percentage = (wins.to_f / appearances.to_f)
-  
+  @winner.winning_percentage = percentage
+  #write cool stuff to calculate o.w.p.
+  y.each do |i|
+    opponent_win_percent = i.opponents_win_percentage(@winner)
+    @winner.o_w_p = opponent_win_percent
+  end
+  @winner.save
   showdown.save
 erb :"/movies/movie_voted"
 end
