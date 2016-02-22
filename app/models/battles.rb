@@ -1,4 +1,4 @@
-class Battles < ActiveRecord::Base
+class Battle < ActiveRecord::Base
 
 
 end

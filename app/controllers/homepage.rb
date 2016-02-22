@@ -1,13 +1,17 @@
 
 #Homepage view 
 MyApp.get "/" do
-  @a = Artist.limit(2).order("RANDOM()")
+
+  @battle = Battle.new
+  @artist = Artist.all
+  @battle = @artist.sample(2)
+  binding.pry
   erb :"vote" 
 end
 
 #submit users vote
 MyApp.post "/submit_vote/:id" do
-  @artist = Artist.find_by_id(params[:id])
+  @artist = Artist.find_by_id(params[:id]) 
   @artist.increment(:score, 1)
   @artist.save
   erb :"success_vote"

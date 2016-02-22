@@ -5,5 +5,5 @@ DB.define_column("artists", "name", "string")
 DB.define_column("artists", "score", "integer")
 
 DB.define_table("battles")
-DB.define_column("battles", "winner", "string")
-DB.define_column("battles", "loser", "string")
+DB.define_column("battles", "artist_1", "string")
+DB.define_column("battles", "artist_2", "string")
