@@ -10,5 +10,33 @@ class Category < ActiveRecord::Base
   def get_pool
     return Pool.where({"category_id" => self.id})
   end
-  
+
+  def results_frequency_for_each_nominee
+    category_id = self.id
+    results = Result.where({"category_id" => category_id})
+    nominee_hash = Hash.new(0)
+    results.each do |winner| 
+      winner = winner.loved_id
+      if winner != nil
+        nominee_hash[winner] +=1
+      end
+    end
+    tallied_results = nominee_hash.sort_by{ |key, value| value}.reverse.to_h
+    return tallied_results
+  end
+
+  def results_frequency_for_each_combination
+    category_id = self.id
+    results = Result.where({"category_id" => category_id})
+    result_hash = Hash.new(0)
+    count = 0
+    results.each do |combo| 
+      winner = combo.loved_id
+      loser = combo.lost_id
+      if winner != nil && loser != nil
+        result_hash[winner.to_s + "-" + loser.to_s] += 1
+      end
+    end
+    return result_hash
+  end
 end

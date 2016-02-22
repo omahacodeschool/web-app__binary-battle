@@ -1,6 +1,15 @@
 <center><h1> <%= @category.name %> Results </h1>
 
-<% @results.each do |r| %>
-<%= r.id %>&emsp;&emsp;<%= r.loved_id%>&emsp;&emsp;<%= r.lost_id%>&emsp;&emsp;<%= r.category_id%><br>
+<% @results.each do |key, value| %>
+
+<%= @rank += 1 %>&emsp;&emsp;|&emsp;&emsp; <%= key %> &emsp;&emsp;|&emsp;&emsp;<%= value %>
+<br>
 <% end %>
+
+<%= "-----------------------------------------------------------" %>
+<br>
+<% @results_breakdown.each do |key, value| %>
+<%= key %> &emsp;&emsp;|&emsp;&emsp;<%= value %><br>
+<% end %>
+
 </center>
