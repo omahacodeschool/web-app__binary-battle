@@ -6,6 +6,11 @@ class Showdown < ActiveRecord::Base
     y.name
   end
 
+  #method to find loser in each particular match (Showdown)
+  #
+  #returns hero_1_id if hero_1_id is not also the winner_id
+  #returns hero_2_id if hero_1_id  *is* also the winner_id
+  
   def get_loser
     if self.hero_1_id != self.winner_id
       self.hero_1_id

@@ -31,7 +31,6 @@ MyApp.get "/results" do
   @showdowns = Showdown.all
   @avengers = Avenger.all
   @rankings = Avenger.rank
-  @tied_heroes = Showdown.ties 
   erb :'results'
 end
 
