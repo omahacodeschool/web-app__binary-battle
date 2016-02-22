@@ -2,7 +2,7 @@
 
 <% @results.each do |key, value| %>
 
-<%= @rank += 1 %>&emsp;&emsp;|&emsp;&emsp; <%= key %> &emsp;&emsp;|&emsp;&emsp;<%= value %>
+rank:<%= @rank += 1 %>&emsp;&emsp;|&emsp;&emsp; winner id:<%= key %> &emsp;&emsp;|&emsp;&emsp;#of times won:<%= value %>
 <br>
 <% end %>
 

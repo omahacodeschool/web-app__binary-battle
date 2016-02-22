@@ -39,4 +39,23 @@ class Category < ActiveRecord::Base
     end
     return result_hash
   end
+
+
+
+  # def ordering_and_checking_for_tie
+  #   nominees = self.results_frequency_for_each_nominee
+  #   scored_votes = self.results_frequency_for_each_combination
+  #   ranked_arr = []
+  #   sorted_bin = {}
+  #   score = 0
+  #   @greedy_count = 0
+  #   @first_index_nominee = 0
+  #   @final_index_nominee = 1
+
+  #   ordered_arr = []
+  #   until nominees.empty? do  | key, value, value_b |
+  #     if nominees.length <= 1
+  #          ordered_arr << nominees[@first_index_nominee]
+  #          ranked_arr  << [key, value]
+
 end

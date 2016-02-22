@@ -1,11 +1,11 @@
 MyApp.get "/nominees" do
-
+  @nominees = Nominee.all
   erb :"/nominees/view_nominees"
 end
 
 MyApp.get "/nominees/add" do
   @nominee = Nominee.new
-  @category = Category.all
+  @categories = Category.all
   erb :"/nominees/add_nominee"
 end
 
@@ -24,6 +24,14 @@ MyApp.post "/nominees/add/confirmation" do
     erb :"/nominees/add_nominee"
   else
     @nominee.save
+    params[:checkbox_categories].each do |category|
+      if category != nil
+        @pool = Pool.new 
+        @pool.nominee_id = @nominee.id
+        @pool.category_id = category
+        @pool.save
+      end
+    end
     redirect :"/nominees/nominee/#{@nominee.id}"
   end
 end
@@ -36,7 +44,7 @@ end
 
 MyApp.get "/nominees/nominee/:id" do
   @nominee = Nominee.find_by_id(params[:id])
-
+  @pool = Pool.where({"nominee_id" => params[:id]})
   erb :"/nominees/view_nominee"
 end
 

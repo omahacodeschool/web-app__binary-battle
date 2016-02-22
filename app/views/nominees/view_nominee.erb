@@ -1,1 +1,10 @@
-profile meep
+<center> <h1> <%= @nominee.name %> </h1>
+
+
+<% @pool.each do |pool| %>
+<% category = pool.get_category_info%>
+  <% if category != nil %>
+    <a href="/categories/category/<%= category.id %>"><%= category.name %></a><br> 
+  <% end %>
+<% end %>
+</center>

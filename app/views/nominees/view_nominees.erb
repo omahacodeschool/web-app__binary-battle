@@ -2,4 +2,22 @@
 <form method="GET" action="/nominees/add">
 <input type="submit" value="Add Nominee"></form>
 <br>
+ 
+ <table border="0">
+  <thead>
+    <tr>
+      <th>NOMINEE NAME </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @nominees.each do |nominee| %>
+    <tr>
+      <td><a href="/nominees/nominee/<%= nominee.id %>"><%= nominee.name %></a></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
 </center>
+

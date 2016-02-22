@@ -24,11 +24,21 @@
     
     <br>
     <br>
+    <p> Select the categories you would like your nominee to appear in: </p>
+      <% @categories.each do |c| %>
+    <%if c.locked == false && c.id != nil %>
+      <input type="checkbox" name= "checkbox_categories[]" value=<%= c.id %>><%= c.name %> <br>
+    <% end %>
+  <% end %>
+  <br>
+  <br>
      <% if @duplicate_nominee_warning == true %>
     <input type="radio" name="confirmed_radio" value=<%= true %>> I confirm that this nominee has not been registered.
   <br>
   <br>
   <% end %> 
+  <br>
+  <br>
   <input type="submit" value="Add Nominee">
 </form>
 <br>
