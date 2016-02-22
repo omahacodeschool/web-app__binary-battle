@@ -25,3 +25,8 @@ DB.define_column("results", "lost_id", "integer")
 DB.define_column("results", "category_id", "integer")
 DB.define_column("results", "locked", "boolean")
 
+
+DB.define_table("ranks")
+DB.define_column("ranks", "ranks", "integer")
+DB.define_column("ranks", "category_id", "integer")
+DB.define_column("ranks", "nominee_id", "integer")

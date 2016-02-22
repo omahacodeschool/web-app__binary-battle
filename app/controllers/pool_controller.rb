@@ -31,6 +31,7 @@ MyApp.post "/battles/battle/:id/cast_vote" do
   @nominees_results.category_id = @category.id
   @nominees_results.locked = true
   @winner = Nominee.find_by_id(@nominees_results.loved_id)
+  @loser = Nominee.find_by_id(@nominees_results.lost_id)
   @nominees_results.save
   erb :"/battles/view_battle_confirmation"
 end

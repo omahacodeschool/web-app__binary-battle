@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer  "category_id"
   end
 
+  create_table "ranks", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "ranks"
+    t.integer  "category_id"
+    t.integer  "nominee_id"
+  end
+
   create_table "results", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

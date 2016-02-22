@@ -11,6 +11,15 @@ class Category < ActiveRecord::Base
     return Pool.where({"category_id" => self.id})
   end
 
+  # RETURNS row Instance's image url as a String OR returns placeholder string if self.image is an empty string.
+  def get_image_or_placeholder
+    if self.image == ""
+       return "http://cdn.browshot.com/static/images/not-found.png"
+    else
+      return self.image
+    end
+  end
+
   #Gets Hash Array of Result table loved_ids. The value is the frequency of times it appears in the Collection
   #
   # results: Data Collection based on specified category_id parameters. 
@@ -113,7 +122,9 @@ class Category < ActiveRecord::Base
     no_wins_arr = checking_for_no_wins_results_frequency_for_each_nominee
 
     no_wins_arr.each do |loser| 
-      winning_count[loser] = 0 
+      if (loser != nil) && (loser != 0)
+        winning_count[loser] = 0 
+      end
     end
 
     return winning_count
@@ -139,20 +150,17 @@ class Category < ActiveRecord::Base
   end
 
 
-  # def ordering_and_checking_for_tie
-  #   nominees = self.results_frequency_for_each_nominee
-  #   scored_votes = self.results_frequency_for_each_combination
-  #   ranked_arr = []
-  #   sorted_bin = {}
-  #   score = 0
-  #   @greedy_count = 0
-  #   @first_index_nominee = 0
-  #   @final_index_nominee = 1
+# def ordering_and_checking_for_tie
+#   nominees = self.appending_no_wins_to_nominee_winner_results_frequency
+#   combo_count = self.results_frequency_for_each_combination
+#   ranked= {}
+#   tied_teams = {}
 
-  #   ordered_arr = []
-  #   until nominees.empty? do  | key, value, value_b |
-  #     if nominees.length <= 1
-  #          ordered_arr << nominees[@first_index_nominee]
-  #          ranked_arr  << [key, value]
+#   score = nil
+ 
+# while @first_nominee <= nominees.length do  | key, value, value_b |
+#   #     if nominees.length <= 1
+#   #          ordered_arr << nominees[@first_index_nominee]
+#   #          ranked_arr  << [key, value]
 
 end

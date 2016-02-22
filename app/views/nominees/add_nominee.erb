@@ -8,13 +8,10 @@
     <br>
     <% end %>
 
-    Name:&emsp;<input type="text" name="add_nominee_name_textbox" value="<%= params[:add_nominee_name_textbox] %>">
+    Name:&emsp;<input type="text" name="add_nominee_name_textbox" value="<%= params[:add_nominee_name_textbox] %>">&emsp;&emsp;&emsp;
 
     Image Link:&emsp;<input type="text" name="add_nominee_image_link" value="<%= params[:add_nominee_image_link] %>">
     &emsp;&emsp;
-
-    Thumbnail Link:&emsp;<input type="text" name="add_nominee_thumbnail_link" value="<%= params[:add_nominee_thumbnail_link] %>">
-    
     <br>
     <br>
     Include an optional description of your nominee below:<br>
@@ -24,7 +21,7 @@
     
     <br>
     <br>
-    <p> Select the categories you would like your nominee to appear in: </p>
+    <h3> Select the categories you would like your nominee to appear in: </h3>
       <% @categories.each do |c| %>
     <%if c.locked == false && c.id != nil %>
       <input type="checkbox" name= "checkbox_categories[]" value=<%= c.id %>><%= c.name %> <br>

@@ -8,12 +8,10 @@
   <br>
 <% end %>
 <form  method="POST" action="/categories/add/confirmation">
-  Category Name :&emsp;<input type="text" name="add_name" value="<%= params[:add_name] %>">&emsp;&emsp;
+  Category Name:&emsp;<input type="text" name="add_name" value="<%= params[:add_name] %>">&emsp;&emsp;
 
-  Image Link:&emsp;<input type="text" name="add_nominee_image_link" value="<%= params[:add_category_image_link] %>">&emsp;&emsp;
-
-  Thumbnail Link:&emsp;<input type="text" name="add_nominee_thumbnail_link" value="<%= params[:add_category_thumbnail_link] %>">
-    
+  Image Link(851 x 315px):&emsp;<input type="text" name="add_category_image_link" value="<%= params[:add_category_image_link] %>">&emsp;&emsp;
+ 
   <br>
   <br>
   Include an optional description of your Category:<br>

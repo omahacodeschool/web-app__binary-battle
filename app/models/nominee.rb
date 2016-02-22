@@ -14,7 +14,7 @@ class Nominee < ActiveRecord::Base
 
   def get_image_or_placeholder
       if self.image == ""
-       return "https://wwww.edbacker.com/themes/edbacker/images/no-image.png"
+       return "http://cdn.browshot.com/static/images/not-found.png"
      else
       return self.image
     end

@@ -1,5 +1,30 @@
-<center> <h1> <%= @category.name %> </h1>
+<center> <h1> <%= @category.name %> ? </h1>
+<div class="container">     
+  <img style="max-height:315px;max-width:851px;height: expression(this.height > 315 ? 315: true);width: expression(this.width > 851 ? 851: true);" src="<%= @category.get_image_or_placeholder %>" class="img-rounded"> 
+</div>
+<br>
+<br>
+<%= @category.description %>
+<br>
+<br>
+   <table border="0">
+  <thead>
+    <tr>
+      <th>
+      <% if @category.locked == false %>
+        <form  method="POST" action="/battles/battle/<%= @category.id %>/play">
+        <input type="submit" value="Vote"></form>
+      <% else %>
+      VOTING CLOSED
+      <% end %></th>
+      <th> &emsp;&emsp;|&emsp;&emsp;</th>
+      <th><form  method="GET" action="/categories/category/<%= @category.id %>/results">
+        <input type="submit" value="Results"></form></th>
+    </tr>
+  </thead>
+</table>
 
+<h3> Possible Nominee selections in <%= @category.name %>  </h3>
 
 <% @pool.each do |pool| %>
 <%nominee = pool.get_nominee_info%>
