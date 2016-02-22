@@ -5,7 +5,7 @@ end
 MyApp.post "/competitor_processed" do
   x = Competitor.new
   x.name = params["name"]
-  x.competitor_type = params["competitor_type"] 
+  x.competitor_type = params["competitor_type"]
   x.save
   @y = [x.name, x.competitor_type]
   erb :"competitors/processed"
@@ -17,6 +17,6 @@ MyApp.get "/all_competitors" do
 end 
 
 MyApp.get "/view_competitor/:competitor_id" do 
-  @competitor = Competitor.find_by_id(params[:competitor_id])
+  @competitor = Competitor.find_by_id(self.id)
   erb :"competitors/single_competitor"
 end

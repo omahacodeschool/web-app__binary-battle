@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql
+  database: binary-battle
+  host: localhost
+test:
+  adapter: postgresql
+  database: binary-battle-test
+  host: localhost
