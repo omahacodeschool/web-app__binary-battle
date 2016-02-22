@@ -1,23 +1,39 @@
 <p>Current Buildings</p>
 
 
+<table border="1">
+  <thead>
+    <tr>
+      <th>Building</th>
+      <th>Wins</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wins.each_pair do |key, value| %>
+      <tr>
+        <td> <%=@building.find_by_id(key).building_name%></a> </td>
+        <td> <%= value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <table border="1">
   <thead>
     <tr>
       <th>Building</th>
-      <th>Vote Count</th>
+      <th>Loses</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @sorted.each do |y| %>
+    <% @loses.each_pair do |key, value| %>
       <tr>
-        <td> <%= y.building_name %></a> </td>
-
-        <td> <%= y.vote_count %></td>
+        <td> <%=@building.find_by_id(key).building_name%></a> </td>
+        <td> <%= value %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<a href="/home_buildings">Vote for another building?</a>
+<p style="text-align: center"><a href="/home_buildings">Vote for another building?</a><p>

@@ -40,8 +40,10 @@ end
 
 #Go to View to see buildings and votes
 MyApp.get "/show_buildings" do
-  @buildings = Building.all
-  @sorted = @buildings.order("vote_count DESC")
+  x = Match.all
+  @building = Building.all
+  @wins = x.count_wins
+  @loses = x.count_loses
   erb :"/buildings/display_buildings"
 end
 

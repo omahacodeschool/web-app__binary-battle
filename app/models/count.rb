@@ -17,7 +17,7 @@ class Count < ActiveRecord::Base
     y = Movie.find_by_id(x)
     return y.movie_name
   end
-    #Return Relation of movies in decending order based on their win counts.
+    #Return Hash of movies where .
   def Count.count_wins
     x = self.group(:winning_id).count('winning_id')
     sorted = x.sort_by {|key, value| value}.reverse.to_h
