@@ -19,7 +19,14 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
-    t.integer  "rank"
+    t.integer  "score"
+  end
+
+  create_table "battles", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "winner"
+    t.string   "loser"
   end
 
 end

@@ -8,14 +8,14 @@
 <table</table>
   <tr>
   <th>Artist</th>
-  <th>Rank</th>
+  <th>Score</th>
   </tr>
 
 <tbody>
  
   <% @a.each do |artist| %>
     <tr>
-      <td><p><%= artist.name %> - <%= artist.rank %></p></td>
+      <td><p><%= artist.name %> - <%= artist.score %></p></td>
     </tr>
   <% end %> 
 </tbody>

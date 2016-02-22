@@ -7,9 +7,9 @@ end
 
 #submit users vote
 MyApp.post "/submit_vote/:id" do
-  @point = Artist.find_by_id(params[:id])
-  @point.increment(:rank, 1)
-  @point.save
+  @artist = Artist.find_by_id(params[:id])
+  @artist.increment(:score, 1)
+  @artist.save
   erb :"success_vote"
 end
 
@@ -23,7 +23,7 @@ end
 
 #view artist and their results
 MyApp.get "/view_artist" do
-  @a = Artist.all.order(rank: :desc)
+  @a = Artist.all.order(score: :desc)
   erb :"artist_rank"
 end
 
