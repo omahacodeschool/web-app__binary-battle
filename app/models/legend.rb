@@ -28,7 +28,7 @@ class Legend < ActiveRecord::Base
   end
 
   def win_percentage
-    return wins_count/(wins_count + losses_count)
+    return wins_count.to_f/(wins_count.to_f+ losses_count.to_f)
   end
 
   # this method stores the 
@@ -42,6 +42,15 @@ class Legend < ActiveRecord::Base
       hash[l.name] = l.wins_count
     end
     return hash.sort_by {|name, wins| wins}.reverse
+  end
+
+  def self.win_percentage_hash
+    hash = {}
+    all_legends = self.all
+    all_legends.each do |l|
+      hash[l.name] = l.win_percentage
+    end
+    return hash.sort_by {|name, wp| wp}.reverse
   end
 
 end
