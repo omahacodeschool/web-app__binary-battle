@@ -1,11 +1,12 @@
 <h2>Current rankings:</h2>
 <br>
 <% @ordered_planets.each do |p| %>
-<%= p.planet %> - 
-<%= p.points %> points (<%= p.win_record %>) 
-win record
+<%= p.planet %> -- 
+<%= p.points %> points -- 
+Win ratio: <%= p.win_record %>/1
 <br>
 <% end %><br>
+<a href="/">Home</a><br>
 <br>
 <h2>Tracking choice bias:</h2>
 The first choice has been selected <%= @last_showdown.frequency_one %> time(s), and the 

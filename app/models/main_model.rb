@@ -40,13 +40,9 @@ class Planet < ActiveRecord::Base
   def self.get_all_planets_win_records
     @planets.each do |p|
       @past_battles = p.get_amount_of_planets_battles
-      if @past_battles == 0
-        next
-      else
-        @rounded = (p.points.to_f / @past_battles).round(3)
-        p.win_record = @rounded
-        p.save
-      end
+      @rounded = (p.points.to_f / @past_battles).round(3)
+      p.win_record = @rounded
+      p.save
     end
   end
 end
