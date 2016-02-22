@@ -1,4 +1,8 @@
 MyApp.get "/" do 
+  erb :"main/welcome"
+end
+
+MyApp.get "/vote_for_planet" do
   @display_planets = Planet.select_two_planets
   @new_showdown = Showdown.new
   @new_showdown.choice_one = @display_planets[0]
@@ -10,7 +14,7 @@ MyApp.get "/" do
   @new_showdown.frequency_one = @last_showdown.frequency_one
   @new_showdown.frequency_two = @last_showdown.frequency_two
   @new_showdown.save
-  erb :"main/welcome"
+  erb :"main/vote_for_planet"
 end
 
 MyApp.get "/choice_selected/:num" do
