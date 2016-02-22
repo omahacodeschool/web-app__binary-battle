@@ -37,6 +37,7 @@ class Planet < ActiveRecord::Base
     return @planet_frequency
   end
 
+  #returns Nil; sets each planet's ratio of previous wins
   def self.get_all_planets_win_records
     @planets.each do |p|
       @past_battles = p.get_amount_of_planets_battles
