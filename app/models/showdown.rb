@@ -14,8 +14,10 @@ class Showdown < ActiveRecord::Base
     end
   end
 
-  def ties
-    Showdown.select(:winner_id).group(:winner).having("count(*) > 1")
-  end 
+
+  #a method a found online, but I'm not sure how to implement it. Probaby won't use this.
+  # def ties
+  #   Showdown.select(:winner_id).group(:winner).having("count(*) > 1")
+  # end 
 
 end

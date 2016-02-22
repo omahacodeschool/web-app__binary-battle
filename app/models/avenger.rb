@@ -5,6 +5,11 @@ class Avenger < ActiveRecord::Base
     y.count
   end
 
+  def tie_breaker
+    x = self.id
+    if x.vote_count == 
+  end
+
   def self.rank
     hash = {}
     avengers = Avenger.all
