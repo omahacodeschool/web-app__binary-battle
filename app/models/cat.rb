@@ -50,7 +50,6 @@ class Cat < ActiveRecord::Base
 				end
 			end
 			return @ordered_list
-			 # return Cat.who_beat_who_more_often
 		 end
 	end
 

@@ -90,22 +90,53 @@ class CatTest < Minitest::Test
   end
 
   def test_collect_all_the_likes
-    assert_equal(Cat.get_all_cats_like_counts, cat_hash = {"Gita"=>4, "Clementine"=>1, "XiaoGui"=>4, "Baby Boy"=>0, "Gracey"=>0})
+    assert_equal(Cat.get_all_cats_like_counts, {"Gita"=>4, "Clementine"=>1, "XiaoGui"=>4, "Baby Boy"=>0, "Gracey"=>0})
   end
 
   def test_rank_cats
-    assert_equal(Cat.rank_cats, @ordered_list = {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
+    assert_equal(Cat.rank_cats, {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
+  end
+
+def test_rank_cats_with_only_one_winner
+    @result_10 = Result.new
+    @result_10.winner_id = @cat3.id
+    @result_10.loser_id = @cat1.id
+    @result_10.winner_order = 1
+    @result_10.save
+
+    assert_equal(Cat.rank_cats, {"XiaoGui"=>5, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
   end
 
   def test_who_beat_who
+    Cat.rank_cats
     assert_equal(Cat.who_beat_who("Gita", "XiaoGui"), {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
   end
 
+  def test_who_beat_who_but_tied
+    @result_10 = Result.new
+    @result_10.winner_id = @cat1.id
+    @result_10.loser_id = @cat3.id
+    @result_10.winner_order = 2
+    @result_10.save
+
+    @result_11 = Result.new
+    @result_11.winner_id = @cat3.id
+    @result_11.loser_id = @cat2.id
+    @result_11.winner_order = 2
+    @result_11.save
+
+    Cat.rank_cats
+    assert_equal(Cat.who_beat_who("Gita", "XiaoGui"), {"Gita"=>5, "XiaoGui"=>5, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
+  end
+  
   def test_re_order_list
-     assert_equal(Cat.re_order_list(@cat3), @ordered_list = {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
+    Cat.rank_cats
+    assert_equal(Cat.re_order_list(@cat3), {"XiaoGui"=>4, "Gita"=>4, "Clementine"=>1, "Baby Boy"=>0, "Gracey"=>0})
   end
 
   def test_percentage
     assert_equal(@cat1.percentage_in_first_position, 50.0)
   end
+
+
 end
