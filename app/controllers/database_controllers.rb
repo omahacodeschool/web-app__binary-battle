@@ -31,6 +31,14 @@ MyApp.post "/add_vote/:winning_id/:losing_id" do
     i.o_w_p = win_percent_average
     i.save
   end
+  #write cool stuff here to calculate o.o.w.p
+  y.each do |i|
+      next if i.id == @winner.id
+    percent = i.opponents_opponents_win_percentage
+    i.o_o_w_p = percent
+    i.save
+  end
+
   @winner.save
   showdown.save
 erb :"/movies/movie_voted"
