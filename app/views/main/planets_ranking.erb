@@ -2,12 +2,12 @@
 <br>
 <% @ordered_planets.each do |p| %>
 <%= p.planet %> - 
-<%= p.points %> points
+<%= p.points %> points (<%= p.win_record %>) 
+win record
 <br>
 <% end %><br>
 <br>
 <h2>Tracking choice bias:</h2>
-<br>
 The first choice has been selected <%= @last_showdown.frequency_one %> time(s), and the 
 second choice has been selected <%= @last_showdown.frequency_two %> time(s).<br>
 <br>
