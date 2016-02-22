@@ -76,8 +76,6 @@ class CatTest < Minitest::Test
     @result_9.loser_id = @cat1.id
     @result_9.winner_order = 1
     @result_9.save
-
-
   end
 
   def test_list_likes
