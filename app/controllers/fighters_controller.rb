@@ -5,7 +5,7 @@ end
 MyApp.post "/added_fighters" do
   x = Fighter.new
   x.name = params["name"]
-  x.fighter_style = params["figher_style"]
+  x.fighter_style = params["fighter_style"]
   x.save
   @y = [x.name, x.fighter_style]
   erb :"fighters/added"
