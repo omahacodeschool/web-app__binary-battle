@@ -18,6 +18,7 @@
     <th>Loser Loss Count</th>
     <th>Loser Win Percent</th>
     <th>Faceoff History</th>
+    <th>Faceoff Win Percent</th>
     </tr>
   </thead>
 
@@ -33,9 +34,12 @@
     <td><%=m.get_loser_win_count%></td>
     <td><%=m.get_loser_loss_count%></td>
     <td><%=m.get_loser_win_percent%></td>
-    <%m.get_faceoffs.each do |m|%>
-        <td>Winner: <%=m.winner_name%><br> Loser: <%=m.loser_name%></td>
+    <td><ul><%m.get_faceoffs.each do |m|%>
+        <li>Winner<br><%=m.winner_name%><br>Loser<br><%=m.loser_name%></li>
       <%end%>
+        </ul>
+    </td>
+    <td><%=m.get_winner_faceoff_win_percent%></td>
     </tr>
     <%end%>
   </tbody>
