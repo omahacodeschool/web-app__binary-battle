@@ -1,0 +1,10 @@
+<a href="/">home</a>
+<br>
+<a href="/admin">back to admin</a>
+<h1>Legends</h1>
+<a href="/add_legend">add a legend</a>
+<ol>
+<% @legend.each do |l| %>
+  <li><%= l.name %> - <a href="/edit_legend/<%= l.id %>">edit</a></li>
+<% end %>
+</ol>

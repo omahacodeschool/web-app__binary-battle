@@ -1,0 +1,24 @@
+<h1>Current Results</h1>
+<a href="/">Vote Again</a>
+<h2>Most Wins: </h2>
+<ol>
+<% @legend_wins.each do |name,wins| %>
+  <li><%= "#{name} - #{wins}" %></li>
+<% end %>
+</ol>
+
+<h2>Ranked by win%</h2>
+<ol>
+<% @legend_win_per.each do |name,wp| %>
+  <li><%= "#{name} - #{wp.round(3)}" %></li>
+<% end %>
+</ol>
+
+<ul>
+  <% @results.each do |r| %>
+  
+  <li><%= r.created_at %>: <%= r.winner.name %> defeated <%= r.loser.name %></li>
+
+  <% end %>
+</ul>
+

@@ -1,0 +1,22 @@
+<title>Battle of the Living Legends</title>
+<a href="/admin">admin center</a>
+
+<h1>Battle of the Living Legends</h1>
+
+<h2>Choose your favorite Legend</h2>
+
+<fieldset>
+<legend><%= @legend_1.name %></p></legend>
+<form action="vote_added/<%= @legend_1.id%>/<%= @legend_2.id%>" method="post">
+<input type="submit" value="vote">
+</form>
+</fieldset>
+
+<fieldset>
+<legend><%= @legend_2.name %></p></legend>
+<form action="vote_added/<%= @legend_2.id%>/<%= @legend_1.id%>" method="post">
+<input type="submit" value="vote">
+</form>
+</fieldset>
+<br>
+<a href="/results">View Results</a>

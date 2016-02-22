@@ -1,0 +1,14 @@
+<a href="/">home</a>
+<br>
+<a href="/legends">back to legends</a>
+
+<h1>Edit <%= @legend.name %></h1>
+
+<form action="/edit_legend/success/<%= @legend.id %>" method="post">
+  <fieldset>
+    <legend>Edit Legend Information:</legend>
+    Name:<br>
+    <input type="text" name="name" value="<%= @legend.name %>"><br>
+    <input type="submit">
+  </fieldset>
+</form>
