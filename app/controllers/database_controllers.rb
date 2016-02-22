@@ -15,7 +15,10 @@ MyApp.post "/add_vote/:winning_id/:losing_id" do
   showdown = Count.new
   showdown.winning_id = params[:winning_id]
   showdown.losing_id = params[:losing_id]
-  #binding.pry
+  winning_movie = y.find_by_id(params[:winning_id])
+  wins = winning_movie.count_wins
+  appearances = winning_movie.count_appearances
+  percentage = (wins.to_f / appearances.to_f)
   
   showdown.save
 erb :"/movies/movie_voted"
