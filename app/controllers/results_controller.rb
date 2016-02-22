@@ -1,11 +1,11 @@
-MyApp.post "/results/:winner" do
+MyApp.post "/results/:winner/:loser" do
   x = Result.new
-  x.comp_id_1 = params[]
-  x.comp_id_2 = params[]
-  x.winner = x.comp_id_1
+  x.comp_id_1 = params["winner"]
+  x.comp_id_2 = params["loser"]
+  x.winner = params["winner"]
   x.save
   @y = [x.comp_id_1, x.comp_id_2, x.winner]
-  erb :"results/results_1"
+  erb :"results/results"
 end
 
 MyApp.get "/all_results" do 
