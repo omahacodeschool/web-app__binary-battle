@@ -4,12 +4,8 @@
 
 <form action="/add_movie_form" method="post">
   <p>
-  <strong>
     '80s Movie Sequel Title:
-  </strong>
   <br />
-  </p>
-  <p>
     <input type="text" size="35" name="movie_title" required>
   </p>
   <p>
@@ -30,10 +26,10 @@
 <table border="1">
   <thead>
     <tr>
-      <th colspan="3"> ADDED MOVIES </th>
+      <th colspan="2"> ADDED MOVIES </th>
     </tr>
     <tr>
-      <th> -+-+-+-+-+-+- </th>
+      <th colspan="2"> -+-+-+-+-+-+- </th>
     </tr>
   </thead>
 
@@ -42,18 +38,13 @@
 
       <tr>
         <td>
-        <center style="color:blue">
-          <%= movie.movie_title %>
-        </center>
+          <a href="/movie_stats/<%= movie.id %>" style="color:blue"><%= movie.movie_title %></a>
         </td>
-      </tr>
-      <tr>
         <td>
         <center>
           <a href="/delete_movie/<%= movie.id %>" style="color:red">
           delete
           </a>
-
           <a href="/update_movie/<%= movie.id %>" style="color:green"> 
           update
           </a>

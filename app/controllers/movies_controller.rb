@@ -25,12 +25,12 @@ MyApp.post "/admin_sign_in" do
   end
 end
 
-MyApp.get "/add_movies" do
-  @movies = Movie.all
-  @movie  = Movie.new
+# MyApp.get "/add_movies" do
+#   @movies = Movie.all
+#   @movie  = Movie.new
   
-  erb :"admin/add_movies"
-end
+#   erb :"admin/add_movies"
+# end
 
 MyApp.post "/add_movie_form" do
   @movies = Movie.all
