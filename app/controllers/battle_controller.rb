@@ -12,7 +12,6 @@ end
 MyApp.post "/vote/:battle/:winner/:loser" do # "a" or "b"
 
 @battle = Battle.find_by_id(params[:battle])
-binding.pry
 @battle.movie_loser = params[:loser]
 @battle.movie_winner = params[:winner]
 @battle.save
@@ -20,4 +19,11 @@ binding.pry
 @loser_name = Movie.find_by_id(@battle.movie_loser).movie_name
 
   erb :"/results"
+end
+
+MyApp.get "/rankings" do
+
+  @battles = Battle.all
+
+  erb :"/rankings"
 end

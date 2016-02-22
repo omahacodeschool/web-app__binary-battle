@@ -1,0 +1,36 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Movie Rankings</title>
+</head>
+
+<body>
+<h2>David Cronenberg Movie Battles</h2>
+<br>
+<table border="1" cellpadding="5" cellspacing="5">
+      <tr>
+        <th>
+          Winner
+        </th>
+        <th>
+          Loser
+        </th>
+      </tr>
+      <% @battles.each do |b| %> 
+      <tr> 
+          <td>
+            <%= b.movie_winner %>
+          </td>
+          <td>
+            <%= b.movie_loser %>
+          </td>
+        <% end %>
+      </tr>
+
+
+<a href="/">
+      Vote!
+      </a>
+</p>
+</body>
+</html>
