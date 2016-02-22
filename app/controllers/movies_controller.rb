@@ -25,13 +25,6 @@ MyApp.post "/admin_sign_in" do
   end
 end
 
-# MyApp.get "/add_movies" do
-#   @movies = Movie.all
-#   @movie  = Movie.new
-  
-#   erb :"admin/add_movies"
-# end
-
 MyApp.post "/add_movie_form" do
   @movies = Movie.all
   @movie  = Movie.new
@@ -76,4 +69,12 @@ MyApp.get "/movie_stats/:movie_id" do
   @votes  = Vote.all
 
   erb :"user/movie_stats"
+end
+
+MyApp.get "/movie_round_stats/:movie_id" do
+  @movies = Movie.all
+  @movie  = Movie.find_by_id(params[:movie_id])
+  @votes  = Vote.all  
+
+  erb :"user/movie_round_stats"
 end
