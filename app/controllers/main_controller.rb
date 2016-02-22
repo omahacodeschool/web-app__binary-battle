@@ -41,6 +41,12 @@ MyApp.get "/vote/view" do
   erb :"competitor/view_votes"
 end
 
+MyApp.get "/matchups/:competitor_id" do
+  @competitor = Competitor.find_by_id(params[:competitor_id])
+  @matchups = @competitor.get_competitors_faceoffs
+  erb :"competitor/single_competitors_matchups"
+end
+
 
 
 

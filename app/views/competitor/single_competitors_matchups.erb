@@ -1,0 +1,20 @@
+
+  <h3><%=@competitor.name%>'s Matchup History</h3>
+
+  <table border="1">
+    <thead>
+      <tr>
+      <th>Winner Name</th>
+      <th>Loser Name</th>
+      </tr>
+    </thead>
+
+    <tbody>
+    <%@matchups.each do |m|%>
+      <tr>
+      <td><%=m.winner_name%></td>
+      <td><%=m.loser_name%></td>
+      </tr>
+      <%end%>
+    </tbody>
+  </table>

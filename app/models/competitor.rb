@@ -42,6 +42,17 @@ class Competitor < ActiveRecord::Base
     return rankings_hash
   end
 
+ #gets an activerecord collection for all the matchups involving one 
+ #competitor
+
+ #FIGURE OUT HOW TO GET TWO COLUMN NAMES IN A WHERE QUERY, LIKE .where({
+ #"winner_competitor_id" OR "loser_competitor_id"
+  def get_competitors_faceoffs
+    faceoff_wins = Matchup.where({"winner_competitor_id" => self.id})
+    faceoff_losses = Matchup.where({"loser_competitor_id" => self.id})
+    faceoffs = faceoff_wins + faceoff_losses
+    return faceoffs
+  end
 
 
 

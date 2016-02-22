@@ -45,24 +45,11 @@
   </tbody>
 </table>
 
-
-<table border="1">
-  <thead>
-    <tr>
-    <th>Faceoff Winner</th>
-    <th>Faceoff Loser</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-    <%@matchups[1].get_faceoffs.each do |m|%>
-    <td><%=m.winner_name%></td>
-    <td><%=m.loser_name%></td>
-    </tr>
-    <%end%>
-  </tbody>
-</table>
+<%@competitors.each do |c|%>
+  <ul>
+  <li><a href="/matchups/<%=c.id%>"><%=c.name%>'s Matchup History</a></li>
+  </ul>
+  <%end%>
 
 
 
