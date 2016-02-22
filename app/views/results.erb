@@ -4,21 +4,18 @@
   <title>Battle Results</title>
 </head>
 
-<body>
-<h2>Movies of David Cronenberg</h2>
-<br>
-You have chosen:
-<p>
-<%= @winner_name %></p><p>over</p><%= @loser_name %></p><p>
-<p>
-<a href="/">
-      Vote Again!
-      </a>
-</p>
-<p>
-<a href="/rankings">
-      See Rankings
-      </a>
-</p>
+<body><center>
+          <h1>Movies of David Cronenberg</h1>
+        <h>__________________________</h>
+          <h1>"<%= @winner_name %>"</h1>
+        <h2>WINS</h2>
+        <img src="<%= @winner_art %>">
+        <br>
+        <h>__________________________</h>
+        <h2>"<%= @loser_name %>"</h2>
+        <h>LOSES</h>
+        <br>
+        <h>__________________________</h>
+      </center>
 </body>
 </html>
