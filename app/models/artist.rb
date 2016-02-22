@@ -1,8 +1,10 @@
 class Artist < ActiveRecord::Base
 
- def artist_vs
+ def random_artist
+  @artist = Artist.all
+  @artist.sample(2)
  end
- 
+
 end
 
 

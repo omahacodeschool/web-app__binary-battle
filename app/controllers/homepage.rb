@@ -3,6 +3,7 @@
 MyApp.get "/" do
 
   @battle = Battle.new
+  @battle.save 
   @artist = Artist.all
   @battle = @artist.sample(2)
   binding.pry

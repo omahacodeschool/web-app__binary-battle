@@ -1,7 +1,7 @@
 <center><h1>Which artist would you like to have dinner with?</h1></center>
 
 <center>
-  <% @b.each do |a| %>
+  <% @battle.each do |a| %>
     <form action="/submit_vote/<%= a.id %>" method="post">
     <button name="" type="submit"><%= a.name %></button>
     </form>
