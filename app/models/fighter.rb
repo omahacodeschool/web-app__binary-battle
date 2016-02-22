@@ -1,2 +1,2 @@
-Class Fighter < ActiveRecord::Base
+class Fighter < ActiveRecord::Base
 end

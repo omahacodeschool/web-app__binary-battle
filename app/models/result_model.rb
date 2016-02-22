@@ -1,2 +1,2 @@
-Class Result < ActiveRecord::Base
+class Result < ActiveRecord::Base
 end
