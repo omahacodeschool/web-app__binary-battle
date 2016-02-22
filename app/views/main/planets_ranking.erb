@@ -1,14 +1,23 @@
+<h2>Current rankings:</h2>
+<br>
 <% @ordered_planets.each do |p| %>
 <%= p.planet %> - 
 <%= p.points %> points
 <br>
 <% end %><br>
 <br>
-<br>Testing choice bias:
+<h2>Tracking choice bias:</h2>
 <br>
 The first choice has been selected <%= @last_showdown.frequency_one %> time(s), and the 
 second choice has been selected <%= @last_showdown.frequency_two %> time(s).<br>
 <br>
+<h2>Showdown history:</h2>
+<% @showdowns.each do |s| %>
+  <%= s.created_at %>: 
+  <%= s.choice_one %> vs. 
+  <%= s.choice_two %>-- 
+  <%= s.winner %> wins. <br>
+<% end %>
 <br>
 <br>
 <a href="/">Home</a>

@@ -50,6 +50,7 @@ MyApp.post "/planet_submitted" do
   x.legs_points = 0
   x.smile_points = 0
   x.pres_points = 0
+  x.win_record = 0
   x.save
   erb :"main/planet_submitted"
 end
