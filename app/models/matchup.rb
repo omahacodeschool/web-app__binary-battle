@@ -52,6 +52,12 @@ class Matchup < ActiveRecord::Base
     return win_percent
   end
 
+   #gets all the matchups with the same combination of competitors
+  def get_faceoffs
+    faceoffs = Matchup.where({"winner_competitor_id" => [self.winner_competitor_id, self.loser_competitor_id], "loser_competitor_id" => [self.winner_competitor_id, self.loser_competitor_id]})
+    return faceoffs
+  end
+
   #get all the matchups where one competitor is the winner
   #get all the matchups where that same competitor is the loser
   # divide the number of matchups where they are the winner by the number of matchups where they appeared at all
