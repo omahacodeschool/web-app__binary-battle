@@ -23,6 +23,8 @@ MyApp.get "/choice_selected/:num" do
   @current_score_of_planet_chosen = @planet_object.points
   @new_points = @current_score_of_planet_chosen + 1
   @planet_object.points = @new_points
+  @past_battles = @planet_object.get_amount_of_planets_battles
+  @planet_object.win_record = @new_points.to_f / @past_battles
   @planet_object.save
   @last_showdown = Showdown.last
   @last_showdown.winner = @planet_object.planet

@@ -17,4 +17,24 @@ class Planet < ActiveRecord::Base
     return @two_planets
   end
 
+  #returns Integer (amount of times a planet has appeared in battles thus far)
+  def get_amount_of_planets_battles
+    @this_planet = Planet.find_by_id(self.id)
+    @planet_name = @this_planet.planet
+    @choice_one_occurrences = Showdown.where({"choice_one" => @planet_name})
+    @choice_two_occurrences = Showdown.where({"choice_two" => @planet_name})
+    @choice_one_array = []
+    @choice_two_array = []
+    @choice_one_occurrences.each do |i|
+      @choice_one_array << i.id
+    end
+    @choice_two_occurrences.each do |i|
+      @choice_two_array << i.id
+    end
+    @freq_choice_one = @choice_one_array.length.to_f
+    @freq_choice_two = @choice_two_array.length.to_f
+    @planet_frequency = @freq_choice_one + @freq_choice_two
+    return @planet_frequency
+  end
+
 end
