@@ -1,11 +1,16 @@
 <center><h1>Which artist would you like to have dinner with?</h1></center>
 
 <center>
-  <% @battle.each do |a| %>
-    <form action="/submit_vote/<%= a.id %>" method="post">
-    <button name="" type="submit"><%= a.name %></button>
+  
+    <form action="/submit_vote/<%= @artist1 %>" method="post">
+    <button type="submit"><%= @artist1.name %></button>
     </form>
-  <% end %>
+
+    <form action="/submit_vote/<%= @artist2 %>" method="post">
+    <button type="submit"><%= @artist2.name %></button>
+    </form>
+
+
 </center>
 
 
