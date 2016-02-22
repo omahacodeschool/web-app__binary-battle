@@ -5,7 +5,7 @@ class Legend < ActiveRecord::Base
   # end
 
   # defines where 'results.winner_id' is 'legends.id'
-  # returns an Array of objects
+  # returns an Array where 'results.winner_id' is 'legends.id'
   def wins_arr
     return Result.where("winner_id" => self.id)
   end
@@ -29,7 +29,7 @@ class Legend < ActiveRecord::Base
   end
 
   # defines an individual legend's win%
-  # returns a Floate
+  # returns a Float
   def win_percentage
     return wins_count.to_f/(wins_count.to_f+ losses_count.to_f)
   end
@@ -54,6 +54,14 @@ class Legend < ActiveRecord::Base
       hash[l.name] = l.win_percentage
     end
     return hash.sort_by {|name, wp| wp}.reverse
+  end
+
+  # get all matchups where 'winner_id' is either 'self.id'
+  # or 'other_legend.id'
+  # returns an Array
+  def matchups_with(other_legend)
+    matchups = Result.where("winner_id")
+    return matchups
   end
 
 end
