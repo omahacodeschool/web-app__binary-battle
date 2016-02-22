@@ -1,0 +1,16 @@
+<h1>Cast your Vote!</h1>
+
+<b><%= @game1.game_title.upcase %></b> 
+
+<form action "/submit_vote" method="post">
+  <input type="submit" value="Vote!">
+
+</form>
+
+
+<b><%= @game2.game_titles.upcase %></b>
+<form action "/submit_vote/<%=@game2.id%>" method="post">
+  <input type="sumbit" value="Vote!">
+
+</form>
+
