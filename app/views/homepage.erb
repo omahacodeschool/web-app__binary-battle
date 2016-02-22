@@ -1,16 +1,17 @@
-<h1>Cast your Vote!</h1>
+<h1>Choose Your Category</h1>
 
-<b><%= @game1.game_title.upcase %></b> 
+<p>
+  <ul style="list-style-type:square">
+    <% @categories.each do |c| %>
+      <li>
+        <a href="">
+          c.category_title
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</p>
 
-<form action "/submit_vote" method="post">
-  <input type="submit" value="Vote!">
-
-</form>
-
-
-<b><%= @game2.game_titles.upcase %></b>
-<form action "/submit_vote/<%=@game2.id%>" method="post">
-  <input type="sumbit" value="Vote!">
-
-</form>
-
+<p>
+  Don't Like Your Category Choices!?<br>
+  <a href="">Add Your Own!</a>
