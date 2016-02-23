@@ -1,6 +1,7 @@
 class Character < ActiveRecord::Base
 
-
+  ## times character has won battle
+  # Returns fixnum
   def how_many_wins
     x = self.id
     wins = Battle.where({"winner_id" => x})
@@ -11,6 +12,8 @@ class Character < ActiveRecord::Base
     end
   end
 
+  ## times character has lost battle
+  # Returns fixnum
   def how_many_losses
     x = self.id
     losses = Battle.where({"loser_id" => x})
@@ -21,8 +24,12 @@ class Character < ActiveRecord::Base
     end
   end
 
+  ## determines score of character
+  #
+  # wins / wins + losses
+  #
+  # returns float
   def rank
-    #a method to sort an array of characters
     x = self.how_many_wins.to_f
     y = self.how_many_wins.to_f + self.how_many_losses.to_f
       if y == 0
@@ -32,12 +39,11 @@ class Character < ActiveRecord::Base
     return score
   end
 
-  # def break_tie(y)
-  #   a = Battle.where("winner_id" => self, "loser_id" => y)
-  #   b = Battle.where("winner_id" => y, "loser_id" =>self)
-  # end
-
-
+  ## determines victor in case of ties
+  #
+  # characterarray--array of character ids (integer) and their score (float)
+  #
+  # Returns string with no ties
   def self.find_ties(characterarray)
     characterarray.each_with_index do |character,index|
       character2 = characterarray[index + 1]

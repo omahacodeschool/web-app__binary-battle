@@ -1,12 +1,12 @@
 <h1>BATTLE OF THE <%=@universe.universe_name.upcase%>-VERSE</h1>
 
-<H2>The people have spoken and...<p><%=@winner%> is the best <%=@universe.universe_name%> character!</p></H2>
+<H2>The people have spoken and...<p><%=Character.find_by_id(@winner).character_name%> is the best <%=@universe.universe_name%> character!</p></H2>
 
 <h3>The Gang, Ranked:<h3>
 
 <ol>
   <% @arr.each do |post| %>
-  <li><%=post[0]%></li>
+  <li><%=Character.find_by_id(post[0]).character_name%></li>
   <% end %>
 </ol>
 
