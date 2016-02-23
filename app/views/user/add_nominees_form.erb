@@ -14,13 +14,18 @@
   </select>
   <br>
   <br>
-  <% @num_of_nominees.times do |i| %>
-    <% count = 1 %>
-      <label for="nominee_<%=count%>">
-        <sub><i>Nominee <%=count%></i></sub>
-      </label>
-      <input type="text" name="nominee_<%=count%>"><br>
-    <% count +=1 %>
+  <% @num_of_nominees.to_i.times do |i| %>
+    <label for="nominee_<%=@count%>">
+      <sub><i>Nominee <%=@count%></i></sub>
+    </label>
+    <input type="text" name="nominee_<%=@count%>"><br>
+    <label for="nominee<%=@count%>_image">
+      <sub><i>Nominee Image Source</i></sub>
+    </label>
+    <input type="text" name="nominee<%=@count%>_image"><br>
+    <br>
+    <br>
+  <% @count += 1 %>
   <% end %>
   <br>
   <br>
