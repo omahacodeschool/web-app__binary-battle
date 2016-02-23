@@ -1,4 +1,17 @@
 <center> 
-<h1> Binary Battles </h1>
-<img src="http://www.pebbledesign.com/images/insights/headings/the-big-battle.jpg"></img>
- </center>
+  <h1> Binary Battles </h1>
+  <img src="http://www.pebbledesign.com/images/insights/headings/the-big-battle.jpg"></img>
+  <br>
+  <br>
+
+  <form  method="POST" action="/battles/battle/select">
+    <select name="category_battle_selection_dropdown">
+      <option value=<%= nil %>><%= "...Please Select a Battle" %></option>
+      <% @categories.each do |c| %>
+        <option value="<%= c.id %>"><%= c.name %></option>
+     <% end %>  
+    </select>
+    &emsp;&emsp;
+  <input type="submit" value="Battle"></form>
+
+</center>

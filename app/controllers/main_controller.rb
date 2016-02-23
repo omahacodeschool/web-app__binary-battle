@@ -1,5 +1,5 @@
 MyApp.get "/" do
-
+  @categories = Category.where({"locked" => false})
   erb :"/main"
 end
 

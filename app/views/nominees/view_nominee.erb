@@ -1,6 +1,6 @@
 <center> 
 <div class="container">     
-  <img style="max-height:725px;max-width:851px;height: expression(this.height > 725 ? 725: true);width: expression(this.width > 851 ? 851: true);" src="<%= @nominee.get_image_or_placeholder %>" class="img-rounded"> 
+  <img style="max-height:600px;max-width:600px;height: expression(this.height > 600 ? 600: true);width: expression(this.width > 600 ? 600: true);" src="<%= @nominee.get_image_or_placeholder %>" class="img-rounded"> 
 </div>
 <% if @nominee.locked == true %>
 <h1> <%= @nominee.name %> [ RETIRED ] </h1> <br>

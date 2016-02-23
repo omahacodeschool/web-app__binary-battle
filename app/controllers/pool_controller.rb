@@ -4,7 +4,14 @@ MyApp.get "/battles" do
   erb :"/battles/view_battles"
 end
 
-MyApp.post "/battles/battle/:id/play" do
+MyApp.post "/battles/battle/select" do
+  @categories = Category.find_by_id(params[:category_battle_selection_dropdown])
+  @nominees = Nominee.all
+  redirect :"/battles/battle/#{@categories.id}/play"
+end
+
+
+MyApp.get "/battles/battle/:id/play" do
   @nominee_ids =[]
   @category = Category.find_by_id(params[:id])
   @pool = Pool.where({"category_id" => @category.id}).sample(2)

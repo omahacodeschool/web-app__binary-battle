@@ -5,13 +5,13 @@
 
   <h1> <%= @winner.name %> wins! </h1>
 
-  (You chose <b><%= @winner.name %></b>, over <b><%= @loser.name%></b>)
+  (You chose <b><%= @winner.name %></b> over <b><%= @loser.name%></b>)
   <br>
   <br>
   <table border="0">
   <thead>
     <tr>
-      <th> <form  method="POST" action="/battles/battle/<%= @category.id %>/play">
+      <th> <form  method="GET" action="/battles/battle/<%= @category.id %>/play">
      <input type="submit" value="Vote Again"></form> </th>
 
       <th> &emsp;&emsp;|&emsp;&emsp;</th>

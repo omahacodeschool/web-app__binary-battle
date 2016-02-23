@@ -21,7 +21,7 @@
       <td>&emsp;&emsp;</td>
 
       <td><% if category.locked == false %>
-        <form  method="POST" action="/battles/battle/<%= category.id %>/play">
+        <form  method="GET" action="/battles/battle/<%= category.id %>/play">
         <input type="submit" value="Vote"></form>
       <% else %>
       CLOSED
