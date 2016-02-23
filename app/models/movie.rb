@@ -1,8 +1,24 @@
 class Movie < ActiveRecord::Base
 
+  def password_check
+    if self == "password"
+      true
+    else
+      false
+    end
+  end
+
+  def is_valid
+    if self.movie_title == "" || self.movie_poster == ""
+      false
+    else
+      true
+    end
+  end
+
   def movie_rank
     x = Hash.new
-    @movies.each do |m|
+    self.each do |m|
       x[m.id] = m.movie_win_percent
     end
     movie_sorted_rank_arr = x.sort_by(&:last).reverse

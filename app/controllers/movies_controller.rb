@@ -9,13 +9,14 @@ MyApp.get "/" do
 end
 
 MyApp.get "/add_movies" do
-    @movies = Movie.all
-    @movie  = Movie.new
+  @movies = Movie.all
+  @movie  = Movie.new
 
-    erb :"admin/add_movies"
+  erb :"admin/add_movies"
 end
 
 MyApp.post "/admin_sign_in" do
+
   if params["password"] == "password"
     @movies = Movie.all
     @movie  = Movie.new
@@ -32,18 +33,29 @@ MyApp.post "/admin_sign_in" do
   end
 end
 
+MyApp.get "/error" do
+
+  erb :"admin/eror"
+end
+
 MyApp.post "/add_movie_form" do
   @movies = Movie.all
   @movie  = Movie.new
 
   @movie.movie_title  = (params["movie_title"])
   @movie.movie_poster = (params["movie_poster"])
-  @movie.save 
 
-  erb :"admin/add_movies"
+  if @movie.is_valid
+    @movie.save
+
+    erb :"admin/add_movies"
+  else
+
+    erb :"admin/error"
+  end
 end
 
-MyApp.post "/delete_movie/:movie_id" do
+MyApp.get "/delete_movie/:movie_id" do
   @movies = Movie.all
   @movie  = Movie.find_by_id(params[:movie_id])
   
@@ -65,9 +77,14 @@ MyApp.post "/process_movie_update/:movie_id" do
 
   @movie.movie_title  = (params["movie_title_update"])
   @movie.movie_poster = (params["movie_poster_update"])
-  @movie.save
 
-  erb :"admin/add_movies"
+  if @movie.is_valid
+    @movie.save
+
+    erb :"admin/add_movies"
+  else
+    erb :"admin/error"
+  end
 end
 
 MyApp.get "/movie_stats/:movie_id" do
