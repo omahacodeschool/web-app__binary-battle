@@ -6,7 +6,7 @@
 
   <form  method="POST" action="/battles/battle/select">
     <select name="category_battle_selection_dropdown">
-      <option value=<%= nil %>><%= "...Please Select a Battle" %></option>
+      <option value=<%= nil %>> ...Please Select a Battle </option>
       <% @categories.each do |c| %>
         <option value="<%= c.id %>"><%= c.name %></option>
      <% end %>  

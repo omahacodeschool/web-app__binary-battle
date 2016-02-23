@@ -5,12 +5,9 @@ MyApp.get "/battles" do
 end
 
 MyApp.post "/battles/battle/select" do
-  @error_test = Category.new
-  @error_test.id = params[:category_battle_selection_dropdown]
   @nominees = Nominee.all
-  if @error_test.is_valid_category_check == true
+  if params[:category_battle_selection_dropdown].empty?
     @no_id_error = true
-    @categories = Category.new
     erb :"main_errors"
   else
     @categories = Category.find_by_id(params[:category_battle_selection_dropdown])

@@ -15,9 +15,6 @@ class Category < ActiveRecord::Base
       return self.id == nil ? true : false
   end
 
-  def no_category_id_message
-      return "You cannot vote until you select a category."
-  end
 
   # RETURNS Collection of pools table rows with category_id columns matching selected category's id.
   def get_pool
