@@ -9,4 +9,26 @@ class Dwarf < ActiveRecord::Base
     end
   end
 
+
+
+
+  # Returns a boolean
+  def is_duplicate
+    duplicate = false
+    @all_dwarves = Dwarf.all
+
+      @all_dwarves.each do |dwarf|
+
+        if self.name == dwarf.name
+          return true
+        else
+          return false
+        end
+      end
+  end
+
+
+
+
+
 end
