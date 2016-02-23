@@ -14,10 +14,22 @@
 <tbody>
  
   <% @a.each do |artist| %>
-    <ol>
+
       <li><p><%= artist.name %> - <%= artist.score %></p></li>
-    </ol>
   <% end %> 
+</tbody>
+</table>
+</html>
+
+<br>
+<br>
+
+<tbody>
+ 
+  <% @b.each do |battle| %>
+    
+    <li><p><%= battle.winner %> beat <%= battle.loser %></p></li>
+   <% end %> 
 </tbody>
 </table>
 </html>

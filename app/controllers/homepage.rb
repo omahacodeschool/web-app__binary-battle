@@ -10,14 +10,12 @@ end
 MyApp.post "/submit_vote/:winner/:loser" do
   @winner = Artist.find_by_id(params[:winner]) 
   @loser = Artist.find_by_id(params[:loser])
-  @winner.increment(:rank, 1)
+  @winner.increment(:score, 1)
   @winner.save
-  binding.pry
   @battle = Battle.new
-  @battle.winner = winner.id
-  @battle.loser = loser.id
+  @battle.winner = @winner.name
+  @battle.loser = @loser.name
   @battle.save
-  binding.pry
   erb :"success_vote"
 end
 
@@ -32,6 +30,7 @@ end
 #view artist and their results
 MyApp.get "/view_artist" do
   @a = Artist.all.order(score: :desc)
+  @b = Battle.all
   erb :"artist_rank"
 end
 
