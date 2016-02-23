@@ -5,7 +5,13 @@
 <p>
   <form method = "post" action="/competitor/create">
     Competitor Name:<br>
-    <input type="text" name="competitor_name"><br>
+    <input type="text" name="competitor_name"><br><br>
+    <select name="category_id">
+      <option selected disabled>Select a Category...</option>
+      <%@categories.each do |c|%>
+      <option value="<%=c.id%>"><%=c.name%></option>
+      <%end%>
+    </select><br><br>
     <input type="submit">
   </form>
 </p>

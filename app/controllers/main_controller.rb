@@ -1,16 +1,21 @@
 
 MyApp.get "/" do
-  @competitor_with_photo = Competitor.find_by_id(7)
   erb :"welcome"
 end
 
 MyApp.get "/competitor/add" do
+  @categories = Category.all
   erb :"competitor/add_competitor"
+end
+
+MyApp.get "/category/add" do
+  erb :"category/add_category"
 end
 
 MyApp.post "/competitor/create" do
   competitor = Competitor.new
   competitor.name = params["competitor_name"]
+  competitor.category_id = params["category_id"]
   competitor.save
   @confirm_message = "Created #{competitor.name}!"
   erb :"confirm_submission"
@@ -49,6 +54,13 @@ MyApp.get "/matchups/:competitor_id" do
   erb :"competitor/single_competitors_matchups"
 end
 
+MyApp.post "/category/create" do
+  category = Category.new
+  category.name = params["category_name"]
+  category.save
+  @confirm_message = "Successfully created #{category.name}!"
+  erb :"confirm_submission"
+end
 
 
 
