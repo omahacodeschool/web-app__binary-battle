@@ -21,6 +21,35 @@
         2,
         null,
         null,
+        null,
+        1,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        2,
+        null,
+        4,
+        4,
+        null,
+        4,
+        4,
+        4,
+        4,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
         null
       ],
       "/Users/melindadeinert/Code/web-app__binary-battle/app/models/showdown_model.rb": [
@@ -143,6 +172,8 @@
         0,
         0,
         null,
+        0,
+        null,
         null,
         1,
         0,
@@ -157,6 +188,7 @@
         null,
         null,
         1,
+        0,
         0,
         0,
         0,
@@ -194,6 +226,6 @@
         null
       ]
     },
-    "timestamp": 1456172601
+    "timestamp": 1456187548
   }
 }

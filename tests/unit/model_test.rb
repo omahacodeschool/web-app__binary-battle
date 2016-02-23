@@ -23,6 +23,16 @@ class PlanetTest < Minitest::Test
     @pluto = Planet.new
     @pluto.planet = "Pluto"
     @pluto.save
+
+    @s1 = Showdown.new
+    @s1.choice_one = "Pluto"
+    @s1.choice_two = "Copernicus"
+    @s1.save
+
+    @s2 = Showdown.new
+    @s2.choice_one = "Chicken"
+    @s2.choice_two = "Copernicus"
+    @s2.save
   end
 
   def test_list_planet_names
@@ -36,4 +46,14 @@ class PlanetTest < Minitest::Test
     assert_includes(Planet.list_planet_names, Planet.select_two_planets[1])
   end
 
+  def test_getting_amounts_of_planets_battles
+    assert_equal(@copernicus.get_amount_of_planets_battles, 2)
+    assert_equal(@chicken.get_amount_of_planets_battles, 1)
+    refute_equal(@copernicus.get_amount_of_planets_battles, 1)
+    refute_equal(@chicken.get_amount_of_planets_battles, 2)
+  end
+
+  def test_get_all_planets_win_records
+
+  end
 end
