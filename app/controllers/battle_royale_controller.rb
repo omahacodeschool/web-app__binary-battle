@@ -7,13 +7,13 @@ end
 
 MyApp.post "/royalevote" do
     #saves the winner and loser to the battle table
-  b = Battle.new
-  b.winner_id = params[:winner]
-  b.loser_id = params[:loser]
-  b.save
-  @winner = Character.find_by_id(params[:winner])
-  @loser = Character.find_by_id(params[:loser])
-  erb :"/br/royalevote"
+    b = Battle.new
+    b.winner_id = params[:winner]
+    b.loser_id = params[:loser]
+    b.save
+    @winner = Character.find_by_id(params[:winner])
+    @loser = Character.find_by_id(params[:loser])
+    erb :"/br/royalevote"
 end
 
 MyApp.get "/royaleranks" do
