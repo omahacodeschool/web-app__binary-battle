@@ -39,11 +39,17 @@ class Planet < ActiveRecord::Base
 
   #returns Nil; sets each planet's ratio of previous wins
   def self.get_all_planets_win_records
+    @planets = Planet.all
     @planets.each do |p|
       @past_battles = p.get_amount_of_planets_battles
-      @rounded = (p.points.to_f / @past_battles).round(3)
-      p.win_record = @rounded
-      p.save
+      if @past_battles == 0
+        p.win_record = 0.0
+        p.save
+      else
+        @rounded = (p.points.to_f / @past_battles).round(3)
+        p.win_record = @rounded
+        p.save
+      end
     end
   end
 end
