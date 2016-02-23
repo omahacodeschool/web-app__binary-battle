@@ -1,0 +1,11 @@
+<h1> Fighters: </h1>
+
+<!-- displays available fighters -->
+
+<p>Here's a list of all the fighters battling it out for the grand prize!</p>
+
+<% @fighters.each do |fighter| %>
+  <br><%= fighter.name %><br>
+<% end %>
+
+<br><a href = "/">Back</a>
