@@ -34,7 +34,8 @@ MyApp.post "/vote/create/:winner_id/:loser_id" do
 end
 
 MyApp.get "/vote/view" do
-  @rankings_hash = Competitor.rank
+  @rankings = Competitor.rank
+  @rankings_win_percent = Competitor.rank_by_win_percents
   @competitors = Competitor.all
   all_matchups = Matchup.all
   @matchups = all_matchups.order("winner_competitor_id", "loser_competitor_id")

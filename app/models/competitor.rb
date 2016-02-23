@@ -96,11 +96,24 @@ end
 
 # This is a method I can call on the Competitor class to get a hash of #competitor ids and win percents. Add a feature to pass in an argument for the #category later
 
-  def self.rank
+  def self.rank_by_win_percents
     hash = {}
     competitors = Competitor.all
       competitors.each do |c|
       hash[c.name] = c.win_percent
+      end
+    rankings_hash = hash.sort_by {|key, value| value }.reverse
+    return rankings_hash
+  end
+
+  #Method I can call on the Competitor Class go get rankings
+  #Returns a hash with competitor ids and weighted scores
+
+   def self.rank
+    hash = {}
+    competitors = Competitor.all
+      competitors.each do |c|
+      hash[c.name] = c.get_weighted_score
       end
     rankings_hash = hash.sort_by {|key, value| value }.reverse
     return rankings_hash
