@@ -2,12 +2,12 @@
 
 <center>
   
-    <form action="/submit_vote/<%= @artist1 %>" method="post">
-    <button type="submit"><%= @artist1.name %></button>
+    <form action="/submit_vote/<%= @artist1.id%>/<%= @artist2.id %>" method="post">
+    <button type="submit" value="vote" ><%= @artist1.name %></button>
     </form>
 
-    <form action="/submit_vote/<%= @artist2 %>" method="post">
-    <button type="submit"><%= @artist2.name %></button>
+    <form action="/submit_vote/<%= @artist2.id %>/<%= @artist1.id %>" method="post">
+    <button type="submit" name="name" value="vote"><%= @artist2.name %></button>
     </form>
 
 

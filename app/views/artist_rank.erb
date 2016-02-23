@@ -14,9 +14,9 @@
 <tbody>
  
   <% @a.each do |artist| %>
-    <tr>
-      <td><p><%= artist.name %> - <%= artist.score %></p></td>
-    </tr>
+    <ol>
+      <li><p><%= artist.name %> - <%= artist.score %></p></li>
+    </ol>
   <% end %> 
 </tbody>
 </table>

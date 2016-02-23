@@ -7,11 +7,17 @@ MyApp.get "/" do
 end
 
 #submit users vote
-MyApp.post "/submit_vote/:id" do
+MyApp.post "/submit_vote/:winner/:loser" do
+  @winner = Artist.find_by_id(params[:winner]) 
+  @loser = Artist.find_by_id(params[:loser])
+  @winner.increment(:rank, 1)
+  @winner.save
   binding.pry
-  @artist = Artist.find_by_id(params[:id]) 
-  @artist.increment(:score, 1)
-  @artist.save
+  @battle = Battle.new
+  @battle.winner = winner.id
+  @battle.loser = loser.id
+  @battle.save
+  binding.pry
   erb :"success_vote"
 end
 
