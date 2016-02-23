@@ -1,0 +1,20 @@
+<h1>BATTLE FOR THE UNIVERSE</h1>
+<h2>DETERMINING, ONCE AND FOR ALL</h2>
+<h2>WHO IS THE BEST CHARACTER</h2>
+
+You can:
+<p></p>
+<% if @universes%>
+  <h3>Pick An Existing Universe:</h3>
+  <ul>
+    <% @universes.each do |post| %>
+      <li><a href="/battle/<%=post.id%>"><%=post.universe_name%></a></li>
+    <% end %>
+  </ul> 
+<% else %>
+<% end %>
+
+<h2><a href="/create_universe">Add Your Own Favorite</a></h2>
+
+<h2><a href="/battle_royale">Battle Royale</a></h2>
+<h2><a href="/nerd_out">THIS BUTTON IS ALSO USELESS AT THE MOMENT</a>

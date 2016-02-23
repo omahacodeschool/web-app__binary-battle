@@ -1,0 +1,14 @@
+
+<h1>BATTLE ROYALE</h1>
+
+Your vote has been counted: <%= @winner.character_name%> is better than <%= @loser.character_name%>
+
+<form action="/battle_royale" method="get">
+  <input type = "Submit" value= "Vote Again?">
+</form>
+
+<form action="/royaleranks" method="get">
+  <input type = "Submit" value= "View Ranks of Gang">
+</form>
+
+<a href="/">Home</a>

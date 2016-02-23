@@ -1,0 +1,15 @@
+BATTLE ROYAL PAGE
+
+<h2><%= @char1.character_name %> from <%= @char1.name_universe%> VS <%= @char2.character_name %> from <%= @char2.name_universe%></h2>
+Vote:
+<form action="/royalevote" method="post">
+    <input type="hidden" value="<%=@char1.id%>" name="winner" />
+    <input type="hidden" value="<%=@char2.id%>" name="loser" />
+    <input type="Submit" value="<%=@char1.character_name%>">
+</form>
+
+<form action="/royalevote" method="post">
+    <input type="hidden" value="<%=@char2.id%>" name="winner" />
+    <input type="hidden" value="<%=@char1.id%>" name="loser" />
+    <input type="Submit" value="<%=@char2.character_name%>">
+</form>

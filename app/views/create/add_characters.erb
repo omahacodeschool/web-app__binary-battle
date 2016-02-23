@@ -1,0 +1,27 @@
+<h1>Add Your Favorite Characters from the <%=@universe.universe_name%> Universe</h1>
+
+<form action="/newcharacter" method="post">
+  <fieldset>
+    <legend>Add New Character</legend>
+      <label for="character_name">Character Name</label>
+        <input type="text" name="charactername">
+        <input type="hidden" value="<%=@universe.id%>" name="universeid" />
+      <input type="Submit" value="Add">
+  </fieldset>
+</form>
+
+<% if @characters %>
+  <h3>So far we have:<h3>
+  <ul>
+    <% @characters.each do |post| %>
+      <li><%= post.character_name%></li>
+    <% end %>
+  </ul>
+<% else %> Add Characters to Universe
+<% end %>
+
+
+<form action="/battle/<%=@universe.id%>" method="get">
+  <input type="Submit" value="THAT'S ENOUGH TIME TO FIGHT"/> 
+</form>
+
