@@ -29,8 +29,8 @@ class Competitor < ActiveRecord::Base
   end
 
   #Gets all opponents that a competitor has faced
-
-  def get_opponents
+  #Investigate shortening this using the Pluck ActiveRecord method
+  def get_opponent_ids
     losing_opponents = []
     winning_opponents = []
     # all matchups involving competitor
@@ -47,17 +47,48 @@ class Competitor < ActiveRecord::Base
       end
 
       all_opponents = losing_opponents + winning_opponents
-      opponents = all_opponents.uniq
-      return opponents
+      opponent_ids = all_opponents.uniq
+      return opponent_ids
   end
 
+  #gets an Array of all matchup ids that a competitors opponents have competed #in that 
+  #have not involved that competitor
+
 def get_opponents_matchups
-  opponents = self.get_opponents
-  opponents_matchups = Matchup.where({"winner_competitor_id" => opponents}).where.not({"loser_competitor_id" => self.id})
-  opponents_matchups_two = Matchup.where({"loser_competitor_id" => opponents}).where.not({"winner_competitor_id" => self.id})
+  opponent_ids = self.get_opponent_ids
+  opponents_matchups = Matchup.where({"winner_competitor_id" => opponent_ids}).where.not({"loser_competitor_id" => self.id})
+  opponents_matchups_two = Matchup.where({"loser_competitor_id" => opponent_ids}).where.not({"winner_competitor_id" => self.id})
   opponents_matchups_final = (opponents_matchups + opponents_matchups_two).uniq
   return opponents_matchups_final
 end
+
+def get_opponents_matchup_ids
+  opponent_ids = self.get_opponent_ids
+  opponents_matchup_ids = []
+  opponents_matchups = Matchup.where({"winner_competitor_id" => opponent_ids}).where.not({"loser_competitor_id" => self.id})
+  opponents_matchups_two = Matchup.where({"loser_competitor_id" => opponent_ids}).where.not({"winner_competitor_id" => self.id})
+  opponents_matchups_final = (opponents_matchups + opponents_matchups_two).uniq
+  opponents_matchups_final.each do |m|
+    opponents_matchup_ids << m.id
+  end
+  return opponents_matchup_ids
+end
+
+#Returns the average win percentage of all a compeitor's opponents in 
+#matchups that don't involve that competitor
+
+  def get_opponents_average_win_percentage
+    opponents_win_percentages = 0.0
+    opponent_ids = self.get_opponent_ids
+    opponents_matchup_ids = self.get_opponents_matchup_ids
+    opponent_ids.each do |i|
+      opponents_win_count = Matchup.where({"id" => opponents_matchup_ids}, {"winner_id" => i}).count.to_f
+      opponents_loss_count = Matchup.where({"id" => opponents_matchup_ids}, {"loser_id" => i}).count.to_f
+      opponents_win_percent = opponents_win_count/(opponents_win_count + opponents_loss_count)
+      opponents_win_percentages += opponents_win_percent
+    end
+    return opponents_win_percentages/opponent_ids.count
+  end
 
  #Gets the win percent of a competitor's competitors, excluding wins/losses #in matchups with that competitor
     

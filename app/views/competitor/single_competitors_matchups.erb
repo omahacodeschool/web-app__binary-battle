@@ -2,7 +2,7 @@
   <h3><%=@competitor.name%>'s Matchup History</h3>
 
   <h4><%=@competitor.name%> has faced:<br>
-  <%=@competitor.get_opponents%>
+  <%=@competitor.get_opponent_ids%>
   </h4>
 
   <%@competitors_matchups.each do |m|%>
@@ -11,7 +11,9 @@
     </ul>
     <%end%>
 
-    <%=@competitors_matchups.count%>
+    <h4>Matchups that have taken place that haven't involved <%=@competitor.name%>: <%=@competitors_matchups.count%></h4>
+
+    <h4>Opponents Average Win Percentage: <%=@competitor.get_opponents_average_win_percentage%></h4>
   
     
 
