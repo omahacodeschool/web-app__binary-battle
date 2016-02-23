@@ -2,7 +2,11 @@
 <div class="container">     
   <img style="max-height:725px;max-width:851px;height: expression(this.height > 725 ? 725: true);width: expression(this.width > 851 ? 851: true);" src="<%= @nominee.get_image_or_placeholder %>" class="img-rounded"> 
 </div>
-<h1> <%= @nominee.name %> </h1>
+<% if @nominee.locked == true %>
+<h1> <%= @nominee.name %> [ RETIRED ] </h1> <br>
+<% else %>
+  <h1> <%= @nominee.name %> </h1>
+<% end %>
 <p> <%= @nominee.bio %> </p>
 <br>
 <br>

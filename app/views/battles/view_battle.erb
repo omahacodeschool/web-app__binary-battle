@@ -1,4 +1,9 @@
   <center>
+<% if @error == true %>
+  <%= @category.not_enough_nominees_error %>
+
+<% else %>
+
   <form  method="POST" action="/battles/battle/<%= @category.id %>/cast_vote">
 <h1> <%= @category.name %> </h1>
 <div class="container">     
@@ -31,4 +36,5 @@
     <br>
     <input type="submit" value="Vote">
 </form>
+<% end%>
 </center>

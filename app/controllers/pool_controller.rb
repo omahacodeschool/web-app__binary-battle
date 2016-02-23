@@ -8,9 +8,13 @@ MyApp.post "/battles/battle/:id/play" do
   @nominee_ids =[]
   @category = Category.find_by_id(params[:id])
   @pool = Pool.where({"category_id" => @category.id}).sample(2)
-  @pool.each do |id|
-    if id != nil
-     @nominee_ids << id.nominee_id.to_i
+  if @pool.length <= 1
+     @error = true
+  else
+    @pool.each do |id|
+      if id != nil
+       @nominee_ids << id.nominee_id.to_i
+      end
     end
   end
 

@@ -6,6 +6,10 @@ class Category < ActiveRecord::Base
      or edit your preexisting activity"
   end
 
+
+  def not_enough_nominees_error
+    return "This category does not have enough nominees to vote on. Please add more."
+  end
   # RETURNS Collection of pools table rows with category_id columns matching selected category's id.
   def get_pool
     return Pool.where({"category_id" => self.id})
@@ -13,12 +17,9 @@ class Category < ActiveRecord::Base
 
   # RETURNS row Instance's image url as a String OR returns placeholder string if self.image is an empty string.
   def get_image_or_placeholder
-    if self.image == ""
-       return "http://cdn.browshot.com/static/images/not-found.png"
-    else
-      return self.image
-    end
+      return (self.image != "") && (self.image != nil) ? self.image : "http://cdn.browshot.com/static/images/not-found.png"
   end
+
 
   #Gets Hash Array of Result table loved_ids. The value is the frequency of times it appears in the Collection
   #
