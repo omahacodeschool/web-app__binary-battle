@@ -7,12 +7,14 @@
   <thead>
     <tr>
       <th>Avenger</th>
+      <th>Votes</th>
     </tr>
   </thead>
   <tbody>
-    <% @avengers.each do |a| %>
+    <% @rankings.each do |name, votes| %>
       <tr>
-        <td><%= a.name %></td> 
+        <td><%= name %></td> 
+        <td><%= votes %></td>
       </tr>
     <% end %>                  
   </tbody>

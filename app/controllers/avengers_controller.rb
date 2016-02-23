@@ -7,10 +7,6 @@ MyApp.get "/" do
   erb :'homepage'
 end
 
-MyApp.get "/admin" do
-  @avengers = Avenger.all
-  erb :'admin'
-end 
 
 MyApp.post "/new_avenger" do
   @avenger = Avenger.new
@@ -18,6 +14,12 @@ MyApp.post "/new_avenger" do
   @avenger.save
   redirect :'admin'
 end
+
+MyApp.get "/admin" do
+  @avengers = Avenger.all
+  @rankings = Avenger.rank("name")  
+  erb :'admin'
+end 
 
 MyApp.post "/process_vote/:showdown_id" do
   x = params["hero_vote"]
@@ -30,7 +32,9 @@ end
 MyApp.get "/results" do
   @showdowns = Showdown.all
   @avengers = Avenger.all
-  @rankings = Avenger.rank
+  @rankings = Avenger.rank("name")
+  @find_ties = Avenger.find_ties
+  @are_there_ties = Avenger.find_ties?
   erb :'results'
 end
 
