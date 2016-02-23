@@ -87,7 +87,7 @@ end
       opponents_win_percent = opponents_win_count/(opponents_win_count + opponents_loss_count)
       opponents_win_percentages += opponents_win_percent
     end
-    return opponents_win_percentages/opponent_ids.count
+    return opponents_win_percentages#/(opponent_ids.count)
   end
 
  #Gets the win percent of a competitor's competitors, excluding wins/losses #in matchups with that competitor
@@ -116,6 +116,20 @@ end
     faceoff_losses = Matchup.where({"loser_competitor_id" => self.id})
     faceoffs = faceoff_wins + faceoff_losses
     return faceoffs
+  end
+
+
+
+#gets a score for a competitor that weights each win based on how 
+#how frequently they beat that opponent
+
+  def get_weighted_score
+    weighted_score = 0.0
+    wins = Matchup.where({"winner_competitor_id" => self.id})
+    wins.each do |w|
+      weighted_score += w.get_winner_faceoff_win_percent
+    end
+    return weighted_score
   end
 
 

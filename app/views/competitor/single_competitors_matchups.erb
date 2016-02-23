@@ -1,6 +1,8 @@
 
   <h3><%=@competitor.name%>'s Matchup History</h3>
 
+  <h4><%=@competitor.get_weighted_score%></h4>
+
   <h4><%=@competitor.name%> has faced:<br>
   <%=@competitor.get_opponent_ids%>
   </h4>
