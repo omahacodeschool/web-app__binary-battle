@@ -10,14 +10,14 @@
       </p>
       
       <p>
-        Vote for <%= @comp_1 %> here!
+        Vote for <%= @name_1 %> here!
           <form action = "/results/<%= @comp_1 %>/<%= @comp_2 %>" method = "post">
             <input type = "submit" value = "Vote">
           </form>
       </p>
 
       <p>
-        Vote for <%= @comp_2 %> here!
+        Vote for <%= @name_2 %> here!
           <form action = "/results/<%= @comp_2 %>/<%= @comp_1 %>" method = "post">
             <input type = "submit" value = "Vote">
           </form>
@@ -29,10 +29,10 @@
 
 <% end %>
 <p>
-  <a href = "/form_to_add_competitor">Click here to add competitors</a>
+  <a href = "/form_to_add_competitor">Click here</a> to add competitors.
 </p>
 <p>
-  <a href = "/all_competitors">Click here to see a list of competitors</a>
+  <a href = "/all_competitors">Click here</a> to see the current list of competitors vying for supremacy!
 </p>
 
 </center>

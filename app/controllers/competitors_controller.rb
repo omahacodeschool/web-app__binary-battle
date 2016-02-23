@@ -13,6 +13,8 @@ end
 
 MyApp.get "/all_competitors" do 
   @competitors = Competitor.all
+  competitors = @competitors.limit(1).order("RANDOM()")
+  @type = competitors[0].competitor_type
   erb :"competitors/competitors_list"
 end 
 

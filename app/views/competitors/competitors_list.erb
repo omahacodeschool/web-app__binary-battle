@@ -1,13 +1,19 @@
 <h1>List of Competitors</h1>
 
-<% @competitors.limit(1).each do |competitor| %>
-  <p>
-    Here's a list of all the competitors duking it out for the title of "Best <%= competitor.competitor_type.capitalize %>"!
-  </p>
-<% end %>
+<p>
+  Here's a list of all the competitors duking it out for the title of "Best <%= @type.capitalize %>"!
+</p>
 
-<% @competitors.each do |competitor| %>
-  <%= competitor.name %>
-<% end %>
+<ul>
+  <% @competitors.each do |competitor| %>
+    <li>
+      <%= competitor.name %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  <a href="/all_results">Click here</a> to view rankings and matchups so far!
+</p>
 
 <a href = "/">Back</a>
