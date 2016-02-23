@@ -17,13 +17,13 @@
     '80s Movie Sequel Title:
   <br />
   <input type="text" size="35" name="movie_title_update" 
-    value="<%= @movie.movie_title %>" required>
+    placeholder="<%= @movie.movie_title %>" required>
   </p>
 
   <p>
     Movie Poster URL:
   <br />
-    <input type="text" name="movie_poster_update" value="<%= @movie.movie_poster %>" required>
+    <input type="text" name="movie_poster_update" placeholder="<%= @movie.movie_poster %>" required>
   </p>
   <p>
     <img src="<%= @movie.movie_poster %>" title="<%= @movie.movie_title.upcase %>">
