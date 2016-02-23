@@ -18,7 +18,7 @@ end
 
 MyApp.get "/royaleranks" do
   characters = Character.all
-  @arr = Character.find_ties(Character.ranked_array(characters))
+  @arr = Character.find_ties(characters)
 
   #returns an array, sorted most to least
   #@winner is the name of the #1 spot

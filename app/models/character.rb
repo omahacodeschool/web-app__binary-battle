@@ -48,10 +48,10 @@ class Character < ActiveRecord::Base
   # characterarray--array of character ids (integer) and their score (float)
   #
   # Returns string with no ties
-  def self.find_ties(characterarray)
-    characterarray.each_with_index do |character,index|
-      character2 = characterarray[index + 1]
-      #binding.pry
+  def self.find_ties(characters)
+    characterarray = Character.ranked_array(characters)
+    characterarray.each_with_index do |character,i|
+      character2 = characterarray[i + 1]
       if character2 && (character[1] == character2[1])
         character_wins = Battle.where("winner_id" => character, "loser_id" => character2).length
         character2_wins = Battle.where("winner_id" => character2, "loser_id" =>character).length

@@ -28,7 +28,7 @@ MyApp.get "/ranks/:id" do
   #finds the best to worst character
   @universe = Universe.find_by_id(params[:id])
   characters = Character.where("universe_id" => @universe.id)
-  @arr = Character.find_ties(Character.ranked_array(characters))
+  @arr = Character.find_ties(characters)
 
   #returns an array, sorted most to least
   #@winner is the name of the #1 spot
