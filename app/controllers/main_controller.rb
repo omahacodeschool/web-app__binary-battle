@@ -44,6 +44,7 @@ end
 MyApp.get "/matchups/:competitor_id" do
   @competitor = Competitor.find_by_id(params[:competitor_id])
   @matchups = @competitor.get_competitors_faceoffs
+  @competitors_matchups = @competitor.get_opponents_matchups
   erb :"competitor/single_competitors_matchups"
 end
 

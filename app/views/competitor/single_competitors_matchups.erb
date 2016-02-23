@@ -1,6 +1,21 @@
 
   <h3><%=@competitor.name%>'s Matchup History</h3>
 
+  <h4><%=@competitor.name%> has faced:<br>
+  <%=@competitor.get_opponents%>
+  </h4>
+
+  <%@competitors_matchups.each do |m|%>
+    <ul>
+    <li><%=m.winner_name%> <%=m.loser_name%></li>
+    </ul>
+    <%end%>
+
+    <%=@competitors_matchups.count%>
+  
+    
+
+
   <table border="1">
     <thead>
       <tr>

@@ -22,11 +22,9 @@ class Competitor < ActiveRecord::Base
   #Gets the win percent of a competitor
 
   def win_percent
-      winner_with_win_percent = {}
       win_count = self.get_win_count
       loss_count = self.get_loss_count
       win_percent = (win_count/(win_count + loss_count))
-      #winner_with_win_percent[self.id] = win_percent
     return win_percent
   end
 
@@ -53,9 +51,15 @@ class Competitor < ActiveRecord::Base
       return opponents
   end
 
- #Gets the win percent of a competitor's competitors, excluding wins/losses #in matchups with that competitor
+def get_opponents_matchups
+  opponents = self.get_opponents
+  opponents_matchups = Matchup.where({"winner_competitor_id" => opponents}).where.not({"loser_competitor_id" => self.id})
+  opponents_matchups_two = Matchup.where({"loser_competitor_id" => opponents}).where.not({"winner_competitor_id" => self.id})
+  opponents_matchups_final = (opponents_matchups + opponents_matchups_two).uniq
+  return opponents_matchups_final
+end
 
-   # all matchups involving any of those competitors, but not competitor
+ #Gets the win percent of a competitor's competitors, excluding wins/losses #in matchups with that competitor
     
     # win percent excluding competitor for each of those competitors
 
