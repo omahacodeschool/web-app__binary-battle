@@ -1,0 +1,53 @@
+<!-- Home Page goes here. Show first two contenders, with buttons to vote. Run through controller, then return to home page for next battle. -->
+<html>
+<head>
+  <center>
+    <meta charset="utf-8">
+    <title>Cronenberg Movie Battle</title>
+    <a href="/rankings"> Rankings
+    </a>
+  </center>  
+</head>
+
+<body><center>
+    <table border="0" cellpadding="5" cellspacing="5">
+      <center>
+      <tr>
+        <th colspan="3">
+          <h1>Movies of David Cronenberg</h1>
+        </th>
+      </tr>
+      
+      <tr>
+        <th colspan="3">
+          [Please vote for your favorite of the two!]
+        </th>
+      </tr>
+
+      <tr>
+        <th><h2><%= @left_movie %></h2></th>
+        <th></th>
+        <th><h2><%= @right_movie %></h2></th>       
+      </tr>
+      
+      <tr> 
+        <th><img src="<%= @left_art %>"></th>
+        <th>VERSUS</th>
+        <th><img src="<%= @right_art %>"></th>
+      </tr>
+
+      <tr> 
+        <th><form action="/vote/<%= @battle.id %>/<%= @battle.movie_left %>/<%= @battle.movie_right %>" method="post">
+           <input type="submit">
+        </form></th>
+        <th></th>
+        <th><form action="/vote/<%= @battle.id %>/<%= @battle.movie_right %>/<%= @battle.movie_left %>" method="post">
+          <input type="submit">
+        </form></th>
+      </tr>
+      </center>
+    </table> 
+      </a>
+      </center>
+</body>
+</html>

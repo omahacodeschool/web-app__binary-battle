@@ -1,0 +1,70 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Movie Rankings</title>
+  <a href="/">
+      Vote!
+      </a>
+</head>
+
+<body>
+<h2>David Cronenberg Movie Battles</h2>
+<br>
+<table border="1" cellpadding="5" cellspacing="5" style="float: left">
+      <tr><td><h2><center>Outcomes</center></h2></td></tr>
+      <% @battles.each do |b| %> 
+        <% if b.movie_winner != nil %>
+          <tr> 
+              <td>
+                <%= Movie.find_by_id(b.movie_winner).movie_name %>
+                  <%= "  beat  " %>
+                <%= Movie.find_by_id(b.movie_loser).movie_name %>
+              </td>
+          </tr>
+        <% end %>
+      <% end %>
+</table>
+<table border="1" cellpadding="5" cellspacing="5" style="float: right">
+  <tr>
+    <td><h2><center>
+      Movie Name
+    </center></h2></td>
+    <td><h2><center>
+      Wins
+    </center></h2></td>
+    <td><h2><center>
+      Losses
+    </center></h2></td>
+     <td><h2><center>
+      Win Percentage
+    </center></h2></td>
+    </tr>
+      <% x = Movie.sorted_movies_by_wins %>
+      <% y = x.sort_by { |hsh| hsh[:percentage] }.reverse %>
+        <% y.each do |v| %>
+          <tr> 
+              <td>
+                <center>
+                  <%= v[:name] %>
+                </center>
+              </td>
+              <td>
+                <center>
+                  <%= v[:wins] %>
+                </center>
+              </td>
+              <td>
+                <center>
+                  <%= v[:losses] %>
+                </center>
+              </td>
+
+              <td> 
+                <center>
+                  <%= v[:percentage] %>
+          </tr>
+          <% end %>
+      
+</p>
+</body>
+</html>

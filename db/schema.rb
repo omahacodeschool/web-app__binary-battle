@@ -15,4 +15,20 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "battles", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "movie_left"
+    t.integer  "movie_right"
+    t.integer  "movie_loser"
+    t.integer  "movie_winner"
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "movie_name"
+    t.text     "movie_art"
+  end
+
 end
