@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ARTIST BATTLE</title>
+</head>
+
+<table</table>
+  <tr>
+  <th>Artist</th>
+  <th>Score</th>
+  </tr>
+
+<tbody>
+ 
+  <% @a.each do |artist| %>
+
+      <li><p><%= artist.name %> - <%= artist.score %></p></li>
+  <% end %> 
+</tbody>
+</table>
+</html>
+
+<br>
+<br>
+
+<tbody>
+ 
+  <% @b.each do |battle| %>
+    
+    <li><p><%= battle.winner %> beat <%= battle.loser %></p></li>
+   <% end %> 
+</tbody>
+</table>
+</html>
+
+<a href="/">Home</a>

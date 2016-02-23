@@ -1,0 +1,18 @@
+<center><h1>Which artist would you like to have dinner with?</h1></center>
+
+<center>
+  
+    <form action="/submit_vote/<%= @artist1.id%>/<%= @artist2.id %>" method="post">
+    <button type="submit" name="vote"><%= @artist1.name %></button>
+    </form>
+
+    <form action="/submit_vote/<%= @artist2.id %>/<%= @artist1.id %>" method="post">
+    <button type="submit" name="vote" ><%= @artist2.name %></button>
+    </form>
+
+
+</center>
+
+
+<center><p><h1><a href="/view_artist">Results</a></p></h1></center>
+<center><p><h1><a href="/admin">Admin</a></p></h1></center>
