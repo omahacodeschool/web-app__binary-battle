@@ -8,10 +8,9 @@
 <br>
 <body align="center">
 
-
-<% @whole_table.each do |row| %>
+<% @ordered_table.reverse.each do |row| %>
   <p>
-    <%= row.dwarf_name %> has
+    <%= row.name %> has
     <%= row.tally %> points.
   </p>
 <% end %>
@@ -28,10 +27,19 @@
 
 
 <td>
-      <form action="/">
-        <input type="submit" value="Vote Again">
-      </form>
-    </td>
+  <form action="/vote">
+    <input type="submit" value="Vote Again">
+  </form>
+</td>
+
+<br>
+<br>
+
+<td>
+  <form action="/">
+    <input type="submit" value="Add Your Own Dwarf!">
+  </form>
+</td>
 
 </body>
 </html>

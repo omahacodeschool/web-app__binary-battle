@@ -21,7 +21,7 @@
   <tr>
 
     <td>
-      <form action="/submit_vote/<%= @dwarf[0].id %>">
+      <form action="/submit_vote/<%= @dwarf[0].id %>/<%= @dwarf[1].id %>">
 
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
 
@@ -33,7 +33,7 @@
     </td>
 
     <td>
-      <form action="/submit_vote/<%= @dwarf[1].id %>">
+      <form action="/submit_vote/<%= @dwarf[1].id %>/<%= @dwarf[0].id %>">
         <input type="submit" value="<%= @dwarf[1].name %>">
       </form>
     </td>
