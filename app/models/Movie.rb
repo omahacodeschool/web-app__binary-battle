@@ -5,20 +5,28 @@ class Movie < ActiveRecord::Base
   #
   #sorts by wins and breaks all ties
   #
-  #returns a Hash of sorted movie names (k) pointing to three values (v,v,v)
+  #returns an Array of Hashes, one Hash for each movie.
 
 
   def self.sorted_movies_by_wins
-    sorted_hash = {}
+    sorted_array = []
+
     self.all.each do |m|
-      #binding.pry
+      each_hash = {}
       if m.total_rounds == 0
       else
-        sorted_hash.merge! m.movie_name => [m.count_wins, m.count_losses, m.calculate_win_percentage]
+        each_hash = {:name => m.movie_name, :wins => m.count_wins, :losses => m.count_losses, :percentage => m.calculate_win_percentage}
+        sorted_array << each_hash
       end
     end
-    return sorted_hash
+    return sorted_array
   end
+
+
+# people.sort_by { |k, v| v[:age] }
+#   # => [[:joan, {:name=>"Joan", :age=>18}],
+#         [:fred, {:name=>"Fred", :age=>23}],
+#         [:pete, {:name=>"Pete", :age=>54}]]
 
 
   # Finds each Battle where self is the winner, and counts them with a counter.

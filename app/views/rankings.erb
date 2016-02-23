@@ -39,29 +39,32 @@
       Win Percentage
     </center></h2></td>
     </tr>
-      <% @movies.each do |m| %> 
+      <% x = Movie.sorted_movies_by_wins %>
+      <% y = x.sort_by { |hsh| hsh[:percentage] }.reverse %>
+        <% y.each do |v| %>
           <tr> 
               <td>
                 <center>
-                  <%= m.movie_name %>
+                  <%= v.shift %>
                 </center>
               </td>
               <td>
                 <center>
-                 <%= m.count_wins %>
+                  <%= v.shift %>
                 </center>
               </td>
               <td>
                 <center>
-                  <%= m.count_losses %>
+                  <%= v.shift %>
                 </center>
               </td>
-<%= Movie.sorted_movies_by_wins %>
+
               <td> 
                 <center>
-                  <%= m.calculate_win_percentage %>
+                  <%= v.shift %>
           </tr>
-      <% end %>
+          <% end %>
+      
 </p>
 </body>
 </html>
