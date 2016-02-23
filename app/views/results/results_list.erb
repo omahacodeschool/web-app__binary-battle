@@ -27,20 +27,14 @@
     <% end %>
  </table> 
 
-<% counter %>
-<% result = Hash.new(0) %>
-<% counter.each {|comp| result[comp] += 1 } %>
-<% key_order = Hash[result.sort_by{|k, v| v}.reverse] %>
-<% rankings = key_order.keys.each {|key| key} %>
-
 <table border = 1px style="width:15%%">
   <tr>
     <th>Dwarf Rankings</th>
   </tr>
   <tr>
-    <% rankings.each do |rank| %>
+    <% @result.rankings(counter).each do |rank| %>
       <td align="center">
-        <%= rank %>
+        <%= @result.competitor_name(rank) %>
       </td>
   </tr>
     <% end %>

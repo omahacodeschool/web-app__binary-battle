@@ -10,6 +10,8 @@ end
 
 MyApp.get "/all_results" do 
   @results = Result.all
+  result = @results.limit(1).order("RANDOM()")
+  @result = result[0]
   erb :"results/results_list"
 end 
 
