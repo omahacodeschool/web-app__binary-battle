@@ -12,3 +12,16 @@ MyApp.post "/add_category" do
   erb :"user/add_nominees_form"
 end
 
+MyApp.post "/add_nominees" do 
+  @nominee = Nominee.new
+  repeat =  (params.length / 2)
+  i = 1
+  repeat.times do |i|
+    @nominee.category_id = params["category"]
+    @nominee.nominee = params["nominee_#{i}"]
+    @nominee.nominee_image = params["nominee#{i}_image"]
+    @nominee.save
+    i += 1
+  end
+  binding.pry
+end

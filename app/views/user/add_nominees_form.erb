@@ -4,7 +4,7 @@
   <label for="category">
     <sub><i>Category:</i></sub>
   </label>
-  <select name="nominee">
+  <select name="category">
     <% @categories.each do |c| %>
       <option value="<%=c.id%>"
         <%= "selected" if @category.id == c.id %>>
