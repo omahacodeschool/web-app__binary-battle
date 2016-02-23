@@ -21,10 +21,9 @@
         <div class="container">     
         <img style="max-height:200px;max-width:315px;height: expression(this.height > 200 ? 200: true);width: expression(this.width > 315 ? 315: true);" 
         src="<%= nominee.get_image_or_placeholder %>" class="img-circle"> </div>
-         <h3>Vote for <%= nominee.name %></h3> <br><br>
+         <h4>Vote for<h4><h3> <%= nominee.name %></h3> <br><br>
           <input type="radio" name="battle_selection_radio" required="required" value=<%= nominee.id%>>
         </th>
-        <th> &emsp;&emsp;&emsp;&emsp;</th>
         <% end %>
     </tr>
   </thead>

@@ -7,17 +7,9 @@ class Nominee < ActiveRecord::Base
      However, to continue creating the record, please confirm and click 'Add Nominee.'"
   end
 
-  def get_nominee_info_for_winner(result_winner_id)
-    return Nominee.find_by_id(result_winner_id)
-  end
-
-
+  # RETURNS self.image if the value is not an empty string. If string is empty, returns placeholder String
   def get_image_or_placeholder
-      if self.image == ""
-       return "http://cdn.browshot.com/static/images/not-found.png"
-     else
-      return self.image
-    end
+      return (self.image != "") && (self.image != nil) ? self.image : "http://cdn.browshot.com/static/images/not-found.png"
   end
 
   

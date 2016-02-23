@@ -1,26 +1,44 @@
 <center><h1> <%= @category.name %> Results </h1>
-
-<% @results.each do |key, value| %>
-  rank:&emsp;
-  <% @count += 1 %>
-    <%  if value != @last_nominee %>
-      <% @last_nominee = value %>
-      <%= @rank += @count %>
-      <% @count = 0 %>
-   <% else  %>
-       <%= @rank %>
-   <% end %>
- &emsp;&emsp;|&emsp;&emsp; 
- winner id:<%= key %> 
- &emsp;&emsp;|&emsp;&emsp;
- #of times won:<%= value %>
-  <br>
-<% end %>
-
-<%= "-----------------------------------------------------------" %>
+<div class="container">     
+  <img style="max-height:315px;max-width:851px;height: expression(this.height > 315 ? 315: true);width: expression(this.width > 851 ? 851: true);" src="<%= @category.get_image_or_placeholder %>" class="img-rounded"> 
+</div>
 <br>
-<% @results_breakdown.each do |key, value| %>
-<%= key %> &emsp;&emsp;|&emsp;&emsp;<%= value %><br>
-<% end %>
+<br>
 
-</center>
+ <table border="0">
+    <thead>
+      <tr>
+        <th>RANK </th>
+        <th> &emsp;&emsp;&emsp;&emsp; </th>
+        <th> NAME </th>
+         <th> &emsp;&emsp; </th>
+        <th>TOTAL # OF VOTES</th>
+
+      </tr>
+    </thead>
+    <tbody>
+    <% @results.each do |key, value| %>
+      <% key = @nominees.find_by_id(key) %>
+      <% @count += 1 %>
+      <tr>
+    <td>
+      <% if value != @last_nominee %>
+        <% @last_nominee = value %>
+        <%= @rank += @count %>
+        <% @count = 0 %>
+      <% else  %>
+         <%= @rank %>
+      <% end %>
+    </td>
+
+   <td>&emsp;&emsp;&emsp;&emsp;</td>
+
+   <td><a href="/nominees/nominee/<%= key.id %>"><%= key.name %></a></td>
+   
+   <td>&emsp;&emsp;&emsp;&emsp;</td>
+   <td><%= value %></td>
+  <% end %>
+  </tr>
+  </tbody>
+</table>
+

@@ -1,9 +1,8 @@
-<center> <h1> <%= @category.name %> ? </h1>
+<center> 
 <div class="container">     
   <img style="max-height:315px;max-width:851px;height: expression(this.height > 315 ? 315: true);width: expression(this.width > 851 ? 851: true);" src="<%= @category.get_image_or_placeholder %>" class="img-rounded"> 
 </div>
-<br>
-<br>
+<h1> <%= @category.name %> ? </h1>
 <%= @category.description %>
 <br>
 <br>
@@ -23,11 +22,12 @@
     </tr>
   </thead>
 </table>
+</center>
 
-<h3> Possible Nominee selections in <%= @category.name %>  </h3>
+<h3> Possible Nominee selections in <br>
+<%= @category.name %>  </h3>
 
 <% @pool.each do |pool| %>
 <%nominee = pool.get_nominee_info%>
 <a href="/nominees/nominee/<%= nominee.id %>"><%= nominee.name %></a><br> 
 <% end %>
-</center>

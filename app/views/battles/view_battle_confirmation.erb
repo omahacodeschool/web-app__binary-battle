@@ -1,15 +1,25 @@
 <center>
+  <div class="container">     
+  <img style="max-height:725px;max-width:851px;height: expression(this.height > 725 ? 725: true);width: expression(this.width > 851 ? 851: true);" src="<%= @winner.get_image_or_placeholder %>" class="img-rounded"> 
+</div>
 
-  <h1> RESULTS </h1>
+  <h1> <%= @winner.name %> wins! </h1>
 
-  you voted for <%= @winner.name %>, over <%= @loser.name%>
+  (You chose <b><%= @winner.name %></b>, over <b><%= @loser.name%></b>)
   <br>
   <br>
-  <form  method="POST" action="/battles/battle/<%= @category.id %>/play">
-  <input type="submit" value="Vote Again"></form>
+  <table border="0">
+  <thead>
+    <tr>
+      <th> <form  method="POST" action="/battles/battle/<%= @category.id %>/play">
+     <input type="submit" value="Vote Again"></form> </th>
 
-  <form  method="GET" action="/categories/category/<%= @category.id %>/results">
-  <input type="submit" value="View Results"></form>
+      <th> &emsp;&emsp;|&emsp;&emsp;</th>
 
+      <th> <form  method="GET" action="/categories/category/<%= @category.id %>/results">
+      <input type="submit" value="View Results"></form></th>
+    </tr>
+  </thead>
+  </table>
 
 </center>

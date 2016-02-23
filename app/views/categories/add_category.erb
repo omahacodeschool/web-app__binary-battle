@@ -8,7 +8,7 @@
   <br>
 <% end %>
 <form  method="POST" action="/categories/add/confirmation">
-  Category Name:&emsp;<input type="text" name="add_name" value="<%= params[:add_name] %>">&emsp;&emsp;
+  Category Name:&emsp;<input type="text" name="add_name" required="required" value="<%= params[:add_name] %>">&emsp;&emsp;
 
   Image Link(851 x 315px):&emsp;<input type="text" name="add_category_image_link" value="<%= params[:add_category_image_link] %>">&emsp;&emsp;
  

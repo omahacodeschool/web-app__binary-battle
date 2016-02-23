@@ -150,6 +150,7 @@ class Category < ActiveRecord::Base
   end
 
 
+
 # def ordering_and_checking_for_tie
 #   nominees = self.appending_no_wins_to_nominee_winner_results_frequency
 #   combo_count = self.results_frequency_for_each_combination

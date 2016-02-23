@@ -1,15 +1,12 @@
-<center> <h1> <%= @nominee.name %> </h1>
-
-
+<center> 
 <div class="container">     
   <img style="max-height:725px;max-width:851px;height: expression(this.height > 725 ? 725: true);width: expression(this.width > 851 ? 851: true);" src="<%= @nominee.get_image_or_placeholder %>" class="img-rounded"> 
 </div>
-
-<br>
-<br>
+<h1> <%= @nominee.name %> </h1>
 <p> <%= @nominee.bio %> </p>
 <br>
 <br>
+</center>
 <h2> Categories <%= @nominee.name %> appears in </h2>
 <% @pool.each do |pool| %>
 <% category = pool.get_category_info%>
@@ -17,4 +14,3 @@
     <a href="/categories/category/<%= category.id %>"><%= category.name %></a><br> 
   <% end %>
 <% end %>
-</center>
