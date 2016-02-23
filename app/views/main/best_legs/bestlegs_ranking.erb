@@ -1,0 +1,8 @@
+<h1>Best Legs</h1>
+<% @ordered_legs.each do |l| %>
+<%= l.planet %> - 
+<%= l.legs_points %> points
+<br>
+<% end %><br>
+<br>
+<a href="/bestlegs_voting_page">Vote again</a>

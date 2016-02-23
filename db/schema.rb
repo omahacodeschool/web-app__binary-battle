@@ -15,4 +15,25 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "planets", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "planet"
+    t.integer  "points"
+    t.integer  "legs_points"
+    t.integer  "smile_points"
+    t.integer  "pres_points"
+    t.decimal  "win_record"
+  end
+
+  create_table "showdowns", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "choice_one"
+    t.string   "choice_two"
+    t.string   "winner"
+    t.integer  "frequency_one"
+    t.integer  "frequency_two"
+  end
+
 end
