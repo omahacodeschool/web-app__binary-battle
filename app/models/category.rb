@@ -11,6 +11,14 @@ class Category < ActiveRecord::Base
     return "This category does not have enough nominees to vote on. Please add more."
   end
 
+  def is_valid_category_check
+      return self.id == nil ? true : false
+  end
+
+  def no_category_id_message
+      return "You cannot vote until you select a category."
+  end
+
   # RETURNS Collection of pools table rows with category_id columns matching selected category's id.
   def get_pool
     return Pool.where({"category_id" => self.id})

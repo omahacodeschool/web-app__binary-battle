@@ -5,9 +5,17 @@ MyApp.get "/battles" do
 end
 
 MyApp.post "/battles/battle/select" do
-  @categories = Category.find_by_id(params[:category_battle_selection_dropdown])
+  @error_test = Category.new
+  @error_test.id = params[:category_battle_selection_dropdown]
   @nominees = Nominee.all
-  redirect :"/battles/battle/#{@categories.id}/play"
+  if @error_test.is_valid_category_check == true
+    @no_id_error = true
+    @categories = Category.new
+    erb :"main_errors"
+  else
+    @categories = Category.find_by_id(params[:category_battle_selection_dropdown])
+    redirect :"/battles/battle/#{@categories.id}/play"
+  end
 end
 
 
