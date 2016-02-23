@@ -1,3 +1,5 @@
+<center>
+
 <h1>Results</h1>
 
 <table border = 1px style="width:50%">
@@ -9,22 +11,42 @@
   <tr>
     <% counter = [] %>
     <% @results.each do |result| %>
-      <td>
-        <%= result.comp_id_1 %>
+      <td align="center">
+        <%= result.comp_1_name %>
       </td>
 
-      <td>
-        <%= result.comp_id_2 %>
+      <td align="center">
+        <%= result.comp_2_name %>
       </td>
 
-      <td>
-        <%= result.winner %>
+      <td align="center">
+        <%= result.winner_name %>
       </td>
     <% counter << result.winner  %>
   </tr>
     <% end %>
  </table> 
 
-<%= counter.sort %>
+<% counter %>
+<% result = Hash.new(0) %>
+<% counter.each {|comp| result[comp] += 1 } %>
+<% key_order = Hash[result.sort_by{|k, v| v}.reverse] %>
+<% rankings = key_order.keys.each {|key| key} %>
 
+<table border = 1px style="width:15%%">
+  <tr>
+    <th>Dwarf Rankings</th>
+  </tr>
+  <tr>
+    <% rankings.each do |rank| %>
+      <td align="center">
+        <%= rank %>
+      </td>
+  </tr>
+    <% end %>
+</table>  
+  </tr>
+</table>
 <a href = "/all_competitors">Back</a>
+
+</center>
