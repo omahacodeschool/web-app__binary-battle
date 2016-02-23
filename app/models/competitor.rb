@@ -30,6 +30,35 @@ class Competitor < ActiveRecord::Base
     return win_percent
   end
 
+  #Gets all opponents that a competitor has faced
+
+  def get_opponents
+    losing_opponents = []
+    winning_opponents = []
+    # all matchups involving competitor
+    faceoff_wins = Matchup.where({"winner_competitor_id" => self.id})
+    faceoff_losses = Matchup.where({"loser_competitor_id" => self.id})
+    
+    # all opponents
+      faceoff_wins.each do |m|
+        losing_opponents << m.loser_competitor_id
+      end
+
+      faceoff_losses.each do |m|
+        winning_opponents << m.winner_competitor_id
+      end
+
+      all_opponents = losing_opponents + winning_opponents
+      opponents = all_opponents.uniq
+      return opponents
+  end
+
+ #Gets the win percent of a competitor's competitors, excluding wins/losses #in matchups with that competitor
+
+   # all matchups involving any of those competitors, but not competitor
+    
+    # win percent excluding competitor for each of those competitors
+
 # This is a method I can call on the Competitor class to get a hash of #competitor ids and win percents. Add a feature to pass in an argument for the #category later
 
   def self.rank
