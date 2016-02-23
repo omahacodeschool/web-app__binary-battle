@@ -1,0 +1,18 @@
+<h1>Choose Your Category</h1>
+
+<p>
+  <ul style="list-style-type:square">
+    <% @categories.each do |c| %>
+      <li>
+        <a href="">
+          <%= c.category_title %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  Don't Like Your Category Choices!?<br>
+  <a href="/add_category_form">Add Your Own!</a>
+</p>
