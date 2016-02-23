@@ -17,7 +17,7 @@ end
 
 MyApp.post "/admin_sign_in" do
 
-  if params["password"] == "password"
+  if params["password"].password_check
     @movies = Movie.all
     @movie  = Movie.new
     

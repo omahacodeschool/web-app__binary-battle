@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
 
   def password_check
-    if self == "password"
+    if self.params == "password"
       true
     else
       false
