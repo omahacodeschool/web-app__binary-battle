@@ -10,7 +10,7 @@
   <br>
 
    <form  method="POST" action="/battles/battle/<%= @category.id %>/add_more_nominees/confirmation">
-  <p> Select the nominees you would like to include in your category: </p>
+  <h3> Select the nominees you would like to include in your category: </h3>
     <% @nominees.each do |nominee| %>
       <%if nominee.locked == false && nominee.id != nil %>
         <input type="checkbox" name= "checkbox_nominees[]" value=<%= nominee.id %>><%= nominee.name %> <br>

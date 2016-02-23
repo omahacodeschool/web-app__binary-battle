@@ -25,18 +25,13 @@ MyApp.get "/battles/battle/:id/play" do
   @nominee_ids =[]
   @category = Category.find_by_id(params[:id])
   @check_pool = @category.check_pool_size
-  if @check_pool == true
-     @error = true
-      erb :"categories/add_category_nominees"
-  else
     @pool = @category.get_sample
     @pool.each do |id|
       if id != nil
-       @nominee_ids << id.nominee_id.to_i
-      end
-    end
-    erb :"/battles/view_battle"
+       @nominee_ids << id.nominee_id
+     end
   end
+  erb :"/battles/view_battle"
 end
 
 MyApp.get "/battles/battle/:id/add_more_nominees" do
@@ -55,19 +50,25 @@ MyApp.post "/battles/battle/:id/add_more_nominees/confirmation" do
   @pool_nominees = @category.get_pool_nominees_array
   @pool = Pool.where({"category_id" => @category.id})
 
-    if params[:checkbox_nominees] == nil || @pool.length <= 1 
-      redirect :"/battles/battle/#{@category.id}/add_more_nominees"
-    elsif params[:checkbox_nominees].length >= 2
-       params[:checkbox_nominees].each do |nominee|
-        if nominee != nil
-          @pool = Pool.new 
-          @pool.nominee_id = nominee
-          @pool.category_id = @category.id
-          @pool.save
-        end
+  if params[:checkbox_nominees] != nil
+    params[:checkbox_nominees].each do |nominee|
+      if nominee != nil
+        @pool = Pool.new 
+        @pool.nominee_id = nominee
+        @pool.category_id = @category.id
+        @pool.save
       end
     end
     redirect :"/battles/battle/#{@category.id}/play"
+  else
+    redirect :"/battles/battle/#{@category.id}/add_more_nominees"
+  end
+
+  if @pool_nominees.length <= 1
+    redirect :"/battles/battle/#{@category.id}/add_more_nominees"
+  else
+    erb :"battles/view_battle"
+  end
 end
 
 
