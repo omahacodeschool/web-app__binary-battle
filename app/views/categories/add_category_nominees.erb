@@ -1,0 +1,24 @@
+<center> 
+<h1>"This category does not have enough nominees to vote on. Please add more."</h1>
+
+  <div class="container">     
+    <img style="max-height:315px;max-width:851px;height: expression(this.height > 315 ? 315: true);width: expression(this.width > 851 ? 851: true);" src="<%= @category.get_image_or_placeholder %>" class="img-rounded"> 
+  </div>
+  <h1> <%= @category.name %> </h1>
+  <%= @category.description %>
+  <br>
+  <br>
+
+   <form  method="POST" action="/battles/battle/<%= @category.id %>/add_more_nominees/confirmation">
+  <p> Select the nominees you would like to include in your category: </p>
+    <% @nominees.each do |nominee| %>
+      <%if nominee.locked == false && nominee.id != nil %>
+        <input type="checkbox" name= "checkbox_nominees[]" value=<%= nominee.id %>><%= nominee.name %> <br>
+      <% end %>
+    <% end %>
+    <br>
+    <br>
+    <input type="submit" value="Add">
+  </form>
+  <br><br>
+  </center>

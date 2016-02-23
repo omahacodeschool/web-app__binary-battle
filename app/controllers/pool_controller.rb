@@ -10,8 +10,13 @@ MyApp.post "/battles/battle/select" do
     @no_id_error = true
     erb :"main_errors"
   else
-    @categories = Category.find_by_id(params[:category_battle_selection_dropdown])
-    redirect :"/battles/battle/#{@categories.id}/play"
+    @category = Category.find_by_id(params[:category_battle_selection_dropdown])
+    @check_pool = @category.check_pool_size
+      if @check_pool == true
+         @error = true
+         redirect :"/battles/battle/#{@category.id}/add_more_nominees"
+      end
+   redirect :"/battles/battle/#{@category.id}/play"
   end
 end
 
@@ -19,19 +24,53 @@ end
 MyApp.get "/battles/battle/:id/play" do
   @nominee_ids =[]
   @category = Category.find_by_id(params[:id])
-  @pool = Pool.where({"category_id" => @category.id}).sample(2)
-  if @pool.length <= 1
+  @check_pool = @category.check_pool_size
+  if @check_pool == true
      @error = true
+      erb :"categories/add_category_nominees"
   else
+    @pool = @category.get_sample
     @pool.each do |id|
       if id != nil
        @nominee_ids << id.nominee_id.to_i
       end
     end
+    erb :"/battles/view_battle"
   end
-
-  erb :"/battles/view_battle"
 end
+
+MyApp.get "/battles/battle/:id/add_more_nominees" do
+  @category = Category.find_by_id(params[:id])
+  @pool_nominees = @category.get_pool_nominees_array
+  if @pool_nominees.empty?
+    @nominees = Nominee.all
+  else
+    @nominees = Nominee.where.not({"id" => @pool_nominees})
+  end
+  erb :"categories/add_category_nominees"
+end
+
+MyApp.post "/battles/battle/:id/add_more_nominees/confirmation" do
+  @category = Category.find_by_id(params[:id])
+  @pool_nominees = @category.get_pool_nominees_array
+  @pool = Pool.where({"category_id" => @category.id})
+
+    if params[:checkbox_nominees] == nil || @pool.length <= 1 
+      redirect :"/battles/battle/#{@category.id}/add_more_nominees"
+    elsif params[:checkbox_nominees].length >= 2
+       params[:checkbox_nominees].each do |nominee|
+        if nominee != nil
+          @pool = Pool.new 
+          @pool.nominee_id = nominee
+          @pool.category_id = @category.id
+          @pool.save
+        end
+      end
+    end
+    redirect :"/battles/battle/#{@category.id}/play"
+end
+
+
 
 
 MyApp.post "/battles/battle/:id/cast_vote" do

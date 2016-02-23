@@ -8,18 +8,38 @@ class Category < ActiveRecord::Base
 
   # RETURNS String containing error message for fewer than two nominees in a category
   def not_enough_nominees_error
-    return "This category does not have enough nominees to vote on. Please add more."
+    category = self.id
+    category = "This category does not have enough nominees to vote on. Please add more."
+    return category
   end
 
-  def is_valid_category_check
-      return self.id == nil ? true : false
+  def get_pool_nominees_array
+    nominee_arr = []
+    pool = Pool.where({"category_id" => self.id})
+    pool.each do |pool|
+      nominee = pool.nominee_id
+      nominee_arr << nominee
+    end
+    return nominee_arr
   end
 
-
+ 
   # RETURNS Collection of pools table rows with category_id columns matching selected category's id.
   def get_pool
     return Pool.where({"category_id" => self.id})
   end
+
+  def check_pool_size
+    category = Pool.where({"category_id" => self.id})
+    return category.length <= 1 ? true : false
+  end
+
+  def get_sample
+    category = self.id
+    return Pool.where({"category_id" => category}).sample(2)
+  end
+      
+
 
   # RETURNS row Instance's image url as a String OR returns placeholder string if self.image is an empty string.
   def get_image_or_placeholder

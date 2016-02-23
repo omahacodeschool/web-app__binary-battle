@@ -23,7 +23,7 @@
   <p> Select the nominees you would like to include in your category: </p>
   <% @nominees.each do |n| %>
     <%if n.locked == false && n.id != nil %>
-      <input type="checkbox" name= "checkbox_nominees[]" value=<%= n.id %>><%= n.name %> <br>
+      <input type="checkbox" name= "checkbox_nominees[]" require="required" value=<%= n.id %>><%= n.name %> <br>
     <% end %>
   <% end %>
   <br>

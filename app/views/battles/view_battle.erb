@@ -1,8 +1,4 @@
   <center>
-<% if @error == true %>
-  <h1><%= @category.not_enough_nominees_error %></h1>
-
-<% else %>
   <form  method="POST" action="/battles/battle/<%= @category.id %>/cast_vote">
 <h1> <%= @category.name %> </h1>
 <% if @category.check_image_exists == true %>
@@ -37,5 +33,4 @@
     <br>
     <input type="submit" value="Vote">
 </form>
-<% end%>
 </center>
