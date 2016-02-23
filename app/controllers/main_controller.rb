@@ -28,8 +28,25 @@ end
 MyApp.get "/results" do
 
   @dworfs = Dworf.all                   
-  @result = Result.all                #
-  @result.win = @win                  #taking the win column in result as var
-  @win.mode = @winner                 #setting the mode on the column to a var
+  @result = Result.all
+
+
+  scores_hash = {}
+
+  # {3 =< 6, 5 => 0}
+
+  scores_hash << @result.win
+  if scores_hash.key = 1
+    then um...ok, its time to go!
+  @result.each do |key,value|
+    # key.win_id,value.number of instances
+    # if the hash already has a key for r.win, then increase that key's value.
+    # if the hash doesn't have a key for r.win, then set that key's value to 1.
+    r.win # The ID of a Dwarf.
+  end
+
+                  #
+  @win = @result.win                #taking the win column in result as var
+  @winner = @win.mode               #setting the mode on the column to a var
   erb :"results"
 end

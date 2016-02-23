@@ -9,4 +9,5 @@ class Result < ActiveRecord::Base
     y = Dworf.find_by_id(x)
     return y.name
   end
+  
 end

@@ -16,3 +16,8 @@ gem 'sinatra-redirect-with-flash'
 
 gem "rake"
 gem "database_cleaner"
+gem "minitest-rg"`
+
+gem "rake"
+gem "database_cleaner"
+gem 'simplecov', :require => false, :group => :test 

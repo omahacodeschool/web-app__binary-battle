@@ -1,36 +1,9 @@
-<%@winner.each do |w|%>
-<%=w.win_name%>
+
+<%@hash.each do |key|%>
+<%=key[0]%><%=key[1] %>
 
 <%end%>
 
-
-<table border="1">
-  <thead>
-    <tr>
-
-      <th>Match</th>
-      <th>Winners Id!</th>
-      <th>Loosers Id!</th>
-
-    </tr>
-  </thead>
-
-  <tbody>
-  <% @result.each do |x| %>
-      <tr>
-        <td><%= x.id %></td>
-        <td><%= x.win_name %></td>
-        <td><%= x.loose_name %></td>
-
-
-      
-        
-      </tr>
-  <% end %>
-  </tbody>
-</table>
-
-result
 
 
 <p>
