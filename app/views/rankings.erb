@@ -2,35 +2,66 @@
 <head>
   <meta charset="utf-8">
   <title>Movie Rankings</title>
+  <a href="/">
+      Vote!
+      </a>
 </head>
 
 <body>
 <h2>David Cronenberg Movie Battles</h2>
 <br>
-<table border="1" cellpadding="5" cellspacing="5">
-      <tr>
-        <th>
-          Winner
-        </th>
-        <th>
-          Loser
-        </th>
-      </tr>
+<table border="1" cellpadding="5" cellspacing="5" style="float: left">
+      <tr><td><h2><center>Outcomes</center></h2></td></tr>
       <% @battles.each do |b| %> 
-      <tr> 
-          <td>
-            <%= b.movie_winner %>
-          </td>
-          <td>
-            <%= b.movie_loser %>
-          </td>
+        <% if b.movie_winner != nil %>
+          <tr> 
+              <td>
+                <%= Movie.find_by_id(b.movie_winner).movie_name %>
+                  <%= "  beat  " %>
+                <%= Movie.find_by_id(b.movie_loser).movie_name %>
+              </td>
+          </tr>
         <% end %>
-      </tr>
-
-
-<a href="/">
-      Vote!
-      </a>
+      <% end %>
+</table>
+<table border="1" cellpadding="5" cellspacing="5" style="float: right">
+  <tr>
+    <td><h2><center>
+      Movie Name
+    </center></h2></td>
+    <td><h2><center>
+      Wins
+    </center></h2></td>
+    <td><h2><center>
+      Losses
+    </center></h2></td>
+     <td><h2><center>
+      Win Percentage
+    </center></h2></td>
+    </tr>
+      <% @movies.each do |m| %> 
+          <tr> 
+              <td>
+                <center>
+                  <%= m.movie_name %>
+                </center>
+              </td>
+              <td>
+                <center>
+                 <%= m.count_wins %>
+                </center>
+              </td>
+              <td>
+                <center>
+                  <%= m.count_losses %>
+                </center>
+              </td>
+<%= Movie.sorted_movies_by_wins %>
+              <td> 
+                <center>
+                  <%= m.calculate_win_percentage %>
+          </tr>
+      <% end %>
 </p>
 </body>
 </html>

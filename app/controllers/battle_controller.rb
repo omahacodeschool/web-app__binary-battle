@@ -28,7 +28,7 @@ MyApp.post "/vote/:battle/:winner/:loser" do # "a" or "b"
 end
 
 MyApp.get "/rankings" do
-
+  @movies = Movie.all
   @battles = Battle.all
 
   erb :"/rankings"
