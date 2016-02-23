@@ -1,0 +1,33 @@
+<center>
+<h1> Admin Tools</h1>
+
+  <form  method="POST" action="/admin/admin_tools/category/locked/confirmation">
+    <b>Category:&emsp;</b>
+    <select name="lock_category_dropdown">
+      <% @categories.each do |c| %>
+        <% if c.locked == false && c != nil %>
+          <option value=<%= c.id %>><%=c.name %></option>
+        <% end %>  
+      <% end %>  
+    </select>
+    &emsp;|&emsp;
+    <input type="submit" value="Lock">
+  </form>
+
+  <br>
+  <br>
+  <br>
+    <form  method="POST" action="/admin/admin_tools/nominee/locked/confirmation">
+    <b>Nominees:&emsp;</b>
+    <select name="lock_nominees_dropdown">
+      <% @nominees.each do |n| %>
+        <% if n.locked == false && n != nil %>
+          <option value=<%= n.id %>><%=n.name %></option>
+        <% end %>  
+      <% end %>  
+    </select>
+    &emsp;|&emsp;
+    <input type="submit" value="Lock">
+  </form>
+
+</center>
