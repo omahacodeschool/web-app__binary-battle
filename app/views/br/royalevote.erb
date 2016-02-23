@@ -1,12 +1,13 @@
-<h1>BATTLE OF THE <%=@universe.universe_name.upcase%>-VERSE</h1>
+
+<h1>BATTLE ROYALE</h1>
 
 Your vote has been counted: <%= @winner.character_name%> is better than <%= @loser.character_name%>
 
-<form action="/battle/<%=@universe.id%>" method="get">
+<form action="/battle_royale" method="get">
   <input type = "Submit" value= "Vote Again?">
 </form>
 
-<form action="/ranks/<%=@universe.id%>" method="get">
+<form action="/royaleranks>" method="get">
   <input type = "Submit" value= "View Ranks of Gang">
 </form>
 

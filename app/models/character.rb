@@ -1,5 +1,9 @@
 class Character < ActiveRecord::Base
 
+  def name_universe
+    u = self.universe_id
+    return Universe.find_by_id(u).universe_name
+  end
   ## times character has won battle
   # Returns fixnum
   def how_many_wins
