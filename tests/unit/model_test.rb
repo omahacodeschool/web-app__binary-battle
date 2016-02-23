@@ -70,5 +70,6 @@ class PlanetTest < Minitest::Test
     @planets.get_all_planets_win_records
     assert_equal(@pluto.win_record, 0.0)
     assert_equal(@copernicus.win_record, 1.0)
+    assert_equal(@chicken.win_record, 0.0)
   end
 end
