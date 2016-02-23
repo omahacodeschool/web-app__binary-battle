@@ -1,21 +1,20 @@
 <center>
 <body background="http://i67.tinypic.com/52aof5.png">
 
-<h2>Update <%= @movie.movie_title %></h2>
+<h2 style="color:#595959">Update <%= @movie.movie_title %></h2>
 
-<a href="/">Home</a>
-<a href="/add_movie">Back</a>
-<br />
+<p>
+<a href="/add_movies" style="color:#91c0b2">Back</a>
+</p>
 
-<form action="/process_movie_update/<%= @movie.id %>" method="post">
+<p>
+<a href="/" style="color:#91c0b2">Vote</a>
+</p>
+
+<form action="/process_movie_update/<%= @movie.id %>" method="post" style="color:#595959">
   <p>
-  <strong>
     '80s Movie Sequel Title:
-  </strong>
   <br />
-  </p>
-
-  <p>
   <input type="text" size="35" name="movie_title_update" 
     value="<%= @movie.movie_title %>" required>
   </p>
@@ -29,9 +28,3 @@
     <input type="submit" value="Update Movie">
   </p>
 </form>
-
-<p>
-<a href="/">Home</a>
-</p>
-
-</center>

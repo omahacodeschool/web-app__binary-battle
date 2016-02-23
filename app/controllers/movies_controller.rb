@@ -8,6 +8,13 @@ MyApp.get "/" do
   erb :"user/ballot_box"
 end
 
+MyApp.get "/add_movies" do
+    @movies = Movie.all
+    @movie  = Movie.new
+
+    erb :"admin/add_movies"
+end
+
 MyApp.post "/admin_sign_in" do
   if params["password"] == "password"
     @movies = Movie.all
