@@ -1,0 +1,15 @@
+<h1>BATTLE ROYALE</h1>
+
+<H2>The people have spoken and...<p><%=Character.find_by_id(@winner).character_name%> is the best character IN THIS OR ANY OTHER UNIVERSE!</p></H2>
+
+<h3>The Whole Dang Gang, Ranked:<h3>
+
+<ol>
+  <% @arr.each do |post| %>
+  <li><%=Character.find_by_id(post[0]).character_name%></li>
+  <% end %>
+</ol>
+
+Shocked? Angry? Disagree? Feel free to <a href="/battle/<%=@universe.id%>">VOTE MORE</a>
+
+Or, to choose a different universe, you can always <a href="/">go home</a>

@@ -64,6 +64,17 @@ class Character < ActiveRecord::Base
     return characterarray
   end
 
+  def self.ranked_array(characterarray)
+    ranks = Hash.new
+  
+    characterarray.each do |character|
+      x = character.rank
+      ranks[character.id] = x
+    end
+    
+    return ranks.sort{|a1,a2| a2[1]<=>a1[1]}
+  end
+
 end
 
 #DB.define_table("characters")

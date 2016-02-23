@@ -15,3 +15,14 @@ MyApp.post "/royalevote" do
   @loser = Character.find_by_id(params[:loser])
   erb :"/br/royalevote"
 end
+
+MyApp.get "/royaleranks" do
+  characters = Character.all
+  @arr = Character.find_ties(Character.ranked_array(characters))
+
+  #returns an array, sorted most to least
+  #@winner is the name of the #1 spot
+  @winner = @arr[0][0]
+
+  erb :"/br/royaleranks"
+end
