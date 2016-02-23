@@ -3,6 +3,29 @@
 <p> Who do you think would win in battle? Pick your favorite!</p>
 
 <!-- Names with buttons go down here -->
+<% if @fighters != nil %>
+  <% @fighters.limit(1).each do |fighter| %>
+    <h3>May the best <%= fighter.fighter_style %> win!</h3>
+  <% end %>
+
+    <% @fighters.limit(1).each do |fighter| %>
+      <p>Which <%= fighter.fighter_style %> is the best <%= fighter.fighter_style %>?</p>
+    <% end %>
+
+    <% @fighters.limit(2).order("RANDOM()").each do |fighter| %>
+      <p>
+        Vote for <%= fighter.name %> here!
+          <form action = "/results/<%= fighter.id %>" method = "post">
+            <input type = "submit" value = "Vote">
+          </form>
+      </p>
+    <% end %>
+
+<% else %>
+
+  <h3>Fighters not available! Add some to start!</h3>
+
+<% end %>
 
 <p>
   <a href = "/add_fighter_form">Go here to add your favorite fighter!</a>
