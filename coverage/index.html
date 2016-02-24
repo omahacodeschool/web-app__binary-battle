@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-23T23:15:53-06:00">2016-02-23T23:15:53-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-02-23T23:39:51-06:00">2016-02-23T23:39:51-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -53,7 +53,7 @@
       <tr>
         <td class="strong"><a href="#c922c5553d12498e3b817a909b4bc168d7817820" class="src_link" title="app/controllers/controllers.rb">app/controllers/controllers.rb</a></td>
         <td class="red strong">17.86 %</td>
-        <td>41</td>
+        <td>40</td>
         <td>28</td>
         <td>5</td>
         <td>23</td>
@@ -63,7 +63,7 @@
       <tr>
         <td class="strong"><a href="#f97fd9e86b38fe2d1974c4c3f6bc0beb5f84a910" class="src_link" title="app/models/dwarf.rb">app/models/dwarf.rb</a></td>
         <td class="yellow strong">81.82 %</td>
-        <td>33</td>
+        <td>34</td>
         <td>11</td>
         <td>9</td>
         <td>2</td>
@@ -296,64 +296,58 @@
           <code class="ruby">  @new_dwarf.tally = 0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="33">
+        <li class="missed" data-hits="0" data-linenumber="32">
           
           
           <code class="ruby">    if @new_dwarf.is_duplicate == true</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
+        <li class="missed" data-hits="0" data-linenumber="33">
           
           
           <code class="ruby">      erb :&quot;error&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">    elsif @new_dwarf.is_valid == false</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="36">
+        <li class="missed" data-hits="0" data-linenumber="35">
           
           
           <code class="ruby">      erb :&quot;error&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="38">
+        <li class="missed" data-hits="0" data-linenumber="37">
           
           
           <code class="ruby">      @new_dwarf.save</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="39">
+        <li class="missed" data-hits="0" data-linenumber="38">
           
           
           <code class="ruby">      erb :&quot;dwarf_was_added&quot;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="39">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">end </code>
         </li>
       
     </ol>
@@ -488,58 +482,58 @@
           <code class="ruby">    @all_dwarves = Dwarf.all</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="20">
           
-          <code class="ruby">      @all_dwarves.each do |dwarf|</code>
+          
+          <code class="ruby">    </code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="21">
           <span class="hits">1</span>
           
-          <code class="ruby">        if self.name == dwarf.name</code>
+          <code class="ruby">      @all_dwarves.each do |dwarf|</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
+          <code class="ruby">        if self.name == dwarf.name</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
           <code class="ruby">          return true</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">        else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="24">
+        <li class="missed" data-hits="0" data-linenumber="25">
           
           
           <code class="ruby">          return false</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="26">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="never" data-hits="" data-linenumber="27">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="27">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
@@ -567,6 +561,12 @@
         </li>
       
         <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">end</code>

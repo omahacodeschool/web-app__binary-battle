@@ -56,8 +56,11 @@ class DwarvesTest < Minitest::Test
   def test_if_entry_is_duplicate
     @new_dwarf = Dwarf.new
     @new_dwarf.name = "Happy"
+    @new_dwarf2 = Dwarf.new
+    @new_dwarf2.name = "Doc"
 
     assert_equal(true, @new_dwarf.is_duplicate)
+
   end
 
   def test_if_entry_is_blank
