@@ -27,6 +27,15 @@ class Universe < ActiveRecord::Base
     @char2 = characters.pop
     return @char1, @char2
   end
+
+  def enough_characters
+    x = Character.where("universe_id" => self.id)
+    if x.length > 5
+      return false
+    else
+      return true
+    end
+  end
   
 end
 #DB.define_table("universes")

@@ -7,9 +7,12 @@ end
 
 MyApp.get "/battle/:id" do
   @universe = Universe.find_by_id(params[:id])
-  @char1, @char2 = @universe.get_two
-
-  erb :"battle"
+  if @universe.enough_characters == false
+    erb :"not_enough"
+  elsif @universe.enough_characters == true
+    @char1, @char2 = @universe.get_two
+    erb :"battle"
+  end
 end
 
 MyApp.post "/vote" do
