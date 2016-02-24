@@ -1,0 +1,11 @@
+<p><b>Here is a list of all of the bands/artists entered:</b></p>
+
+<% @all_bands.each do |x| %>
+  <p><%= x.name %></p>
+<% end %>
+
+<br>
+<br>
+<p><a href="/add">Add another band/artist</a></p>
+<br>
+<p><a href="/">Home</a></p>
