@@ -30,10 +30,12 @@ MyApp.get "/submit_dwarf_form" do
   @new_dwarf.name = params[:dwarf_name]
   @new_dwarf.tally = 0
 
-    if @new_dwarf.is_valid == true && @new_dwarf.is_duplicate == false
+    if @new_dwarf.is_duplicate == true
+      erb :"error"
+    elsif @new_dwarf.is_valid == false
+      erb :"error"
+    else
       @new_dwarf.save
       erb :"dwarf_was_added"
-    else
-      erb :"error"
     end
 end
