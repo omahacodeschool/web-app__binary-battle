@@ -29,7 +29,6 @@ MyApp.get "/submit_dwarf_form" do
   @new_dwarf = Dwarf.new
   @new_dwarf.name = params[:dwarf_name]
   @new_dwarf.tally = 0
-    binding.pry
     if @new_dwarf.is_duplicate == true
       erb :"error"
     elsif @new_dwarf.is_valid == false
@@ -38,4 +37,4 @@ MyApp.get "/submit_dwarf_form" do
       @new_dwarf.save
       erb :"dwarf_was_added"
     end
-end
+end 
