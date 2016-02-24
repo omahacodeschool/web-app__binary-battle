@@ -16,6 +16,25 @@ class Avenger < ActiveRecord::Base
     rankings_hash
   end
 
+  def set_errors
+    @errors = []
+    if self.name == "" 
+      @errors << "Avenger name cannot be blank!"
+    end    
+  end 
+
+  def get_errors
+    return @errors
+  end
+
+  def is_valid
+    self.set_errors
+    if @errors.length > 0
+      return false
+    else
+      return true
+    end
+  end 
 
   #Determines if there are two or more Avengers with the same vote count.
   #

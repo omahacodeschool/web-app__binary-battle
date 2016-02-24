@@ -11,8 +11,12 @@ end
 MyApp.post "/new_avenger" do
   @avenger = Avenger.new
   @avenger.name = params["new_avenger"]
-  @avenger.save
-  redirect :'admin'
+  if @avenger.is_valid 
+    @avenger.save
+    redirect :'admin'
+  else
+    erb :"error"
+  end
 end
 
 MyApp.get "/admin" do
