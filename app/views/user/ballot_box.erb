@@ -1,0 +1,68 @@
+<center>
+
+<body background="http://i67.tinypic.com/52aof5.png">
+
+<h2 style="color:#595959">CHOOSE THE SUPERIOR '80s SEQUEL</h2>
+
+<h3 style="color:#595959">
+There can be but one,
+<br />
+choose wisely...
+</h3>
+
+<strong style="color:#595959">-+-+-+-+-+-+-+-</strong>
+
+<br />
+
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <center>
+        <form action="/user_vote" method="post" id="button_1_vote">
+          <input type="hidden" name="vote_button" value="1">
+          <input type="hidden" name="upvote_id" value="<%= @movie_1.id %>">
+          <input type="hidden" name="downvote_id" value="<%= @movie_2.id %>">
+          <input type="image" form="button_1_vote" src="<%= @movie_1.movie_poster %>" title="<%= @movie_1.movie_title.upcase %>">
+        </form>
+        </center>
+      </td>
+
+
+      <td>
+        <center>
+          <h2 style="color:#595959">-- VS --</h2>
+        </center>
+      </td>
+
+      <td>
+        <center>
+        <form action="/user_vote" method="post" id="button_2_vote">
+          <input type="hidden" name="vote_button" value="2">
+          <input type="hidden" name="upvote_id" value="<%= @movie_2.id %>">
+          <input type="hidden" name="downvote_id" value="<%= @movie_1.id %>">
+          <input type="image" form="button_2_vote" src="<%= @movie_2.movie_poster %>" title="<%= @movie_2.movie_title.upcase %>">
+        </form>
+        </center>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<strong style="color:#595959">-+-+-+-+-+-+-+-</strong>
+
+<br />
+
+<p>
+  <a href="/vote_record" style="color:#91c0b2">Vote Record</a>
+</p>
+
+</center>
+
+<br />
+
+<p>
+  <form action="/admin_sign_in" method="post" style="color:#595959">
+    Password: <input type="password" name="password">
+  </form>
+</p>

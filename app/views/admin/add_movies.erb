@@ -1,0 +1,60 @@
+<center>
+<body background="http://i67.tinypic.com/52aof5.png">
+
+<h2 style="color:#595959">Add Movies for Voters</h2>
+
+<form action="/add_movie_form" method="post">
+  <p style="color:#595959">
+    '80s Movie Sequel Title:
+  <br />
+    <input type="text" size="35" name="movie_title" required>
+  </p>
+  <p style="color:#595959">
+    Movie Poster URL:
+  <br />
+    <input type="text" name="movie_poster" required>
+  </p>
+  <p>
+    <input type="submit" value="Add Movie">
+  </p>
+</form>
+
+<p>
+<a href="/" style="color:#91c0b2">Vote</a>
+</p>
+
+
+<table border="1" style="color:#595959">
+  <thead>
+    <tr>
+      <th colspan="2"> ADDED MOVIES </th>
+    </tr>
+    <tr>
+      <th colspan="2"> -+-+-+-+-+-+- </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @movies.each do |movie| %>
+
+      <tr>
+        <td>
+          <a href="/movie_stats/<%= movie.id %>" style="color:#91c0b2"><%= movie.movie_title %></a>
+        </td>
+        <td>
+        <center>
+          <a href="/delete_movie/<%= movie.id %>" style="color:red">
+          delete
+          </a>
+          <a href="/update_movie/<%= movie.id %>" style="color:green"> 
+          update
+          </a>
+        </center>
+        </td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+</center>

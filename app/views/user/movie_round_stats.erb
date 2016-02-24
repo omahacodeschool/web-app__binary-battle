@@ -1,0 +1,44 @@
+<center>
+<body background="http://i67.tinypic.com/52aof5.png">
+  
+<h2 style="color:#595959">TOTAL ROUND RESULTS</h2>
+
+<p>
+  <a href="/movie_stats/<%= @movie.id %>" style="color:#91c0b2">Back</a>
+</p>
+
+<p>
+  <a href="/" style="color:#91c0b2">Vote</a>
+</p>
+
+<p>
+  <table border="1" style="color:#595959">
+    <thead>
+      <tr>
+        <th><%= @movie.movie_title.upcase %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @votes.each do |round| %>
+        
+          <% if round.upvote_id == @movie.id %>
+            <tr>
+              <td style="color:green">
+                WIN vs <%= Movie.find_by_id(round.downvote_id).movie_title %>
+              </td>
+            </tr>
+          <% elsif round.downvote_id == @movie.id %>
+            <tr>
+              <td style="color:red">
+                LOSS vs <%= Movie.find_by_id(round.upvote_id).movie_title %>
+              </td>
+            </tr>
+          <% end %>
+
+      <% end %>
+    </tbody>
+  </table>
+</p>
+
+</center>

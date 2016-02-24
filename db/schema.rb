@@ -15,4 +15,19 @@ ActiveRecord::Schema.define(version: 0) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "movies", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "movie_title"
+    t.string   "movie_poster"
+  end
+
+  create_table "votes", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "upvote_id"
+    t.integer  "downvote_id"
+    t.integer  "vote_button"
+  end
+
 end

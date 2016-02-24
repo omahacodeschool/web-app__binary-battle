@@ -1,0 +1,67 @@
+<center>
+<body background="http://i67.tinypic.com/52aof5.png">
+
+<h2 style="color:#595959">VOTE RECORDS</h2>
+
+<p>
+  <a href="/" style="color:#91c0b2">Vote</a>
+</p>
+
+<strong style="color:#595959">-+-+-+-+-+-+-+-</strong>
+
+<p>
+<table border="1" style="color:#595959"> 
+  
+  <thead>
+    <tr>
+      <th colspan="3">MOVIE RANKS</th>
+    </tr>
+
+    <tr>
+      <th> Rank </th>
+      <th> Title </th>
+      <th> Win Percent </th>
+    </tr>
+  </thead>
+
+<!--Not sure how to place this (lines 27 - 35) into a method in my Movie Model and call it on this page. Or is it alright to have this code in the View?-->
+  <%
+    x = Hash.new
+    
+    @movies.each do |m|
+    x[m.id] = m.movie_win_percent
+    end
+    
+    movie_sorted_rank_arr = x.sort_by(&:last).reverse
+  %>
+
+  <% rank = 0 %>
+  
+  <% movie_sorted_rank_arr.each do |movie| %>
+    <tbody>
+      <tr>
+        <td>
+          <center><%= rank += 1 %></center>
+        </td>
+
+        <td>
+          <a href="/movie_stats/<%= movie[0] %>" style="color:#91c0b2" title=""><%= Movie.find_by_id(movie[0]).movie_title %></a>
+        </td>
+
+        <td>
+          <center><%= movie[1] %> %</center>
+        </td>
+      </tr>
+    </tbody>
+  <% end %>
+
+    <tfoot>
+      <tr>
+        <td colspan="3">
+        <center>TOTAL VOTES: <%= Vote.ids.count %> and counting...</center>
+        </td>
+      </tr>
+    </tfoot>
+</table>
+</p>
+</center>

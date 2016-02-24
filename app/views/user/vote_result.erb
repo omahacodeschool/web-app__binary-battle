@@ -1,0 +1,52 @@
+<center>
+<body background="http://i67.tinypic.com/52aof5.png">
+  
+<h2 style="color:#595959">BEHOLD</h2>
+<h3 style="color:#595959">
+For it has been said
+<br />
+that
+</h3>
+<strong style="color:#595959">-+-+-+-+-+-+-+-</strong>
+<p>
+
+<table style="color:#595959">
+  <tr>
+    <td>
+      <center>
+        <a href="/movie_stats/<%= @upvote.id %>">
+        <img src="<%= @upvote.movie_poster %>" title="<%= @upvote.movie_title.upcase %>">
+        </a>
+      </center>
+    </td>
+
+    <td>
+    <center>
+      <h2 style="color:#595959">-- TROUNCES --</h2>
+    </center>
+    </td>
+
+    <td>
+      <center>
+        <a href="/movie_stats/<%= @downvote.id %>">
+        <img src="<%= @downvote.movie_poster %>" title="<%= @downvote.movie_title.upcase %>">
+        </a>
+      </center>
+    </td>
+  </tr>
+</table>
+
+</p>
+
+<br />
+<strong style="color:#595959">-+-+-+-+-+-+-+-</strong>
+
+<p>
+<a href="/" style="color:#91c0b2">Vote Again?</a>
+</p>
+
+<p>
+<a href="/vote_record" style="color:#91c0b2">Vote Record</a>
+</p>
+
+</center>
