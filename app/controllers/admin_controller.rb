@@ -6,10 +6,10 @@ end
 
 #Processes the form for adding a band or artist
 MyApp.post "/added" do 
-  x = Band.new
-  x.name = params["name"]
-  if x.is_valid == true
-    x.save
+  @band = Band.new
+  @band.name = params["name"]
+  if @band.is_valid == true
+    @band.save
     erb :"added"
   else
     erb :"error"
