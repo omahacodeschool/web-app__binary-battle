@@ -9,10 +9,10 @@ MyApp.post "/newuniverse" do
   u.universe_name = params[:universename]
   u.save
   @universe = u 
-  erb :"/create/add_characters"
+  erb :"/create/add_characters" + 
 end
 
-MyApp.get "/add_characters" do
+MyApp.get "/add_characters/:id" do
   @currentuniverse = Universe.find_by_id(@universe)
   @characters = Character.where({"universe_id" => @universe.id})
   erb :"/create/add_characters"

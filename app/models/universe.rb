@@ -30,7 +30,7 @@ class Universe < ActiveRecord::Base
 
   def enough_characters
     x = Character.where("universe_id" => self.id)
-    if x.length > 5
+    if x.length < 5
       return false
     else
       return true
