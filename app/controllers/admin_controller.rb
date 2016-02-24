@@ -8,9 +8,12 @@ end
 MyApp.post "/added" do 
   x = Band.new
   x.name = params["name"]
-  x.save
-
-  erb :"added"
+  if x.is_valid == true
+    x.save
+    erb :"added"
+  else
+    erb :"error"
+  end
 end
 
 #Shows all bands/artists added

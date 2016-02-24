@@ -1,4 +1,11 @@
 class Band < ActiveRecord::Base
+  def is_valid
+    if self.name == ""
+      return false
+    else
+      return true
+    end
+  end
   def votes
     votes = Result.where("winner_id" => self.id)
     return votes.length
