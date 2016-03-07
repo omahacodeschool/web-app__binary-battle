@@ -1,0 +1,32 @@
+<h1>Welcome to Binary Battle!</h1>
+
+<% if @competitor != nil %>
+  <h3>May the best <%= @competitor.competitor_type %> win!</h3>
+    
+    <p>Which <%= @competitor.competitor_type %> is the best <%= @competitor.competitor_type %>?</p>
+
+    <p>
+      Vote for <%= @competitor.name %> here!
+        <form action = "/results" method = "post">
+          <input type = "submit" name = "comp_1" value = "Vote">
+        </form>
+    </p>
+
+    <p>
+      Vote for <%= @competitor.name %> here!
+        <form action = "/results" method = "post">
+          <input type = "submit" name = "comp_2" value = "Vote">
+        </form>
+    </p>
+
+<% else %>
+
+  <h3>No competitors.  If you want to battle, you'll need to add some.</h3>
+
+<% end %>
+<p>
+  <a href = "/form_to_add_competitor">Click here to add competitors</a>
+</p>
+<p>
+  <a href = "/all_competitors">Click here to see a list of competitors</a>
+</p>

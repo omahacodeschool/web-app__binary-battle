@@ -1,0 +1,19 @@
+<h1>List of Competitors</h1>
+
+<p>
+  Here's a list of all the competitors duking it out for the title of "Best <%= @type.capitalize %>"!
+</p>
+
+<ul>
+  <% @competitors.each do |competitor| %>
+    <li>
+      <%= competitor.name %>
+    </li>
+  <% end %>
+</ul>
+
+<p>
+  <a href="/all_results">Click here</a> to view rankings and matchups so far!
+</p>
+
+<a href = "/">Back</a>

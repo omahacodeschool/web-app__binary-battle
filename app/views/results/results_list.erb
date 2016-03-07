@@ -1,0 +1,46 @@
+<center>
+
+<h1>Results</h1>
+
+<table border = 1px style="width:50%">
+  <tr>
+    <th>Competitor 1</th>
+    <th>Competitor 2</th>
+    <th>WINNER!</th>
+  </tr>
+  <tr>
+    <% counter = [] %>
+    <% @results.each do |result| %>
+      <td align="center">
+        <%= result.comp_1_name %>
+      </td>
+
+      <td align="center">
+        <%= result.comp_2_name %>
+      </td>
+
+      <td align="center">
+        <%= result.winner_name %>
+      </td>
+    <% counter << result.winner  %>
+  </tr>
+    <% end %>
+ </table> 
+
+<table border = 1px style="width:15%%">
+  <tr>
+    <th>Dwarf Rankings</th>
+  </tr>
+  <tr>
+    <% @result.rankings(counter).each do |rank| %>
+      <td align="center">
+        <%= @result.competitor_name(rank) %>
+      </td>
+  </tr>
+    <% end %>
+</table>  
+  </tr>
+</table>
+<a href = "/all_competitors">Back</a>
+
+</center>
