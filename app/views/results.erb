@@ -1,0 +1,26 @@
+<h3>Thank you for voting!</h3>
+
+<p>Here are the results! </p>
+
+<h2>List of Avengers and Their Current Votes</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Avenger</th>
+      <th>Votes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rankings.each do |name, votes| %>
+      <tr>
+        <td><%= name %></td> 
+        <td><%= votes %></td>
+      </tr>
+    <% end %>                  
+  </tbody>
+</table>
+
+<br>
+
+
+<a href= "/">LET'S VOTE AGAIN!</a>
